@@ -1,0 +1,27 @@
+<!doctype html>  
+<!-- root element of the page  -->
+<html lang="en">
+  <head>
+    <!-- ensures characters (supported symbols, accents, emojis) display correctly -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 'block' defines replacable section (slot that other pages can override) -->
+    <title>{% block title %}Witch Tower Boardgame Library{% endblock %}</title>
+
+    {% load static %}
+    <!-- linking CSS Django way -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <!-- Everything on the page 'lives' in body -->
+  <body>
+    <!-- Take the contents of header.html and paste it here. -->
+    {% include "partials/header.html" %}
+    <!-- this is for 'child' template to inject their own specific content-->
+    <main class="container">
+    <!-- replaceble section ends here (stop here)-->
+      {% block content %}{% endblock %}
+    </main>
+    <!-- Shared and reusable footer-->
+    {% include "partials/footer.html" %}
+  </body>
+</html>
