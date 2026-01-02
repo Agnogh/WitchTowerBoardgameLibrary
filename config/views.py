@@ -3,5 +3,7 @@
 from django.shortcuts import render
 
 # defining function named 'home' with object 'request'
+
+
 def home(request):
-    return render(request, "base.html")
+    return render(request, "home.html")
