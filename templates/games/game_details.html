@@ -64,33 +64,44 @@
   </section>
   <section class="game-meta">
     <ul class="game-meta__list">
-    <li class="game-meta__item">
-      <span class="game-meta__label">Players</span>
-      <span class="game-meta__value">{{ game.players }}</span>
-    </li>
+      <li class="game-meta__item">
+        <span class="game-meta__label">Players</span>
+        <span class="game-meta__value">{{ game.players }}</span>
+      </li>
 
-    <li class="game-meta__item">
-      <span class="game-meta__label">Time</span>
-      <span class="game-meta__value">{{ game.play_time }}</span>
-    </li>
+      <li class="game-meta__item">
+        <span class="game-meta__label">Time</span>
+        <span class="game-meta__value">{{ game.play_time }}</span>
+      </li>
 
-    <li class="game-meta__item">
-      <span class="game-meta__label">Age</span>
-      <span class="game-meta__value">{{ game.age }}</span>
-    </li>
+      <li class="game-meta__item">
+        <span class="game-meta__label">Age</span>
+        <span class="game-meta__value">{{ game.age }}</span>
+      </li>
 
-    <li class="game-meta__item">
-      <span class="game-meta__label">Difficulty</span>
-      <span class="game-meta__value">{{ game.difficulty }}</span>
-    </li>
+      <li class="game-meta__item">
+        <span class="game-meta__label">Difficulty</span>
+        <span class="game-meta__value">{{ game.difficulty }}</span>
+      </li>
 
-    <li class="game-meta__item">
-      <span class="game-meta__label">Lanugage</span>
-      <span class="game-meta__value">{{ game.language }}</span>
-    </li>
-  </ul>
+      <li class="game-meta__item">
+        <span class="game-meta__label">Lanugage</span>
+        <span class="game-meta__value">{{ game.language }}</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="game-gallrey">
+    <h2 class="section-title">Gallery</h2>
+
+    <div class="game-gallrey__grid">
+      <figure class="game-gallrey__item">
+        <img src="{% static 'img/placeholders/gallery-1.png' %}" alt="Game gallery image for {{ game.title }}">
+      </figure>
+    </div>
 
   </section>
+
 
 </main>
 
