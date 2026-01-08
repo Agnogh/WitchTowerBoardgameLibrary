@@ -114,6 +114,7 @@
     </div>
   </section>
 
+  <!-- Game content -->
   <section class="game-box-content">
     <h2 class="section-title">Whats in the box</h2>
 
@@ -126,7 +127,32 @@
     </ul>
   </section>
 
+  <!-- Game details sections-->
+  <section class="game-details-info">
+    <h2 class="section-title">Details</h2>
 
+    <dl class="game-details-info__list">
+      <div class="game-details-info__row">
+        <dt>Publisher</dt>
+        <dd>{{ game.publisher }}</dd>
+      </div>
+
+      <div class="game-details-info__row">
+        <dt>Designer</dt>
+        <dd>{{ game.designer }}</dd>
+      </div>
+
+      <div class="game-details-info__row">
+        <dt>Category</dt>
+        <dd>{{ game.category }}</dd>
+      </div>
+
+      <div class="game-details-info__row">
+        <dt>Stock Keeping Unit</dt> <!-- maybe I change to Item ID !!-->
+        <dd>{{ game.sku }}</dd>
+      </div>
+    </dl>
+  </section>
 
 
 </main>
