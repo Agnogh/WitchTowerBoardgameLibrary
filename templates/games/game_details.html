@@ -7,5 +7,58 @@
   <!-- page content goes between thes blocks -->
 {% block content %}
 <main class="game-page">
+  <section class="game-hero">
+    <!-- skeleton for hero section-->
+    <div class="game-hero__grid">
+
+      <header class="game-hero__content">
+        <!-- 'title is for what the game is-->
+        <h1 class="game-hero__title">{{ game.title }}</h1>
+        <!--'tagline' is 'whz should I care'-->
+        <p class="game-hero__tagline">{{ game.tagline }}</p>
+
+        <!--wrapper -->
+        <div class="game-hero__purchase">
+          <p class="game-price">
+            {{ game.price }} €
+          </p>
+          <!-- amount of available products-->
+          <p class="game-stock-availability">
+            {% if game.stock > 10 %}
+              <span class="stock stock--in">In stock</span>
+            {% else %}
+              <span class="stock stock--out">Out of stock</span>
+          </p>
+
+          <form class="add-to-cart" method="post" action="#">
+            {% csrf_token %}
+
+            <label class="screen-reader-only" for="quantity">Quantity</label>
+            <input
+              id="quantity"
+              name="quantity"
+              type="number"
+              min="1"
+              value="1"
+            >
+
+            <button type="submit" class="btn-primary">
+              Add to cart
+            </button>
+          </form>
+
+
+        </div>
+
+      </header>
+
+      <figure class="game-hero__media">
+      </figure>
+
+    </div>
+
+  </section>
 </main>
+
+
 {% endblock %}
