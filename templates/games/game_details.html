@@ -114,7 +114,18 @@
     </div>
   </section>
 
-  
+  <section class="game-box-content">
+    <h2 class="section-title">Whats in the box</h2>
+
+    <ul class="game-box-content__list">
+      {% for item in game.box_contents.splitlines %}
+        {% if item %}
+          <li>{{ item }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+
 
 
 
