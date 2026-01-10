@@ -15,7 +15,10 @@
         <!-- 'title is for what the game is-->
         <h1 class="game-hero__title">{{ game.title }}</h1>
         <!--'tagline' is 'whz should I care'-->
-        <p class="game-hero__tagline">{{ game.tagline }}</p>
+        <!-- adding condition in case there is no tagline-->
+        {% if game.tagline %}
+          <p class="game-hero__tagline">{{ game.tagline }}</p>
+        {% endif %}
 
         <!--wrapper -->
         <div class="game-hero__purchase">
@@ -105,13 +108,18 @@
   <section class="game-description">
     <h2 class="section-title">About this game</h2>
 
-    <p class="game-description__short">
-      {{ game.short_description }}
-    </p>
+    <!-- adding conditions if there is no 'description'-->
+     <!-- pipes (|) are linebreakers to impover alignment-->
+    {% if game.short_description %}
+      <p class="game-description__short">{{ game.short_description }}</p>
+    {% endif %}
 
-    <div class="game-description__long">
-      {{ game.description }}
-    </div>
+    {% if game.description %}
+      <div class="game-description__long">
+        {{ game.description|linebreaks }}
+      </div>
+    {% endif %}
+
   </section>
 
   <!-- Game content -->
