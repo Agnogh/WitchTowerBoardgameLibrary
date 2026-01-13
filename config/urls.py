@@ -17,7 +17,7 @@ Including another URLconf
 # Import Djangos build in admin site
 from django.contrib import admin
 # to connect url's
-from django.urls import path
+from django.urls import path, include
 # import function 'home' from 'views.py'
 from .views import home
 
@@ -26,4 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # empty part emasn root URL, 'home' is function to run
     path('', home, name='home'),
+    # link to 'games'
+    path("games/", include("games.urls")),
+
 ]
