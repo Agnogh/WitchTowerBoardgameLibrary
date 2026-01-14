@@ -5,6 +5,21 @@
   <main class="games-list-page">
     <h1>Games</h1>
 
+    <form method="get" class="games-list-controls">
+      <label class="screen-reader-only" for="q">Search</label>
+      <input id="q" name="q" type="text" value="{{ query }}" placeholder="Search games...">
+
+      <label class="screen-reader-only" for="sort">Sort</label>
+      <select id="sort" name="sort">
+        <option value="title" {% if sort == "title" %}selected{% endif %}>Title (A–Z)</option>
+        <option value="price" {% if sort == "price" %}selected{% endif %}>Price (low → high)</option>
+        <option value="-price" {% if sort == "-price" %}selected{% endif %}>Price (high → low)</option>
+      </select>
+
+      <button type="submit">Apply</button>
+    </form>
+
+
     {% if games %}
       <ul class="games-list">
         {% for game in games %}
