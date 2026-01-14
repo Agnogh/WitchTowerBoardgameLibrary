@@ -32,6 +32,7 @@ def game_list(request):
         "games": games,
         "query": query,
         "sort": sort,
+        "games_count": games.count(),
     }
 
     return render(request, "games/game_list.html", context)
