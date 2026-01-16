@@ -1,3 +1,6 @@
+<!-- link to my localisation file (stringsdict) -->
+{% load localisation_extra %}
+
 {% extends "base.html" %}
 {% block title %}Games{% endblock %}
 
@@ -5,7 +8,28 @@
   <main class="games-list-page">
     <h1>Games</h1>
 
-    <p class="games-list__count">{{ games_count }} game{{ games_count|pluralize }}</p>
+    <!-- this is just to TEST localisation -->
+    <!-- <p class="games-list__count">{{ games_count }} game{{ games_count|pluralize }}</p> -->
+    <!-- this is ju stto TEST localisation -->
+    <p class="games-list__count">
+      {{ games_count }} {{ games_count|declension:"game,games,games" }}
+    </p>
+
+
+    <!-- Locvalised TEST -->
+    <!-- CZ -->
+    <!--
+    <p class="games-list__count">
+      {{ games_count }} {{ games_count|declension:"hra,hry,her" }}
+    </p>
+    -->
+
+    <!-- CR-->
+    <!--
+    <p class="games-list__count">
+      {{ games_count }} {{ games_count|declension:"hra,hry,her" }}
+    </p>
+    -->
 
     <form method="get" class="games-list-controls">
       <label class="screen-reader-only" for="q">Search</label>
