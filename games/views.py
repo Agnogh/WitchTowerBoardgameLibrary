@@ -1,5 +1,9 @@
+from django.core.paginator import Paginator
+
+
 from django.shortcuts import render, get_object_or_404
-from django.db.models import Q
+# don't need this anymore ->
+# from django.db.models import Q
 
 
 # Create your views here.
@@ -19,7 +23,7 @@ def game_list(request):
     games = Game.objects.all()
 
     if query:
-        games = games.filter(Q(title__icontains=query))
+        games = games.filter(title__icontains=query)
 
     if sort == "price":
         games = games.order_by("price")
@@ -28,8 +32,13 @@ def game_list(request):
     else:
         games = games.order_by("title")
 
+    paginator = Paginator(games, 6)  # for starter 6 per page
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     context = {
-        "games": games,
+        "games": page_obj,  # loops over current page, not all games
+        "page_obj": page_obj,
         "query": query,
         "sort": sort,
         "games_count": games.count(),
