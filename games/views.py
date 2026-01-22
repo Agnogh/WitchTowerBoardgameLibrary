@@ -1,3 +1,5 @@
+# No need for this - QueryDict has urlencode build in
+# from urllib.parse import urlencode
 from django.core.paginator import Paginator
 
 
@@ -36,12 +38,20 @@ def game_list(request):
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
+    # QueryDict
+    params = request.GET.copy()
+    # page number
+    params.pop("page", None)
+    # to convert dictionary to URL query string
+    preserved_qs = params.urlencode()
+
     context = {
         "games": page_obj,  # loops over current page, not all games
         "page_obj": page_obj,
         "query": query,
         "sort": sort,
         "games_count": games.count(),
+        "preserved_qs": preserved_qs,
     }
 
     return render(request, "games/game_list.html", context)
