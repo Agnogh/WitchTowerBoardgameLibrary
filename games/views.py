@@ -52,6 +52,12 @@ def game_list(request):
         "sort": sort,
         "games_count": games.count(),
         "preserved_qs": preserved_qs,
+        # starting number for the current page (1 for 1st page, 7 for 2nd page)
+        "start_index": page_obj.start_index(),
+        # end number for current page (6 for 1st page, 12 for 2nd page...)
+        "end_index": page_obj.end_index(),
+        # number of items on all pages
+        "total_count": page_obj.paginator.count,
     }
 
     return render(request, "games/game_list.html", context)

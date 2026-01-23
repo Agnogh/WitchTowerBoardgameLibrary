@@ -8,6 +8,12 @@
 {% block content %}
   <main class="games-list-page">
     <h1>Games</h1>
+    <!--for start,end aout of total games dispayed-->
+    {% if total_count %}
+      <p class="games-list__range">
+        Showing {{ start_index }}–{{ end_index }} of {{ total_count }} game{{ total_count|pluralize }}
+      </p>
+    {% endif %}
 
     <!-- this is just to TEST localisation -->
     <!-- <p class="games-list__count">{{ games_count }} game{{ games_count|pluralize }}</p> -->
