@@ -11,7 +11,9 @@
     <!--for start,end aout of total games dispayed-->
     {% if total_count %}
       <p class="games-list__range">
-        Showing {{ start_index }}–{{ end_index }} of {{ total_count }} game{{ total_count|pluralize }}
+        <!--Showing {{ start_index }}–{{ end_index }} of {{ total_count }} game{{ total_count|pluralize }}-->
+        <!-- trying the localisation TEST LOCALISATION-->
+        Showing {{ start_index }}–{{ end_index }} of {{ total_count }} {{ total_count|declension:"game,games,games" }}
       </p>
     {% endif %}
 
