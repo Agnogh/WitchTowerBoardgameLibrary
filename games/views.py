@@ -45,6 +45,13 @@ def game_list(request):
     # to convert dictionary to URL query string
     preserved_qs = params.urlencode()
 
+    # Sort UI helprs
+    is_price_asc = sort == "price"
+    is_price_desc = sort == "-price"
+
+    # Clicking the price sort toggles direction
+    price_toggle_sort = "-price" if is_price_asc else "price"
+
     context = {
         "games": page_obj,  # loops over current page, not all games
         "page_obj": page_obj,
@@ -58,6 +65,12 @@ def game_list(request):
         "end_index": page_obj.end_index(),
         # number of items on all pages
         "total_count": page_obj.paginator.count,
+        # sort lower to higher price
+        "is_price_asc": is_price_asc,
+        # from higer to lower price
+        "is_price_desc": is_price_desc,
+        # revert if ascending or descending or sort price if none selected
+        "price_toggle_sort": price_toggle_sort,
     }
 
     return render(request, "games/game_list.html", context)

@@ -44,6 +44,7 @@
       <label class="screen-reader-only" for="q">Search</label>
       <input id="q" name="q" type="text" value="{{ query }}" placeholder="Search games...">
 
+    <!-- need to replace this with arrows but KEEP IT for now
       <label class="screen-reader-only" for="sort">Sort</label>
       <select id="sort" name="sort">
         <option value="title" {% if sort == "title" %}selected{% endif %}>Title (A–Z)</option>
@@ -52,8 +53,26 @@
       </select>
 
       <button type="submit">Apply</button>
-    </form>
+    -->
 
+    <div class="games-list-sort">
+      <span class="games-list-sort__label">Sort:</span>
+
+      <a class="games-list-sort__link {% if sort == 'title' %}is-active{% endif %}"
+        href="?q={{ query }}&sort=title">
+        Title
+      </a>
+
+      <a class="games-list-sort__link {% if is_price_asc or is_price_desc %}is-active{% endif %}"
+        href="?q={{ query }}&sort={{ price_toggle_sort }}">
+        Price
+        {% if is_price_asc %}↑{% elif is_price_desc %}↓{% endif %}
+      </a>
+    </div>
+
+    <button type="submit">Search</button>
+
+    </form>
 
     {% if games %}
       <ul class="games-list">
