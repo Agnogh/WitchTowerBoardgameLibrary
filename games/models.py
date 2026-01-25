@@ -23,9 +23,25 @@ class Game(models.Model):
 
     publisher = models.CharField(max_length=150, blank=True)
     designer = models.CharField(max_length=150, blank=True)
-    category = models.CharField(max_length=100, blank=True)
 
+    category = models.ForeignKey(
+        "Category",
+        on_delete=models.SET_NULL,  # to unset category
+        null=True,  # allow to store "nothing" so category is not mandatory
+        blank=True,  # filed can be empty
+        related_name="games",  # access games using category
+    )
     sku = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.title
+
+
+class Category(models.Model):
+    # shouldn't exceeed 80 characters
+    name = models.CharField(max_length=80)
+    # no repetition
+    slug = models.SlugField(unique=True)
+
+    def __str__(self):
+        return self.name
