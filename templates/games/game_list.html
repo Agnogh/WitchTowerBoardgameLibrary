@@ -44,6 +44,8 @@
       <label class="screen-reader-only" for="q">Search</label>
       <input id="q" name="q" type="text" value="{{ query }}" placeholder="Search games...">
 
+      <input type="hidden" name="sort" value="{{ sort }}">
+
       <label class="screen-reader-only" for="category">Category</label>
         <select id="category" name="category">
           <option value="">All categories</option>
@@ -70,15 +72,19 @@
       <span class="games-list-sort__label">Sort:</span>
 
       <a class="games-list-sort__link {% if sort == 'title' %}is-active{% endif %}"
-        href="?q={{ query }}&category={{ category_slug }}&sort=title">
+        href="?{% if base_qs %}{{ base_qs }}&{% endif %}sort=title">
         Title
       </a>
 
       <a class="games-list-sort__link {% if is_price_asc or is_price_desc %}is-active{% endif %}"
-        href="?q={{ query }}&category={{ category_slug }}&sort={{ price_toggle_sort }}">
+        href="?{% if base_qs %}{{ base_qs }}&{% endif %}sort={{ price_toggle_sort }}">
         Price
         {% if is_price_asc %}↑{% elif is_price_desc %}↓{% endif %}
       </a>
+
+
+      
+
     </div>
 
     <button type="submit">Search</button>

@@ -47,8 +47,15 @@ def game_list(request):
     params = request.GET.copy()
     # page number
     params.pop("page", None)
-    # to convert dictionary to URL query string
+
+    # used for pagination links
     preserved_qs = params.urlencode()
+
+    # used for sorting links (exclude sort itself)
+    base_params = request.GET.copy()
+    base_params.pop("page", None)
+    base_params.pop("sort", None)
+    base_qs = base_params.urlencode()
 
     # Sort UI helprs
     is_price_asc = sort == "price"
@@ -64,6 +71,8 @@ def game_list(request):
         "sort": sort,
         "games_count": games.count(),
         "preserved_qs": preserved_qs,
+        # pagination
+        "base_qs": base_qs,
         # starting number for the current page (1 for 1st page, 7 for 2nd page)
         "start_index": page_obj.start_index(),
         # end number for current page (6 for 1st page, 12 for 2nd page...)
