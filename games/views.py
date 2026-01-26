@@ -11,6 +11,8 @@ from django.shortcuts import render, get_object_or_404
 # Create your views here.
 
 from .models import Game
+# import category
+from .models import Category
 
 
 def game_detail(request, slug):
@@ -21,8 +23,11 @@ def game_detail(request, slug):
 def game_list(request):
     query = request.GET.get("q", "").strip()
     sort = request.GET.get("sort", "title")
-
+    category_slug = request.GET.get("category")
     games = Game.objects.all()
+
+    if category_slug:
+        games = games.filter(category__slug=category_slug)
 
     if query:
         games = games.filter(title__icontains=query)
@@ -71,6 +76,10 @@ def game_list(request):
         "is_price_desc": is_price_desc,
         # revert if ascending or descending or sort price if none selected
         "price_toggle_sort": price_toggle_sort,
+        # this so for categories
+        "categories": Category.objects.order_by("name"),
+        "category_slug": category_slug,
+
     }
 
     return render(request, "games/game_list.html", context)
