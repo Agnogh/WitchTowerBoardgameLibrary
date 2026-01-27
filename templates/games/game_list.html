@@ -81,16 +81,15 @@
         Price
         {% if is_price_asc %}↑{% elif is_price_desc %}↓{% endif %}
       </a>
-
-
-      
-
     </div>
 
     <button type="submit">Search</button>
-
+    <!-- shows 'clear' only when fileters are active-->
+    {% if query or category_slug or sort != "title" %}
+      <a class="games-list-controls__clear" href="{% url 'game_list' %}" role="button">Clear</a>
+    {% endif %}
     </form>
-
+ 
     {% if games %}
       <ul class="games-list">
         {% for game in games %}
