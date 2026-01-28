@@ -40,7 +40,7 @@
     </p>
     -->
 
-    <form method="get" class="games-list-controls">
+    <form method="get" action="{% url 'game_list' %}" class="games-list-controls">
       <label class="screen-reader-only" for="q">Search</label>
       <input id="q" name="q" type="text" value="{{ query }}" placeholder="Search games...">
 
@@ -72,12 +72,12 @@
       <span class="games-list-sort__label">Sort:</span>
 
       <a class="games-list-sort__link {% if sort == 'title' %}is-active{% endif %}"
-        href="?{% if base_qs %}{{ base_qs }}&{% endif %}sort=title">
+        href="{{ list_url }}?{% if base_qs %}{{ base_qs }}&{% endif %}sort=title">
         Title
       </a>
 
       <a class="games-list-sort__link {% if is_price_asc or is_price_desc %}is-active{% endif %}"
-        href="?{% if base_qs %}{{ base_qs }}&{% endif %}sort={{ price_toggle_sort }}">
+        href="{{ list_url }}?{% if base_qs %}{{ base_qs }}&{% endif %}sort={{ price_toggle_sort }}">
         Price
         {% if is_price_asc %}↑{% elif is_price_desc %}↓{% endif %}
       </a>
@@ -110,7 +110,7 @@
             {% if page_obj.has_previous %}
               <li class="pagination__item">
                 <a class="pagination__link"
-                  href="?{% if preserved_qs %}{{ preserved_qs }}&{% endif %}page={{ page_obj.previous_page_number }}">
+                  href="{{ list_url }}?{% if preserved_qs %}{{ preserved_qs }}&{% endif %}page={{ page_obj.previous_page_number }}">
                   Previous
                 </a>
               </li>
@@ -125,7 +125,7 @@
               {% else %}
                 <li class="pagination__item">
                   <a class="pagination__link"
-                    href="?{% if preserved_qs %}{{ preserved_qs }}&{% endif %}page={{ num }}">
+                    href="{{ list_url }}?{% if preserved_qs %}{{ preserved_qs }}&{% endif %}page={{ num }}">
                     {{ num }}
                   </a>
                 </li>
@@ -136,7 +136,7 @@
             {% if page_obj.has_next %}
               <li class="pagination__item">
                 <a class="pagination__link"
-                  href="?{% if preserved_qs %}{{ preserved_qs }}&{% endif %}page={{ page_obj.next_page_number }}">
+                  href="{{ list_url }}?{% if preserved_qs %}{{ preserved_qs }}&{% endif %}page={{ page_obj.next_page_number }}">
                   Next
                 </a>
               </li>

@@ -2,8 +2,9 @@
 # from urllib.parse import urlencode
 from django.core.paginator import Paginator
 
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 
-from django.shortcuts import render, get_object_or_404
 # don't need this anymore ->
 # from django.db.models import Q
 
@@ -20,18 +21,35 @@ def game_detail(request, slug):
     return render(request, "games/game_details.html", {"game": game})
 
 
-def game_list(request):
+# can render games & games/category/<type>
+def game_list(request, category_slug=None):
     query = request.GET.get("q", "").strip()
     sort = request.GET.get("sort", "title")
-    category_slug = request.GET.get("category")
+    get_category = request.GET.get("category", "").strip()
+
     games = Game.objects.all()
 
+    # If user used dropdown ?category=... on games, then
+    # redirect to SEO URL /games/category/<type>
+    if not category_slug and get_category:
+        base_path = reverse("game_list_by_category", args=[get_category])
+
+        params = request.GET.copy()
+        params.pop("category", None)
+        params.pop("page", None)  # reset pagination when category type changes
+        qs = params.urlencode()
+
+        return redirect(f"{base_path}?{qs}" if qs else base_path)
+
+    # Apply category from the URL path
     if category_slug:
         games = games.filter(category__slug=category_slug)
 
+    # search
     if query:
         games = games.filter(title__icontains=query)
 
+    # sorting
     if sort == "price":
         games = games.order_by("price")
     elif sort == "-price":
@@ -39,6 +57,7 @@ def game_list(request):
     else:
         games = games.order_by("title")
 
+    # pagination
     paginator = Paginator(games, 6)  # for starter 6 per page
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
@@ -48,13 +67,17 @@ def game_list(request):
     # page number
     params.pop("page", None)
 
+    params.pop("category", None)
+
     # used for pagination links
     preserved_qs = params.urlencode()
 
+    # Preserved filtres for sort links
     # used for sorting links (exclude sort itself)
     base_params = request.GET.copy()
     base_params.pop("page", None)
     base_params.pop("sort", None)
+    base_params.pop("category", None)
     base_qs = base_params.urlencode()
 
     # Sort UI helprs
@@ -64,31 +87,38 @@ def game_list(request):
     # Clicking the price sort toggles direction
     price_toggle_sort = "-price" if is_price_asc else "price"
 
+    # base list url
+    list_url = (
+        reverse("game_list_by_category", args=[category_slug])
+        if category_slug
+        else reverse("game_list")
+    )
+
     context = {
         "games": page_obj,  # loops over current page, not all games
         "page_obj": page_obj,
         "query": query,
         "sort": sort,
-        "games_count": games.count(),
         "preserved_qs": preserved_qs,
         # pagination
         "base_qs": base_qs,
-        # starting number for the current page (1 for 1st page, 7 for 2nd page)
-        "start_index": page_obj.start_index(),
-        # end number for current page (6 for 1st page, 12 for 2nd page...)
-        "end_index": page_obj.end_index(),
-        # number of items on all pages
-        "total_count": page_obj.paginator.count,
         # sort lower to higher price
         "is_price_asc": is_price_asc,
         # from higer to lower price
         "is_price_desc": is_price_desc,
         # revert if ascending or descending or sort price if none selected
         "price_toggle_sort": price_toggle_sort,
+        "list_url": list_url,
         # this so for categories
         "categories": Category.objects.order_by("name"),
         "category_slug": category_slug,
-
+        "games_count": games.count(),
+        # starting number for the current page (1 for 1st page, 7 for 2nd page)
+        "start_index": page_obj.start_index(),
+        # end number for current page (6 for 1st page, 12 for 2nd page...)
+        "end_index": page_obj.end_index(),
+        # number of items on all pages
+        "total_count": page_obj.paginator.count,
     }
 
     return render(request, "games/game_list.html", context)
