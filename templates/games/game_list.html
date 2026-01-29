@@ -47,7 +47,7 @@
       <input type="hidden" name="sort" value="{{ sort }}">
 
       <label class="screen-reader-only" for="category">Category</label>
-        <select id="category" name="category">
+        <select id="category" name="category" onchange="this.form.submit()">
           <option value="">All categories</option>
 
           {% for cat in categories %}
@@ -55,7 +55,8 @@
               {{ cat.name }} ({{ cat.game_count }})
             </option>
           {% endfor %}
-
+        </select>
+        
     <!-- need to replace this with arrows but KEEP IT for now
       <label class="screen-reader-only" for="sort">Sort</label>
       <select id="sort" name="sort">
