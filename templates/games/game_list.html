@@ -52,10 +52,9 @@
 
           {% for cat in categories %}
             <option value="{{ cat.slug }}" {% if category_slug == cat.slug %}selected{% endif %}>
-              {{ cat.name }}
+              {{ cat.name }} ({{ cat.game_count }})
             </option>
           {% endfor %}
-        </select>
 
     <!-- need to replace this with arrows but KEEP IT for now
       <label class="screen-reader-only" for="sort">Sort</label>

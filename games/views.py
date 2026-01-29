@@ -122,7 +122,10 @@ def game_list(request, category_slug=None):
         "price_toggle_sort": price_toggle_sort,
         "list_url": list_url,
         # this so for categories
-        "categories": Category.objects.order_by("name"),
+        "categories": (
+            Category.objects.annotate(game_count=Count("games"))
+            .order_by("name")
+        ),
         "category_slug": category_slug,
         "games_count": games.count(),
         # starting number for the current page (1 for 1st page, 7 for 2nd page)
