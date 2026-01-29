@@ -1,0 +1,10 @@
+<!-- withc boardgame library/templates/witch_boardgame_library/category_counts.html -->
+<h2>Category counts</h2>
+
+<ul>
+  {% for c in categories %}
+    <li>{{ c.name }} ({{ c.game_count }})</li>
+  {% empty %}
+    <li>No categories yet.</li>
+  {% endfor %}
+</ul>

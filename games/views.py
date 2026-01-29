@@ -15,6 +15,18 @@ from .models import Game
 # import category
 from .models import Category
 
+from django.db.models import Count
+
+
+def category_counts_page(request):
+    categories = Category.objects.annotate(
+        game_count=Count("games")
+    ).order_by("name")
+
+    return render(request,
+                  "witch_tower_boardgame_library/category_counts.html",
+                  {"categories": categories})
+
 
 def game_detail(request, slug):
     game = get_object_or_404(Game, slug=slug)
