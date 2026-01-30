@@ -15,12 +15,12 @@ from .models import Game
 # import category
 from .models import Category
 
-from django.db.models import Count
+from django.db.models import Count, Q  # 'q' for stock filter
 
 
 def category_counts_page(request):
     categories = Category.objects.annotate(
-        game_count=Count("games")
+        game_count=Count("games", filter=Q(games__stock__gt=0), distinct=True)
     ).order_by("name")
 
     return render(request,
@@ -123,8 +123,10 @@ def game_list(request, category_slug=None):
         "list_url": list_url,
         # this so for categories
         "categories": (
-            Category.objects.annotate(game_count=Count("games"))
-            .order_by("name")
+            Category.objects.annotate(
+                game_count=Count("games", filter=Q(games__stock__gt=0),
+                                 distinct=True)
+            ).order_by("name")
         ),
         "category_slug": category_slug,
         "games_count": games.count(),
