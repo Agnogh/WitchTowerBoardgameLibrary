@@ -40,114 +40,122 @@
     </p>
     -->
 
-    <form method="get" action="{% url 'game_list' %}" class="games-list-controls">
-      <label class="screen-reader-only" for="q">Search</label>
-      <input id="q" name="q" type="text" value="{{ query }}" placeholder="Search games...">
+    <div class="games-layout">
+      <aside class="games-sidebar">
+        <h2 class="games-sidebar__title">Filters</h2>
 
-      <input type="hidden" name="sort" value="{{ sort }}">
+        <form method="get" action="{% url 'game_list' %}" class="games-list-controls">
+          <label class="screen-reader-only" for="q">Search</label>
+          <input id="q" name="q" type="text" value="{{ query }}" placeholder="Search games...">
 
-      <label class="screen-reader-only" for="category">Category</label>
-        <select id="category" name="category" onchange="this.form.submit()">
-          <option value="">All categories</option>
+          <input type="hidden" name="sort" value="{{ sort }}">
 
-          {% for cat in categories %}
-            <option value="{{ cat.slug }}" {% if category_slug == cat.slug %}selected{% endif %}>
-              {{ cat.name }} ({{ cat.game_count }})
-            </option>
-          {% endfor %}
-        </select>
-        
-    <!-- need to replace this with arrows but KEEP IT for now
-      <label class="screen-reader-only" for="sort">Sort</label>
-      <select id="sort" name="sort">
-        <option value="title" {% if sort == "title" %}selected{% endif %}>Title (A–Z)</option>
-        <option value="price" {% if sort == "price" %}selected{% endif %}>Price (low → high)</option>
-        <option value="-price" {% if sort == "-price" %}selected{% endif %}>Price (high → low)</option>
-      </select>
+          <label class="screen-reader-only" for="category">Category</label>
+          <select id="category" name="category" onchange="this.form.submit()">
+            <option value="">All categories</option>
 
-      <button type="submit">Apply</button>
-    -->
-
-    <div class="games-list-sort">
-      <span class="games-list-sort__label">Sort:</span>
-
-      <a class="games-list-sort__link {% if sort == 'title' %}is-active{% endif %}"
-        href="{{ list_url }}?{% if base_qs %}{{ base_qs }}&{% endif %}sort=title">
-        Title
-      </a>
-
-      <a class="games-list-sort__link {% if is_price_asc or is_price_desc %}is-active{% endif %}"
-        href="{{ list_url }}?{% if base_qs %}{{ base_qs }}&{% endif %}sort={{ price_toggle_sort }}">
-        Price
-        {% if is_price_asc %}↑{% elif is_price_desc %}↓{% endif %}
-      </a>
-    </div>
-
-    <button type="submit">Search</button>
-    <!-- shows 'clear' only when fileters are active-->
-    {% if query or category_slug or sort != "title" %}
-      <a class="games-list-controls__clear" href="{% url 'game_list' %}" role="button">Clear</a>
-    {% endif %}
-    </form>
- 
-    {% if games %}
-      <ul class="games-list">
-        {% for game in games %}
-          <li class="games-list__item">
-            <a href="{% url 'game_detail' game.slug %}">
-              {{ game.title }}
-            </a>
-            <span class="games-list__price">{{ game.price }} €</span>
-          </li>
-        {% endfor %}
-      </ul>
-
-      {% if page_obj.has_other_pages %}
-        <nav class="pagination" aria-label="Games pagination">
-          <ul class="pagination__list">
-            
-            {# Previous #}
-            {% if page_obj.has_previous %}
-              <li class="pagination__item">
-                <a class="pagination__link"
-                  href="{{ list_url }}?{% if preserved_qs %}{{ preserved_qs }}&{% endif %}page={{ page_obj.previous_page_number }}">
-                  Previous
-                </a>
-              </li>
-            {% endif %}
-
-            {# Page numbers #}
-            {% for num in page_obj.paginator.page_range %}
-              {% if num == page_obj.number %}
-                <li class="pagination__item">
-                  <span class="pagination__current" aria-current="page">{{ num }}</span>
-                </li>
-              {% else %}
-                <li class="pagination__item">
-                  <a class="pagination__link"
-                    href="{{ list_url }}?{% if preserved_qs %}{{ preserved_qs }}&{% endif %}page={{ num }}">
-                    {{ num }}
-                  </a>
-                </li>
-              {% endif %}
+            {% for cat in categories %}
+              <option value="{{ cat.slug }}" {% if category_slug == cat.slug %}selected{% endif %}>
+                {{ cat.name }} ({{ cat.game_count }})
+              </option>
             {% endfor %}
+          </select>
+            
+        <!-- need to replace this with arrows but KEEP IT for now
+          <label class="screen-reader-only" for="sort">Sort</label>
+          <select id="sort" name="sort">
+            <option value="title" {% if sort == "title" %}selected{% endif %}>Title (A–Z)</option>
+            <option value="price" {% if sort == "price" %}selected{% endif %}>Price (low → high)</option>
+            <option value="-price" {% if sort == "-price" %}selected{% endif %}>Price (high → low)</option>
+          </select>
 
-            {# Next #}
-            {% if page_obj.has_next %}
-              <li class="pagination__item">
-                <a class="pagination__link"
-                  href="{{ list_url }}?{% if preserved_qs %}{{ preserved_qs }}&{% endif %}page={{ page_obj.next_page_number }}">
-                  Next
+          <button type="submit">Apply</button>
+        -->
+
+          <div class="games-list-sort">
+            <span class="games-list-sort__label">Sort:</span>
+
+            <a class="games-list-sort__link {% if sort == 'title' %}is-active{% endif %}"
+              href="{{ list_url }}?{% if base_qs %}{{ base_qs }}&{% endif %}sort=title">
+              Title
+            </a>
+
+            <a class="games-list-sort__link {% if is_price_asc or is_price_desc %}is-active{% endif %}"
+              href="{{ list_url }}?{% if base_qs %}{{ base_qs }}&{% endif %}sort={{ price_toggle_sort }}">
+            Price
+            {% if is_price_asc %}↑{% elif is_price_desc %}↓{% endif %}
+            </a>
+          </div>
+
+          <button type="submit">Search</button>
+        <!-- shows 'clear' only when fileters are active-->
+          {% if query or category_slug or sort != "title" %}
+            <a class="games-list-controls__clear" href="{% url 'game_list' %}" role="button">Clear</a>
+          {% endif %}
+        </form>
+      </aside>
+        
+      <section class="games-main">
+        {% if games %}
+          <ul class="games-list">
+            {% for game in games %}
+              <li class="games-list__item">
+                <a href="{% url 'game_detail' game.slug %}">
+                  {{ game.title }}
                 </a>
+                <span class="games-list__price">{{ game.price }} €</span>
               </li>
-            {% endif %}
-                  
+            {% endfor %}
           </ul>
-        </nav>
-      {% endif %}
 
-    {% else %}
-      <p>No games added yet.</p>
-    {% endif %}  <!-- don't forget to add this so I do not end up with error again-->
+          {% if page_obj.has_other_pages %}
+            <nav class="pagination" aria-label="Games pagination">
+              <ul class="pagination__list">
+                
+                {# Previous #}
+                {% if page_obj.has_previous %}
+                  <li class="pagination__item">
+                    <a class="pagination__link"
+                      href="{{ list_url }}?{% if preserved_qs %}{{ preserved_qs }}&{% endif %}page={{ page_obj.previous_page_number }}">
+                      Previous
+                    </a>
+                  </li>
+                {% endif %}
+
+                {# Page numbers #}
+                {% for num in page_obj.paginator.page_range %}
+                  {% if num == page_obj.number %}
+                    <li class="pagination__item">
+                      <span class="pagination__current" aria-current="page">{{ num }}</span>
+                    </li>
+                  {% else %}
+                    <li class="pagination__item">
+                      <a class="pagination__link"
+                        href="{{ list_url }}?{% if preserved_qs %}{{ preserved_qs }}&{% endif %}page={{ num }}">
+                        {{ num }}
+                      </a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+
+                {# Next #}
+                {% if page_obj.has_next %}
+                  <li class="pagination__item">
+                    <a class="pagination__link"
+                      href="{{ list_url }}?{% if preserved_qs %}{{ preserved_qs }}&{% endif %}page={{ page_obj.next_page_number }}">
+                      Next
+                    </a>
+                  </li>
+                {% endif %}
+                      
+              </ul>
+            </nav>
+          {% endif %}
+
+        {% else %}
+          <p>No games added yet.</p>
+        {% endif %}  <!-- don't forget to add this so I do not end up with error again-->
+      </section>
+    </div>
   </main>
 {% endblock %}
