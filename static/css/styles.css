@@ -28,7 +28,7 @@ body {
 }
 
 .site-nav a {
-  text-decoration: none;
+  text-decoration: none;  /* Add something later on REMINDER */
 }
 
 .site-footer {
@@ -53,9 +53,66 @@ body {
   margin: 0 0 12px 0;
 }
 
+/* Sidebar form layout */
+.games-list-controls {
+  display: grid;
+  gap: 12px;
+}
+
+.games-list-controls input[type="text"],
+.games-list-controls select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.games-list-controls button[type="submit"] {
+  padding: 10px 12px;
+  border: 1px solid #222;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.games-list-controls__clear {
+  display: inline-block;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* Sort links look like pills */
+.games-list-sort {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.games-list-sort__label {
+  font-weight: 600;
+}
+
+.games-list-sort__link {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.games-list-sort__link.is-active {
+  border-color: #222;
+  font-weight: 700;
+}
+
 /* sidebar to stack on small screns */
 @media (max-width: 900px) {
   .games-layout {
     grid-template-columns: 1fr;
   }
 }
+
