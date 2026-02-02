@@ -44,6 +44,32 @@
       <aside class="games-sidebar">
         <h2 class="games-sidebar__title">Filters</h2>
 
+        {% if query or category_slug or in_stock or sort != "title" %}
+        <div class="active-filters">
+          <div class="active-filters__title">Active filters</div>
+          <ul class="active-filters__list">
+            {% if query %}
+              <li><strong>Search:</strong> “{{ query }}”</li>
+            {% endif %}
+
+            {% if category_slug %}
+              <li><strong>Category:</strong> {{ active_category_name }}</li>
+            {% endif %}
+
+            {% if in_stock %}
+              <li><strong>Stock:</strong> In stock only</li>
+            {% endif %}
+
+            {% if sort != "title" %}
+              <li><strong>Sort:</strong>
+                {% if sort == "price" %}Price (low → high){% elif sort == "-price" %}Price (high → low){% else %}{{ sort }}{% endif %}
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      {% endif %}
+
+
         <form method="get" action="{{ list_url }}" class="games-list-controls">
           <label class="screen-reader-only" for="q">Search</label>
           <input id="q" name="q" type="text" value="{{ query }}" placeholder="Search games...">

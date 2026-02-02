@@ -62,6 +62,14 @@ def game_list(request, category_slug=None):
     if category_slug:
         games = games.filter(category__slug=category_slug)
 
+    # What is currently active in search filter
+    active_category_name = None
+    if category_slug:
+        active_category = Category.objects.filter(slug=category_slug).first()
+        active_category_name = (
+            active_category.name if active_category else category_slug
+        )
+
     # search
     if query:
         games = games.filter(title__icontains=query)
@@ -142,6 +150,8 @@ def game_list(request, category_slug=None):
         # number of items on all pages
         "total_count": page_obj.paginator.count,
         "in_stock": in_stock,
+        # active category search
+        "active_category_name": active_category_name,
     }
 
     return render(request, "games/game_list.html", context)
