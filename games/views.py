@@ -141,7 +141,7 @@ def game_list(request, category_slug=None):
     remove_category_url = build_qs(remove=["category"])
     remove_in_stock_url = build_qs(remove=["in_stock"])
     remove_sort_url = build_qs(overrides={"sort": "title"})
-    clear_all_url = reverse("game_list")
+    clear_all_url = list_url
 
     context = {
         "games": page_obj,  # loops over current page, not all games

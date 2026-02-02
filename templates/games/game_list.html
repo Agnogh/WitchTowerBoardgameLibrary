@@ -162,9 +162,11 @@
 
           <button type="submit">Search</button>
         <!-- shows 'clear' only when fileters are active ..or for games "in stocks"-->
+         <!-- no need for 2 'clear' button as I added another in clear filters
           {% if query or category_slug or in_stock or sort != "title" %}
             <a class="games-list-controls__clear" href="{% url 'game_list' %}" role="button">Clear</a>
           {% endif %}
+          -->
         </form>
       </aside>
         
