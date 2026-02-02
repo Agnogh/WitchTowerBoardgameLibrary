@@ -49,9 +49,21 @@
           <input id="q" name="q" type="text" value="{{ query }}" placeholder="Search games...">
 
           <input type="hidden" name="sort" value="{{ sort }}">
+          
+          <label class="games-filter-toggle">
+            <input
+              type="checkbox"
+              name="in_stock"
+              value="1"
+              {% if in_stock %}checked{% endif %}
+              onchange="this.form.submit()"
+            >
+            In stock only
+          </label>
 
           <label class="screen-reader-only" for="category">Category</label>
           <select id="category" name="category" onchange="this.form.submit()">
+
             <option value="">All categories</option>
 
             {% for cat in categories %}
@@ -88,8 +100,8 @@
           </div>
 
           <button type="submit">Search</button>
-        <!-- shows 'clear' only when fileters are active-->
-          {% if query or category_slug or sort != "title" %}
+        <!-- shows 'clear' only when fileters are active ..or for games "in stocks"-->
+          {% if query or category_slug or in_stock or sort != "title" %}
             <a class="games-list-controls__clear" href="{% url 'game_list' %}" role="button">Clear</a>
           {% endif %}
         </form>

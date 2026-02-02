@@ -38,8 +38,13 @@ def game_list(request, category_slug=None):
     query = request.GET.get("q", "").strip()
     sort = request.GET.get("sort", "title")
     get_category = request.GET.get("category", "").strip()
+    # read games that in stock
+    in_stock = request.GET.get("in_stock") == "1"
 
     games = Game.objects.all()
+    # rule for showing games in stock
+    if in_stock:
+        games = games.filter(stock__gt=0)
 
     # If user used dropdown ?category=... on games, then
     # redirect to SEO URL /games/category/<type>
@@ -136,6 +141,7 @@ def game_list(request, category_slug=None):
         "end_index": page_obj.end_index(),
         # number of items on all pages
         "total_count": page_obj.paginator.count,
+        "in_stock": in_stock,
     }
 
     return render(request, "games/game_list.html", context)
