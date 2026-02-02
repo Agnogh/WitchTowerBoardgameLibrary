@@ -46,14 +46,21 @@ def game_list(request, category_slug=None):
     if in_stock:
         games = games.filter(stock__gt=0)
 
+    # BUGFIX!!
     # If user used dropdown ?category=... on games, then
     # redirect to SEO URL /games/category/<type>
-    if not category_slug and get_category:
-        base_path = reverse("game_list_by_category", args=[get_category])
+    # but now it should work on /games/
+    current_category = category_slug or ""
+
+    if get_category != current_category:
+        if get_category:
+            base_path = reverse("game_list_by_category", args=[get_category])
+        else:
+            base_path = reverse("game_list")  # user picked "All categories"
 
         params = request.GET.copy()
         params.pop("category", None)
-        params.pop("page", None)  # reset pagination when category type changes
+        params.pop("page", None)  # reset pagination when category changes
         qs = params.urlencode()
 
         return redirect(f"{base_path}?{qs}" if qs else base_path)
@@ -118,8 +125,9 @@ def game_list(request, category_slug=None):
         if category_slug
         else reverse("game_list")
     )
+    root_url = reverse("game_list")
 
-    def build_qs(overrides=None, remove=None):
+    def build_qs(base_url, overrides=None, remove=None):
         params = request.GET.copy()
         params.pop("page", None)  # always reset pagination when filters change
 
@@ -135,13 +143,13 @@ def game_list(request, category_slug=None):
                     params[key] = value
 
         qs = params.urlencode()
-        return f"{list_url}?{qs}" if qs else list_url
+        return f"{base_url}?{qs}" if qs else base_url
 
-    remove_search_url = build_qs(remove=["q"])
-    remove_category_url = build_qs(remove=["category"])
-    remove_in_stock_url = build_qs(remove=["in_stock"])
-    remove_sort_url = build_qs(overrides={"sort": "title"})
-    clear_all_url = list_url
+    remove_search_url = build_qs(base_url=list_url, remove=["q"])
+    remove_category_url = build_qs(base_url=root_url, remove=["category"])
+    remove_in_stock_url = build_qs(base_url=list_url, remove=["in_stock"])
+    remove_sort_url = build_qs(base_url=list_url, overrides={"sort": "title"})
+    clear_all_url = root_url
 
     context = {
         "games": page_obj,  # loops over current page, not all games
