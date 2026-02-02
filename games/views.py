@@ -50,13 +50,17 @@ def game_list(request, category_slug=None):
     # If user used dropdown ?category=... on games, then
     # redirect to SEO URL /games/category/<type>
     # but now it should work on /games/
-    current_category = category_slug or ""
+    # another BUGFIX - 'category' needs to be applied for real
+    # redirect ONLY when category is actually selected /submited
+    if "category" in request.GET:
+        current_category = category_slug or ""
 
-    if get_category != current_category:
-        if get_category:
-            base_path = reverse("game_list_by_category", args=[get_category])
-        else:
-            base_path = reverse("game_list")  # user picked "All categories"
+        if get_category != current_category:
+            if get_category:
+                base_path = reverse(
+                    "game_list_by_category", args=[get_category])
+            else:
+                base_path = reverse("game_list")  # user picked "All categries"
 
         params = request.GET.copy()
         params.pop("category", None)
