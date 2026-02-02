@@ -123,6 +123,29 @@ body {
   height: 16px;
 }
 
+/* current search filters applied */ 
+.active-filters {
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.active-filters__title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.active-filters__list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.active-filters__list li {
+  margin: 4px 0;
+}
+
+
 /* sidebar to stack on small screns */
 @media (max-width: 900px) {
   .games-layout {
