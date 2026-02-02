@@ -119,6 +119,30 @@ def game_list(request, category_slug=None):
         else reverse("game_list")
     )
 
+    def build_qs(overrides=None, remove=None):
+        params = request.GET.copy()
+        params.pop("page", None)  # always reset pagination when filters change
+
+        if remove:
+            for key in remove:
+                params.pop(key, None)
+
+        if overrides:
+            for key, value in overrides.items():
+                if value in (None, "", False):
+                    params.pop(key, None)
+                else:
+                    params[key] = value
+
+        qs = params.urlencode()
+        return f"{list_url}?{qs}" if qs else list_url
+
+    remove_search_url = build_qs(remove=["q"])
+    remove_category_url = build_qs(remove=["category"])
+    remove_in_stock_url = build_qs(remove=["in_stock"])
+    remove_sort_url = build_qs(overrides={"sort": "title"})
+    clear_all_url = reverse("game_list")
+
     context = {
         "games": page_obj,  # loops over current page, not all games
         "page_obj": page_obj,
@@ -152,6 +176,16 @@ def game_list(request, category_slug=None):
         "in_stock": in_stock,
         # active category search
         "active_category_name": active_category_name,
+        # removes search criteria based on the word/term
+        "remove_search_url": remove_search_url,
+        # removes category only from search
+        "remove_category_url": remove_category_url,
+        # remove only if product is in store
+        "remove_in_stock_url": remove_in_stock_url,
+        # returs sort back to 'title'
+        "remove_sort_url": remove_sort_url,
+        # removes all seacrh criterias
+        "clear_all_url": clear_all_url,
     }
 
     return render(request, "games/game_list.html", context)

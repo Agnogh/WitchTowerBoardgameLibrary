@@ -44,6 +44,7 @@
       <aside class="games-sidebar">
         <h2 class="games-sidebar__title">Filters</h2>
 
+        <!-- Keeping for now until I am sure it works
         {% if query or category_slug or in_stock or sort != "title" %}
         <div class="active-filters">
           <div class="active-filters__title">Active filters</div>
@@ -68,6 +69,40 @@
           </ul>
         </div>
       {% endif %}
+      -->
+
+      <!-- Here comes the tryout-->
+      {% if query or category_slug or in_stock or sort != "title" %}
+        <div class="active-filters">
+          <div class="active-filters__title">Active filters</div>
+
+          <div class="filter-chips">
+            {% if query %}
+              <a class="filter-chip" href="{{ remove_search_url }}">✕ Search: “{{ query }}”</a>
+            {% endif %}
+
+            {% if category_slug %}
+              <a class="filter-chip" href="{{ remove_category_url }}">✕ Category: {{ active_category_name }}</a>
+            {% endif %}
+
+            {% if in_stock %}
+              <a class="filter-chip" href="{{ remove_in_stock_url }}">✕ In stock only</a>
+            {% endif %}
+
+            {% if sort != "title" %}
+              <a class="filter-chip" href="{{ remove_sort_url }}">
+                ✕ Sort:
+                {% if sort == "price" %}Price (low → high)
+                {% elif sort == "-price" %}Price (high → low)
+                {% else %}{{ sort }}{% endif %}
+              </a>
+            {% endif %}
+
+            <a class="filter-chip filter-chip--clear" href="{{ clear_all_url }}">Clear all</a>
+          </div>
+        </div>
+      {% endif %}
+
 
 
         <form method="get" action="{{ list_url }}" class="games-list-controls">
