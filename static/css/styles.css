@@ -170,6 +170,49 @@ body {
   font-weight: 700;
 }
 
+.games-list__item {
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.games-list__item.is-out {
+  opacity: 0.65;
+}
+
+.games-list__link {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.games-list__meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+/* general appearnce of badges (in stocks or out of stocks)*/
+.badge {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+}
+
+/* for available games */
+.badge--in {
+  border-color: #222;
+  font-weight: 700;
+}
+
+/* When where there are no games in store */
+.badge--out {
+  border-style: dashed;
+}
+
+
 /* sidebar to stack on small screns */
 @media (max-width: 900px) {
   .games-layout {

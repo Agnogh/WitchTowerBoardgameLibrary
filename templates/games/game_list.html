@@ -174,11 +174,28 @@
         {% if games %}
           <ul class="games-list">
             {% for game in games %}
+              <!-- Adding badhges for in stock and empty - TRY OUT
               <li class="games-list__item">
                 <a href="{% url 'game_detail' game.slug %}">
                   {{ game.title }}
                 </a>
                 <span class="games-list__price">{{ game.price }} €</span>
+              </li>
+              -->
+              <li class="games-list__item {% if game.stock == 0 %}is-out{% endif %}">
+                <a class="games-list__link" href="{% url 'game_detail' game.slug %}">
+                  {{ game.title }}
+                </a>
+
+                <div class="games-list__meta">
+                  <span class="games-list__price">{{ game.price }} €</span>
+
+                  {% if game.stock > 0 %}
+                    <span class="badge badge--in">In stock</span>
+                  {% else %}
+                    <span class="badge badge--out">Out of stock</span>
+                  {% endif %}
+                </div>
               </li>
             {% endfor %}
           </ul>
