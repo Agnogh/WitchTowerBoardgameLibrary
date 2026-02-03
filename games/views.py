@@ -56,18 +56,18 @@ def game_list(request, category_slug=None):
         current_category = category_slug or ""
 
         if get_category != current_category:
-            if get_category:
-                base_path = reverse(
-                    "game_list_by_category", args=[get_category])
-            else:
-                base_path = reverse("game_list")  # user picked "All categries"
+            target_url = (
+                reverse("game_list_by_category", args=[get_category])
+                if get_category
+                else reverse("game_list")  # user picked "All categories"
+            )
 
-        params = request.GET.copy()
-        params.pop("category", None)
-        params.pop("page", None)  # reset pagination when category changes
-        qs = params.urlencode()
+            params = request.GET.copy()
+            params.pop("category", None)
+            params.pop("page", None)  # reset pagination when category changes
+            qs = params.urlencode()
 
-        return redirect(f"{base_path}?{qs}" if qs else base_path)
+            return redirect(f"{target_url}?{qs}" if qs else target_url)
 
     # Apply category from the URL path
     if category_slug:
