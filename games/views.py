@@ -90,6 +90,9 @@ def game_list(request, category_slug=None):
         games = games.order_by("price")
     elif sort == "-price":
         games = games.order_by("-price")
+    # addinf descending order based on title (alphabet)
+    elif sort == "-title":
+        games = games.order_by("-title")
     else:
         games = games.order_by("title")
 
@@ -120,8 +123,15 @@ def game_list(request, category_slug=None):
     is_price_asc = sort == "price"
     is_price_desc = sort == "-price"
 
+    # Sort UI helpers for title
+    is_title_asc = sort == "title"
+    is_title_desc = sort == "-title"
+
     # Clicking the price sort toggles direction
     price_toggle_sort = "-price" if is_price_asc else "price"
+
+    # Clicck on title changes from A-z to Z-A
+    title_toggle_sort = "-title" if is_price_desc else "title"
 
     # base list url
     list_url = (
@@ -198,6 +208,12 @@ def game_list(request, category_slug=None):
         "remove_sort_url": remove_sort_url,
         # removes all seacrh criterias
         "clear_all_url": clear_all_url,
+        # title sorting A-Z
+        "is_title_asc": is_title_asc,
+        # title storing Z-A
+        "is_title_desc": is_title_desc,
+        # reverts alphabet sorting to opposite of what it is currently
+        "title_toggle_sort": title_toggle_sort,
     }
 
     return render(request, "games/game_list.html", context)

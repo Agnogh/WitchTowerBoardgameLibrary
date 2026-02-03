@@ -94,6 +94,8 @@
                 ✕ Sort:
                 {% if sort == "price" %}Price (low → high)
                 {% elif sort == "-price" %}Price (high → low)
+                {% elif sort == "-title" %}Title (Z → A)
+                {% elif sort == "title" %}Title (A → Z)
                 {% else %}{{ sort }}{% endif %}
               </a>
             {% endif %}
@@ -148,9 +150,10 @@
           <div class="games-list-sort">
             <span class="games-list-sort__label">Sort:</span>
 
-            <a class="games-list-sort__link {% if sort == 'title' %}is-active{% endif %}"
-              href="{{ list_url }}?{% if base_qs %}{{ base_qs }}&{% endif %}sort=title">
+            <a class="games-list-sort__link {% if is_title_asc or is_title_desc %}is-active{% endif %}"
+              href="{{ list_url }}?{% if base_qs %}{{ base_qs }}&{% endif %}sort={{ title_toggle_sort }}">
               Title
+              {% if is_title_asc %}↑{% elif is_title_desc %}↓{% endif %}
             </a>
 
             <a class="games-list-sort__link {% if is_price_asc or is_price_desc %}is-active{% endif %}"
