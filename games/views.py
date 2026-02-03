@@ -131,7 +131,7 @@ def game_list(request, category_slug=None):
     price_toggle_sort = "-price" if is_price_asc else "price"
 
     # Clicck on title changes from A-z to Z-A
-    title_toggle_sort = "-title" if is_price_desc else "title"
+    title_toggle_sort = "-title" if is_title_asc else "title"
 
     # base list url
     list_url = (
