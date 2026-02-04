@@ -33,6 +33,9 @@ class Game(models.Model):
     )
     sku = models.CharField(max_length=100, blank=True)
 
+    created_at = models.DateTimeField(auto_now_add=True)  # first time ading
+    updated_at = models.DateTimeField(auto_now=True)  # changes and renewal
+
     def __str__(self):
         return self.title
 

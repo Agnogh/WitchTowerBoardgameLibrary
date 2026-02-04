@@ -90,6 +90,10 @@ def game_list(request, category_slug=None):
         games = games.order_by("price")
     elif sort == "-price":
         games = games.order_by("-price")
+    elif sort == "newest":
+        games = games.order_by("-created_at")
+    elif sort == "oldest":
+        games = games.order_by("created_at")
     # addinf descending order based on title (alphabet)
     elif sort == "-title":
         games = games.order_by("-title")
@@ -132,6 +136,11 @@ def game_list(request, category_slug=None):
 
     # Clicck on title changes from A-z to Z-A
     title_toggle_sort = "-title" if is_title_asc else "title"
+
+    # Click to place latest games on top or bottom
+    is_newest = sort == "newest"
+    is_oldest = sort == "oldest"
+    newest_toggle_sort = "oldest" if is_newest else "newest"
 
     # base list url
     list_url = (
@@ -214,6 +223,12 @@ def game_list(request, category_slug=None):
         "is_title_desc": is_title_desc,
         # reverts alphabet sorting to opposite of what it is currently
         "title_toggle_sort": title_toggle_sort,
+        # last game adde on top
+        "is_newest": is_newest,
+        # last game added on bottom
+        "is_oldest": is_oldest,
+        # reset to opposite of what we have currently
+        "newest_toggle_sort": newest_toggle_sort,
     }
 
     return render(request, "games/game_list.html", context)

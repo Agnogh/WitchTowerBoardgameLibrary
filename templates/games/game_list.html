@@ -97,6 +97,8 @@
                 {% elif sort == "-title" %}Title (Z → A)
                 {% elif sort == "title" %}Title (A → Z)
                 {% else %}{{ sort }}{% endif %}
+                {% elif sort == "newest" %}Newest first
+                {% elif sort == "oldest" %}Oldest first
               </a>
             {% endif %}
 
@@ -162,6 +164,12 @@
             {% if is_price_asc %}↑{% elif is_price_desc %}↓{% endif %}
             </a>
           </div>
+
+          <a class="games-list-sort__link {% if is_newest or is_oldest %}is-active{% endif %}"
+            href="{{ list_url }}?{% if base_qs %}{{ base_qs }}&{% endif %}sort={{ newest_toggle_sort }}">
+            Newest
+            {% if is_newest %}↓{% elif is_oldest %}↑{% endif %}
+          </a>
 
           <button type="submit">Search</button>
         <!-- shows 'clear' only when fileters are active ..or for games "in stocks"-->
