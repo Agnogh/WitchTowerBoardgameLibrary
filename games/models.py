@@ -21,6 +21,15 @@ class Game(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     stock = models.PositiveIntegerField(default=0)
 
+    min_players = models.PositiveSmallIntegerField(null=True, blank=True)
+    max_players = models.PositiveSmallIntegerField(null=True, blank=True)
+
+    # dureation in minutes for play time
+    min_play_time = models.PositiveSmallIntegerField(null=True, blank=True)
+    max_play_time = models.PositiveSmallIntegerField(null=True, blank=True)
+
+    age = models.PositiveSmallIntegerField(null=True, blank=True)
+
     publisher = models.CharField(max_length=150, blank=True)
     designer = models.CharField(max_length=150, blank=True)
 
