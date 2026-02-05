@@ -55,6 +55,11 @@ def game_list(request, category_slug=None):
     players_min = to_pos_int(players_min_raw)
     players_max = to_pos_int(players_max_raw)
 
+    # If typed min > max, swap (bugfix)
+    if players_min and players_max and players_min > players_max:
+        players_min, players_max = players_max, players_min
+        players_min_raw, players_max_raw = players_max_raw, players_min_raw
+
     games = Game.objects.all()
     # rule for showing games in stock
     if in_stock:
