@@ -72,7 +72,7 @@
       -->
 
       <!-- Here comes the tryout-->
-      {% if query or category_slug or in_stock or sort != "title" %}
+      {% if query or category_slug or in_stock or players_min or players_max or sort != "title" %}
         <div class="active-filters">
           <div class="active-filters__title">Active filters</div>
 
@@ -94,14 +94,26 @@
                 ✕ Sort:
                 {% if sort == "price" %}Price (low → high)
                 {% elif sort == "-price" %}Price (high → low)
-                {% elif sort == "-title" %}Title (Z → A)
-                {% elif sort == "title" %}Title (A → Z)
-                {% else %}{{ sort }}{% endif %}
                 {% elif sort == "newest" %}Newest first
                 {% elif sort == "oldest" %}Oldest first
+                {% elif sort == "-title" %}Title (Z → A)
+                {% elif sort == "title" %}Title (A → Z)
+                {% else %}{{ sort }}{% endif %}        
               </a>
             {% endif %}
 
+            {% if players_min or players_max %}
+              <a class="filter-chip" href="{{ remove_players_url }}">
+                ✕ Players:
+                {% if players_min and players_max %}
+                {{ players_min }}–{{ players_max }}
+              {% elif players_min %}
+                {{ players_min }}
+              {% else %}
+                {{ players_max }}
+              {% endif %}
+                </a>
+            {% endif %}
             <a class="filter-chip filter-chip--clear" href="{{ clear_all_url }}">Clear all</a>
           </div>
         </div>
@@ -125,6 +137,29 @@
             >
             In stock only
           </label>
+
+          <label class="games-filter-label" for="players_min">Players</label>
+          <div class="games-filter-row">
+            <input
+              id="players_min"
+              name="players_min"
+              type="number"
+              min="1"
+              inputmode="numeric"
+              placeholder="min"
+              value="{{ players_min }}"
+            >
+            <span aria-hidden="true">–</span>
+            <input
+              id="players_max"
+              name="players_max"
+              type="number"
+              min="1"
+              inputmode="numeric"
+              placeholder="max"
+              value="{{ players_max }}"
+            >
+          </div>
 
           <label class="screen-reader-only" for="category">Category</label>
           <select id="category" name="category" onchange="this.form.submit()">

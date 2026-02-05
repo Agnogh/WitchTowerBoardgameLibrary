@@ -41,6 +41,20 @@ def game_list(request, category_slug=None):
     # read games that in stock
     in_stock = request.GET.get("in_stock") == "1"
 
+    # player filter
+    players_min_raw = request.GET.get("players_min", "").strip()
+    players_max_raw = request.GET.get("players_max", "").strip()
+
+    def to_pos_int(value: str):
+        try:
+            n = int(value)
+            return n if n > 0 else None
+        except (TypeError, ValueError):
+            return None
+
+    players_min = to_pos_int(players_min_raw)
+    players_max = to_pos_int(players_max_raw)
+
     games = Game.objects.all()
     # rule for showing games in stock
     if in_stock:
@@ -84,6 +98,19 @@ def game_list(request, category_slug=None):
     # search
     if query:
         games = games.filter(title__icontains=query)
+
+    # min & max number of players filter
+    if players_min and players_max:
+        # game supports the whole range
+        games = games.filter(
+            min_players__lte=players_min, max_players__gte=players_max)
+    elif players_min:
+        # numer player spcific (treat as "must be playable with X players")
+        games = games.filter(
+            min_players__lte=players_min, max_players__gte=players_min)
+    elif players_max:
+        games = games.filter(
+            min_players__lte=players_max, max_players__gte=players_max)
 
     # sorting
     if sort == "price":
@@ -173,6 +200,8 @@ def game_list(request, category_slug=None):
     remove_in_stock_url = build_qs(base_url=list_url, remove=["in_stock"])
     remove_sort_url = build_qs(base_url=list_url, overrides={"sort": "title"})
     clear_all_url = root_url
+    remove_players_url = build_qs(
+        base_url=list_url, remove=["players_min", "players_max"])
 
     context = {
         "games": page_obj,  # loops over current page, not all games
@@ -229,6 +258,11 @@ def game_list(request, category_slug=None):
         "is_oldest": is_oldest,
         # reset to opposite of what we have currently
         "newest_toggle_sort": newest_toggle_sort,
+        # players filter values
+        "players_min": players_min_raw,
+        "players_max": players_max_raw,
+        # remove link
+        "remove_players_url": remove_players_url,
     }
 
     return render(request, "games/game_list.html", context)
