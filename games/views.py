@@ -106,16 +106,23 @@ def game_list(request, category_slug=None):
 
     # min & max number of players filter
     if players_min and players_max:
-        # game supports the whole range
+        # game starts at  least at player min while support playeer max
         games = games.filter(
-            min_players__lte=players_min, max_players__gte=players_max)
+            min_players__gte=players_min,
+            max_players__gte=players_max,
+        )
     elif players_min:
-        # numer player spcific (treat as "must be playable with X players")
+        # must be playable with at least X number of players
         games = games.filter(
-            min_players__lte=players_min, max_players__gte=players_min)
+            min_players__lte=players_min,
+            max_players__gte=players_min,
+        )
     elif players_max:
+        # must be played with X number of players
         games = games.filter(
-            min_players__lte=players_max, max_players__gte=players_max)
+            min_players__lte=players_max,
+            max_players__gte=players_max,
+        )
 
     # sorting
     if sort == "price":
