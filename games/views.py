@@ -55,6 +55,13 @@ def game_list(request, category_slug=None):
     players_min = to_pos_int(players_min_raw)
     players_max = to_pos_int(players_max_raw)
 
+    # play time filter (minutes)
+    time_min_raw = request.GET.get("time_min", "").strip()
+    time_max_raw = request.GET.get("time_max", "").strip()
+
+    time_min = to_pos_int(time_min_raw)
+    time_max = to_pos_int(time_max_raw)
+
     # If typed min > max, swap (bugfix)
     if players_min and players_max and players_min > players_max:
         players_min, players_max = players_max, players_min
@@ -123,6 +130,15 @@ def game_list(request, category_slug=None):
             min_players__lte=players_max,
             max_players__gte=players_max,
         )
+
+    # min & max play time filter (minutes)
+    if time_min and time_max:
+        games = games.filter(
+            min_play_time__gte=time_min, max_play_time__lte=time_max)
+    elif time_min:
+        games = games.filter(min_play_time__gte=time_min)
+    elif time_max:
+        games = games.filter(max_play_time__lte=time_max)
 
     # sorting
     if sort == "price":
@@ -214,6 +230,9 @@ def game_list(request, category_slug=None):
     clear_all_url = root_url
     remove_players_url = build_qs(
         base_url=list_url, remove=["players_min", "players_max"])
+    remove_time_url = build_qs(
+        base_url=list_url, remove=["time_min", "time_max"]
+    )
 
     context = {
         "games": page_obj,  # loops over current page, not all games
@@ -275,6 +294,11 @@ def game_list(request, category_slug=None):
         "players_max": players_max_raw,
         # remove link
         "remove_players_url": remove_players_url,
+        # playtime filter min &max
+        "time_min": time_min_raw,
+        "time_max": time_max_raw,
+        # remove play duration completly
+        "remove_time_url": remove_time_url,
     }
 
     return render(request, "games/game_list.html", context)

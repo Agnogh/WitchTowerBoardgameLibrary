@@ -72,7 +72,7 @@
       -->
 
       <!-- Here comes the tryout-->
-      {% if query or category_slug or in_stock or players_min or players_max or sort != "title" %}
+      {% if query or category_slug or in_stock or players_min or players_max or time_min or time_max or sort != "title" %}
         <div class="active-filters">
           <div class="active-filters__title">Active filters</div>
 
@@ -113,6 +113,19 @@
                 {{ players_max }}
               {% endif %}
                 </a>
+            {% endif %}
+
+            {% if time_min or time_max %}
+              <a class="filter-chip" href="{{ remove_time_url }}">
+                ✕ Time:
+                {% if time_min and time_max %}
+                  {{ time_min }}–{{ time_max }} min
+                {% elif time_min %}
+                  {{ time_min }}+ min
+                {% else %}
+                  up to {{ time_max }} min
+                {% endif %}
+              </a>
             {% endif %}
             <a class="filter-chip filter-chip--clear" href="{{ clear_all_url }}">Clear all</a>
           </div>
@@ -158,6 +171,29 @@
               inputmode="numeric"
               placeholder="max"
               value="{{ players_max }}"
+            >
+          </div>
+
+          <label class="games-filter-label" for="time_min">Play time (min)</label>
+          <div class="games-filter-row">
+            <input
+              id="time_min"
+              name="time_min"
+              type="number"
+              min="1"
+              inputmode="numeric"
+              placeholder="min"
+              value="{{ time_min }}"
+            >
+            <span aria-hidden="true">–</span>
+            <input
+              id="time_max"
+              name="time_max"
+              type="number"
+              min="1"
+              inputmode="numeric"
+              placeholder="max"
+              value="{{ time_max }}"
             >
           </div>
 
