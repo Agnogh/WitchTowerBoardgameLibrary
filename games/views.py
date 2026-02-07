@@ -62,6 +62,11 @@ def game_list(request, category_slug=None):
     time_min = to_pos_int(time_min_raw)
     time_max = to_pos_int(time_max_raw)
 
+    # If typed min time > max time - switch them 'bugfix'
+    if time_min and time_max and time_min > time_max:
+        time_min, time_max = time_max, time_min
+        time_min_raw, time_max_raw = time_max_raw, time_min_raw
+
     # If typed min > max, swap (bugfix)
     if players_min and players_max and players_min > players_max:
         players_min, players_max = players_max, players_min
