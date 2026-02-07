@@ -72,7 +72,7 @@
       -->
 
       <!-- Here comes the tryout-->
-      {% if query or category_slug or in_stock or players_min or players_max or time_min or time_max or sort != "title" %}
+      {% if query or category_slug or in_stock or players_min or players_max or time_min or time_max or age_min or sort != "title" %}
         <div class="active-filters">
           <div class="active-filters__title">Active filters</div>
 
@@ -127,6 +127,13 @@
                 {% endif %}
               </a>
             {% endif %}
+
+            {% if age_min %}
+              <a class="filter-chip" href="{{ remove_age_url }}">
+                ✕ Age: {{ age_min }}+
+              </a>
+            {% endif %}
+
             <a class="filter-chip filter-chip--clear" href="{{ clear_all_url }}">Clear all</a>
           </div>
         </div>
@@ -196,6 +203,17 @@
               value="{{ time_max }}"
             >
           </div>
+
+          <label class="games-filter-label" for="age_min">Age (min)</label>
+            <input
+              id="age_min"
+              name="age_min"
+              type="number"
+              min="1"
+              inputmode="numeric"
+              placeholder="e.g. 12"
+              value="{{ age_min }}"
+            >
 
           <label class="screen-reader-only" for="category">Category</label>
           <select id="category" name="category" onchange="this.form.submit()">

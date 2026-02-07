@@ -62,6 +62,10 @@ def game_list(request, category_slug=None):
     time_min = to_pos_int(time_min_raw)
     time_max = to_pos_int(time_max_raw)
 
+    # age filter (minimum age on the box, no max)
+    age_min_raw = request.GET.get("age_min", "").strip()
+    age_min = to_pos_int(age_min_raw)
+
     # If typed min time > max time - switch them 'bugfix'
     if time_min and time_max and time_min > time_max:
         time_min, time_max = time_max, time_min
@@ -144,6 +148,10 @@ def game_list(request, category_slug=None):
         games = games.filter(min_play_time__gte=time_min)
     elif time_max:
         games = games.filter(max_play_time__lte=time_max)
+
+    # age filter (box age <= chosen age)
+    if age_min:
+        games = games.filter(age__lte=age_min)
 
     # sorting
     if sort == "price":
@@ -238,6 +246,7 @@ def game_list(request, category_slug=None):
     remove_time_url = build_qs(
         base_url=list_url, remove=["time_min", "time_max"]
     )
+    remove_age_url = build_qs(base_url=list_url, remove=["age_min"])
 
     context = {
         "games": page_obj,  # loops over current page, not all games
@@ -304,6 +313,10 @@ def game_list(request, category_slug=None):
         "time_max": time_max_raw,
         # remove play duration completly
         "remove_time_url": remove_time_url,
+        # age value fitler
+        "age_min": age_min_raw,
+        # remove age filter
+        "remove_age_url": remove_age_url,
     }
 
     return render(request, "games/game_list.html", context)
