@@ -151,7 +151,7 @@ def game_list(request, category_slug=None):
 
     # age filter (box age <= chosen age)
     if age_min:
-        games = games.filter(age__lte=age_min)
+        games = games.filter(Q(age__lte=age_min) | Q(age__isnull=True))
 
     # sorting
     if sort == "price":
