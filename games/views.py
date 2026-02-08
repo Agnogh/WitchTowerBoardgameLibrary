@@ -124,7 +124,7 @@ def game_list(request, category_slug=None):
     if players_min and players_max:
         # game starts at  least at player min while support playeer max
         games = games.filter(
-            min_players__gte=players_min,
+            min_players__lte=players_min,
             max_players__gte=players_max,
         )
     elif players_min:
