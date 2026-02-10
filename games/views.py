@@ -127,18 +127,14 @@ def game_list(request, category_slug=None):
             min_players__lte=players_min,
             max_players__gte=players_max,
         )
-    elif players_min:
-        # must be playable with at least X number of players
-        games = games.filter(
-            min_players__lte=players_min,
-            max_players__gte=players_min,
-        )
-    elif players_max:
-        # must be played with X number of players
-        games = games.filter(
-            min_players__lte=players_max,
-            max_players__gte=players_max,
-        )
+    else:
+        # if only min or max is provided, treat it as group siye
+        group_size_range = players_min or players_max
+        if group_size_range:
+            games = games.filter(
+                min_players__lte=group_size_range,
+                max_players__gte=group_size_range,
+            )
 
     # min & max play time filter (minutes)
     if time_min and time_max:
