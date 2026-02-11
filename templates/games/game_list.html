@@ -72,7 +72,7 @@
       -->
 
       <!-- Here comes the tryout-->
-      {% if query or category_slug or in_stock or players_min or players_max or time_min or time_max or age_min or sort != "title" %}
+      {% if query or category_slug or in_stock or players_min or players_max or players_exact or time_min or time_max or age_min or sort != "title" %}
         <div class="active-filters">
           <div class="active-filters__title">Active filters</div>
 
@@ -102,17 +102,25 @@
               </a>
             {% endif %}
 
-            {% if players_min or players_max %}
+            {% if players_exact %}
+              <a class="filter-chip" href="{{ remove_players_url }}">
+                ✕ Players:
+                {% if players_exact_only %}
+                  only {{ players_exact }}
+                {% else %}
+                  {{ players_exact }} players
+                {% endif %}
+              </a>
+
+            {% elif players_min or players_max %}
               <a class="filter-chip" href="{{ remove_players_url }}">
                 ✕ Players:
                 {% if players_min and players_max %}
-                {{ players_min }}–{{ players_max }}
-              {% elif players_min %}
-                {{ players_min }}
-              {% else %}
-                {{ players_max }}
-              {% endif %}
-                </a>
+                  {{ players_min }}–{{ players_max }}
+                {% else %}
+                  {{ players_min|default:players_max }}
+                {% endif %}
+              </a>
             {% endif %}
 
             {% if time_min or time_max %}
@@ -180,6 +188,31 @@
               value="{{ players_max }}"
             >
           </div>
+
+          <!-- -->
+          <label class="games-filter-label" for="players_exact">Exact number of players</label>
+          <div class="games-filter-row">
+            <input
+              id="players_exact"
+              name="players_exact"
+              type="number"
+              min="1"
+              inputmode="numeric"
+              placeholder="e.g. 5"
+              value="{{ players_exact }}"
+            >
+
+            <label class="games-filter-toggle" style="margin-left: 0.5rem;">
+              <input
+                type="checkbox"
+                name="players_exact_only"
+                value="1"
+                {% if players_exact_only %}checked{% endif %}
+              >
+              Fixed number of players (e.g. 4. no more, no less)
+            </label>
+          </div>
+
 
           <label class="games-filter-label" for="time_min">Play time (min)</label>
           <div class="games-filter-row">

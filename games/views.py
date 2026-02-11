@@ -55,6 +55,10 @@ def game_list(request, category_slug=None):
     players_min = to_pos_int(players_min_raw)
     players_max = to_pos_int(players_max_raw)
 
+    players_exact_raw = request.GET.get("players_exact", "").strip()
+    players_exact = to_pos_int(players_exact_raw)
+    players_exact_only = request.GET.get("players_exact_only") == "1"
+
     # play time filter (minutes)
     time_min_raw = request.GET.get("time_min", "").strip()
     time_max_raw = request.GET.get("time_max", "").strip()
@@ -120,21 +124,38 @@ def game_list(request, category_slug=None):
     if query:
         games = games.filter(title__icontains=query)
 
-    # min & max number of players filter
-    if players_min and players_max:
-        # game starts at  least at player min while support playeer max
-        games = games.filter(
-            min_players__lte=players_min,
-            max_players__gte=players_max,
-        )
-    else:
-        # if only min or max is provided, treat it as group siye
-        group_size_range = players_min or players_max
-        if group_size_range:
+    # players filter
+    if players_exact:
+        if players_exact_only:
+            # fixed player count only (if x=4 then 4–4)
             games = games.filter(
-                min_players__lte=group_size_range,
-                max_players__gte=group_size_range,
+                min_players=players_exact,
+                max_players=players_exact
             )
+        else:
+            # playable with X players (if X=5, then accept 2-6, 3-7)
+            games = games.filter(
+                min_players__lte=players_exact,
+                max_players__gte=players_exact
+            )
+
+    else:
+        # already existing logic (range OR single value as group size)
+        if players_min and players_max:
+            # show games whose player-range fully covers the users add range
+            games = games.filter(
+                min_players__lte=players_min,
+                max_players__gte=players_max,
+            )
+
+        else:
+            # if only min OR max is provided, tret as "group size"
+            group_size_range = players_min or players_max
+            if group_size_range:
+                games = games.filter(
+                    min_players__lte=group_size_range,
+                    max_players__gte=group_size_range,
+                )
 
     # min & max play time filter (minutes)
     if time_min and time_max:
@@ -238,7 +259,13 @@ def game_list(request, category_slug=None):
     remove_sort_url = build_qs(base_url=list_url, overrides={"sort": "title"})
     clear_all_url = root_url
     remove_players_url = build_qs(
-        base_url=list_url, remove=["players_min", "players_max"])
+        base_url=list_url,
+        remove=["players_min",
+                "players_max",
+                "players_exact",
+                "players_exact_only"
+                ]
+    )
     remove_time_url = build_qs(
         base_url=list_url, remove=["time_min", "time_max"]
     )
@@ -304,6 +331,10 @@ def game_list(request, category_slug=None):
         "players_max": players_max_raw,
         # remove link
         "remove_players_url": remove_players_url,
+        # num value, but not ONLY that value
+        "players_exact": players_exact_raw,
+        # only x value, no diviations
+        "players_exact_only": players_exact_only,
         # playtime filter min &max
         "time_min": time_min_raw,
         "time_max": time_max_raw,
