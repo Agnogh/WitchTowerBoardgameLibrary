@@ -104,12 +104,7 @@
 
             {% if players_exact %}
               <a class="filter-chip" href="{{ remove_players_url }}">
-                ✕ Players:
-                {% if players_exact_only %}
-                  only {{ players_exact }}
-                {% else %}
-                  {{ players_exact }} players
-                {% endif %}
+                ✕ Players: exactly {{ players_exact }}{% if players_exact_only %} (fixed only){% endif %}
               </a>
 
             {% elif players_min or players_max %}
@@ -174,7 +169,7 @@
               type="number"
               min="1"
               inputmode="numeric"
-              placeholder="min"
+              placeholder="min number of players"
               value="{{ players_min }}"
             >
             <span aria-hidden="true">–</span>
@@ -184,13 +179,12 @@
               type="number"
               min="1"
               inputmode="numeric"
-              placeholder="max"
+              placeholder="max number of players"
               value="{{ players_max }}"
             >
           </div>
 
-          <!-- -->
-          <label class="games-filter-label" for="players_exact">Exact number of players</label>
+          <label class="games-filter-label" for="players_exact">Exact players</label>
           <div class="games-filter-row">
             <input
               id="players_exact"
@@ -198,21 +192,20 @@
               type="number"
               min="1"
               inputmode="numeric"
-              placeholder="e.g. 5"
+              placeholder="one value e.g. 5"
               value="{{ players_exact }}"
             >
-
-            <label class="games-filter-toggle" style="margin-left: 0.5rem;">
-              <input
-                type="checkbox"
-                name="players_exact_only"
-                value="1"
-                {% if players_exact_only %}checked{% endif %}
-              >
-              Fixed number of players (e.g. 4. no more, no less)
-            </label>
           </div>
 
+          <label class="games-filter-toggle">
+            <input
+              type="checkbox"
+              name="players_exact_only"
+              value="1"
+              {% if players_exact_only %}checked{% endif %}
+            >
+            Fixed player count only (min = max)
+          </label>
 
           <label class="games-filter-label" for="time_min">Play time (min)</label>
           <div class="games-filter-row">
