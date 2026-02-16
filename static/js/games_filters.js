@@ -8,54 +8,117 @@
 // if any of these are missing from doc (webpage)
   if (!exact || !min || !max) return;
 
+// Helper: true if an input has some value typed in it
   function hasValue(el) {
     return el && el.value.trim() !== "";
+  }  
+
+// When user types into EXACT:
+// - if exact has value, clear values in range (min/max)
+  function onExactInput() {
+    if (hasValue(exact)) {
+      min.value = "";
+      max.value = "";
+      // do NOT auto-tick exactOnly
+    } else {
+      // if exact becomes empty, "fixed only" doesnt make sense
+      if (exactOnly) exactOnly.checked = false;
+    }
   }
 
+// When user types into RANGE (min or max):
+// - if range has value, clear value in "exact" + untick checkbox
+  function onRangeInput() {
+    const rangeHasValue = hasValue(min) || hasValue(max);
+    if (rangeHasValue) {
+      exact.value = "";
+      if (exactOnly) exactOnly.checked = false;
+    }
+  }
+
+// When user clicks the checkbox:
+// - if ticking it ON, clear range
+// -if exact is empty, don't allow it to stay checked
+  function onExactOnlyChange() {
+    if (!exactOnly) return;
+
+    if (exactOnly.checked) {
+      // cant be "fixed only" without an exact value
+      if (!hasValue(exact)) {
+        exactOnly.checked = false;
+        return;
+      }
+      // fixed-only mode uses exact; clear range
+      min.value = "";
+      max.value = "";
+    }
+  }
+
+// Wire up events
+  exact.addEventListener("input", function () {
+    onExactInput();
+  });
+
+  min.addEventListener("input", function () {
+    onRangeInput();
+  });
+
+  max.addEventListener("input", function () {
+    onRangeInput();
+  });
+
+  if (exactOnly) {
+    exactOnly.addEventListener("change", function () {
+      onExactOnlyChange();
+    });
+  }
+})();
+
+/* I cannot deal with this nonses anymore JS script sucks big time
 //declare funxtion
   function syncPlayersInputs() {
     // whatever is typed but remove blank space and cannot be empty string
-    // const hasExact = exact.value.trim() !== "";
-    const hasExact = hasValue(exact);
-    const hasRange = hasValue(min) || hasValue(max);
-    // if exact is used, then range is dispbled 
+    const hasExact = exact.value.trim() !== "";
+    const hasRange = min.value.trim() !== "" || max.value.trim() !== "";
+
+    // If exact is used, disable range
     min.disabled = hasExact;
     max.disabled = hasExact;
-
-    // If range is used, then exact is disabled
+    
+    // If range is used, disable exact
     exact.disabled = hasRange;
 
-// only if checkbox is present (RECONSIDER change it!)
+    // Checkbox rule
+    // - only usable when exact has value
+    // -if range becomes active, force untick
     if (exactOnly) {
       exactOnly.disabled = !hasExact || hasRange;
       if (!hasExact || hasRange) exactOnly.checked = false;
     }
   }
-// typing in range clears the exact (and vice verse)
+
   exact.addEventListener("input", function () {
-    // if any of these are have values clear them
-    if (hasValue(exact)) {
-      min.value = "";
-      max.value = "";
+    // if user types range, untick "exact only"
+  if (exact.value.trim() !== "") {
+    min.value = "";
+    max.value = "";
     }
-    // call so fileds/checkbox get disable or enabled
     syncPlayersInputs();
   });
-  //define funxtion that runs
+
+  // Typing range clears exact + unticks checkbox
   function onRangeInput() {
-    // if min or max  is typed
-    if (hasValue(min) || hasValue(max)) {
-      // clear exact field 
+    const hasRange = min.value.trim() !== "" || max.value.trim() !== "";
+    if (hasRange) {
       exact.value = "";
-      // untick/unmark checkbox (exact only doesn't apply anymore)
       if (exactOnly) exactOnly.checked = false;
     }
     syncPlayersInputs();
   }
-  // run if either min or max is typed
+
   min.addEventListener("input", onRangeInput);
   max.addEventListener("input", onRangeInput);
 
-  // Run on page load
   syncPlayersInputs();
 })();
+*/
