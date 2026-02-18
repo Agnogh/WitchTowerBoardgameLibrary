@@ -212,6 +212,14 @@ body {
   border-style: dashed;
 }
 
+/* explanation how filter works */
+.filter-hint{
+  display:block;
+  margin:0.25rem 0 0.5rem;
+  font-size:0.85rem;
+  opacity:0.8;
+  line-height:1.2;
+}
 
 /* sidebar to stack on small screns */
 @media (max-width: 900px) {
