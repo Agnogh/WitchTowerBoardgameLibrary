@@ -133,7 +133,8 @@
 
             {% if age_min %}
               <a class="filter-chip" href="{{ remove_age_url }}">
-                ✕ Player age: {{ age_min }}
+                <!-- include checkboxe if ticked-->
+                ✕ Player age: {{ age_min }}{% if age_include_unknown %} (incl. unknown){% endif %}
               </a>
             {% endif %}
 
@@ -252,6 +253,17 @@
               placeholder="e.g. 12"
               value="{{ age_min }}"
             >
+
+          <label class="games-filter-toggle">
+            <input
+              type="checkbox"
+              name="age_include_unknown"
+              value="1"
+              {% if age_include_unknown %}checked{% endif %}
+            >
+            Include games without no age rating
+          </label>
+
 
           <label class="screen-reader-only" for="category">Category</label>
           <select id="category" name="category" onchange="this.form.submit()">

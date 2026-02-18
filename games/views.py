@@ -69,6 +69,8 @@ def game_list(request, category_slug=None):
     # age filter (minimum age on the box, no max)
     age_min_raw = request.GET.get("age_min", "").strip()
     age_min = to_pos_int(age_min_raw)
+    # for games that are age range unsorted (age restriction not set)
+    age_include_unknown = request.GET.get("age_include_unknown") == "1"
 
     # If typed min time > max time - switch them 'bugfix'
     if time_min and time_max and time_min > time_max:
@@ -166,9 +168,12 @@ def game_list(request, category_slug=None):
     elif time_max:
         games = games.filter(max_play_time__lte=time_max)
 
-    # age filter (box age <= chosen age)
+    # age filter (game min age <= player's age)
     if age_min:
-        games = games.filter(Q(age__lte=age_min) | Q(age__isnull=True))
+        if age_include_unknown:
+            games = games.filter(Q(age__lte=age_min) | Q(age__isnull=True))
+        else:
+            games = games.filter(age__lte=age_min)
 
     # sorting
     if sort == "price":
@@ -269,7 +274,8 @@ def game_list(request, category_slug=None):
     remove_time_url = build_qs(
         base_url=list_url, remove=["time_min", "time_max"]
     )
-    remove_age_url = build_qs(base_url=list_url, remove=["age_min"])
+    remove_age_url = build_qs(base_url=list_url,
+                              remove=["age_min", "age_include_unknown"])
 
     context = {
         "games": page_obj,  # loops over current page, not all games
@@ -344,6 +350,8 @@ def game_list(request, category_slug=None):
         "age_min": age_min_raw,
         # remove age filter
         "remove_age_url": remove_age_url,
+        # undefinde / unexisting age restriction
+        "age_include_unknown": age_include_unknown,
     }
 
     return render(request, "games/game_list.html", context)
