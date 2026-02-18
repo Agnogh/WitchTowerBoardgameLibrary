@@ -133,7 +133,7 @@
 
             {% if age_min %}
               <a class="filter-chip" href="{{ remove_age_url }}">
-                ✕ Age: {{ age_min }}+
+                ✕ Player age: {{ age_min }}
               </a>
             {% endif %}
 
@@ -165,9 +165,9 @@
           <small class="filter-hint">
             <b>Range</b> = group size (e.g. 2–6).
           
-            <b>Exact</b> = games playable with that number.
+            <b>Exact</b> = shows games supporting that number of players (e.g. 5 in range 2-7) 
           
-            <b>Fixed player count only</b> = exactyl that number of players.
+            <b>Fixed player count only</b> = shows exactly that number of players (no more, no less).
           </small>
           <div class="games-filter-row">
             <input
