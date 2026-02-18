@@ -260,6 +260,7 @@
               name="age_include_unknown"
               value="1"
               {% if age_include_unknown %}checked{% endif %}
+              {% if not age_min %}disabled{% endif %}
             >
             Include games without no age rating
           </label>
