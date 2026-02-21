@@ -253,9 +253,10 @@
               placeholder="e.g. 12"
               value="{{ age_min }}"
             >
-
+<!-- JS will override '{% if not age_min %}disabled{% endif %}' as soon value is typed-->
           <label class="games-filter-toggle">
             <input
+              id="age_include_unknown"
               type="checkbox"
               name="age_include_unknown"
               value="1"

@@ -74,6 +74,28 @@
   }
 })();
 
+(function () {
+  const age = document.getElementById("age_min");
+  const ageUnknown = document.getElementById("age_include_unknown");
+
+  if (!age || !ageUnknown) return;
+
+  function syncAgeUnknownCheckbox() {
+    const hasAge = age.value.trim() !== "";
+
+    ageUnknown.disabled = !hasAge;
+
+    // If age is cleared, also untick the checkbox (so it can't submit "on" with no age)
+    if (!hasAge) ageUnknown.checked = false;
+  }
+
+  // Enable/disable immediately while typing
+  age.addEventListener("input", syncAgeUnknownCheckbox);
+
+  // Run once on page load (covers refresh / back button)
+  syncAgeUnknownCheckbox();
+})()
+
 /* I cannot deal with this nonses anymore JS script sucks big time
 //declare funxtion
   function syncPlayersInputs() {
