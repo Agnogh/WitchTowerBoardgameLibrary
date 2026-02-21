@@ -147,7 +147,7 @@
 
         <form method="get" action="{{ list_url }}" class="games-list-controls">
           <label class="screen-reader-only" for="q">Search</label>
-          <input id="q" name="q" type="text" value="{{ query }}" placeholder="Search games...">
+          <input id="q" name="q" type="text" value="{{ query }}" placeholder="Search games by title...">
 
           <input type="hidden" name="sort" value="{{ sort }}">
           
@@ -164,11 +164,11 @@
 
           <label class="games-filter-label" for="players_min">Players</label>
           <small class="filter-hint">
-            <b>Range</b> = group size (e.g. 2–6).
+            <b>Range</b> = shows games in group size range (e.g. 2–6).
             <br></br>
-            <b>Exact</b> = shows games supporting that number of players (e.g. 5 in range 2-7) 
+            <b>Exact</b> = shows games supporting this player count (e.g. 5 in range 2-7) 
             <br></br>
-            <b>Fixed player count only</b> = shows exactly that number of players (no more, no less).
+            <b>Fixed player count only</b> = shows games with exactly that player count (no more, no less).
           </small>
           <div class="games-filter-row">
             <input
@@ -202,7 +202,7 @@
               type="number"
               min="1"
               inputmode="numeric"
-              placeholder="one value e.g. 5"
+              placeholder="one value (e.g. 5)"
               value="{{ players_exact }}"
             >
           </div>
@@ -217,7 +217,7 @@
             Fixed player count only (min = max)
           </label>
 
-          <label class="games-filter-label" for="time_min">Play time (min)</label>
+          <label class="games-filter-label" for="time_min">Play time (minutes)</label>
           <div class="games-filter-row">
             <input
               id="time_min"
@@ -242,7 +242,9 @@
 
           <label class="games-filter-label" for="age_min">Player age</label>
           <small class="filter-hint">
-            Shows games with age rating up to this age (suitable for players aged X and older). *includes games with no age set.
+            Shows games suitable for players aged X and older (game age rating must be X or lower).
+            <br></br>
+            <small>*use the checkbox below to also include games with no age rating.</small> 
           </small>
             <input
               id="age_min"
@@ -263,7 +265,7 @@
               {% if age_include_unknown %}checked{% endif %}
               {% if not age_min %}disabled{% endif %}
             >
-            Include games without no age rating
+            Include games with no age rating
           </label>
 
 
@@ -312,7 +314,7 @@
             {% if is_newest %}↓{% elif is_oldest %}↑{% endif %}
           </a>
 
-          <button type="submit">Search</button>
+          <button type="submit">Apply filters</button>
         <!-- shows 'clear' only when fileters are active ..or for games "in stocks"-->
          <!-- no need for 2 'clear' button as I added another in clear filters
           {% if query or category_slug or in_stock or sort != "title" %}
