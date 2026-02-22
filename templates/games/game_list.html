@@ -134,7 +134,7 @@
             {% if age_min %}
               <a class="filter-chip" href="{{ remove_age_url }}">
                 <!-- include checkboxe if ticked-->
-                ✕ Player age: {{ age_min }}{% if age_include_unknown %} (incl. unknown){% endif %}
+                ✕ Age: {{ age_min }}+{% if age_include_unknown %} (incl. unknown){% endif %}
               </a>
             {% endif %}
 
