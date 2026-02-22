@@ -1,6 +1,10 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  background:
+  radial-gradient(circle at 12% 8%, rgba(181, 140, 255, 0.1), transparent 40%),
+  radial-gradient(circle at 88% 15%, rgba(109, 211, 255, 0.07), transparent 35%),
+  linear-gradient(180deg, var(--wt-bg-1) 0%, #0b0d18 100%);
 }
 
 .container {
@@ -15,9 +19,18 @@ body {
   border-bottom: 1px solid #ddd;
 }
 
+/* Header / nav / footer theme (keeps your structure, just re-colors) */
+.site-header,
+.site-nav,
+.site-footer {
+  background: rgba(10, 11, 22, 0.7);
+  border-color: rgba(181, 140, 255, 0.14);
+}
+
 .page-title {
   margin: 0;
   font-size: 18px;
+  letter-spacing: 0.02em
 }
 
 .site-nav {
