@@ -54,10 +54,11 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background:  /* "root" change later maybe */
+  color: var(--wtl-text-main);
+  background:  /* "root" change later maybe FIXED!! */
   radial-gradient(circle at 12% 8%, rgba(181, 140, 255, 0.1), transparent 40%),
   radial-gradient(circle at 88% 15%, rgba(109, 211, 255, 0.07), transparent 35%),
-
+  linear-gradient(180deg, var(--wtl-page) 0%, #0b0d18 100%);
 }
 
 .container {
@@ -104,8 +105,8 @@ body {
 
 .games-layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 24px;
+  grid-template-columns: 1fr;  /* mobile by def:stack */
+  gap: var(--wtl-space-6);
   align-items: start;
 }
 
@@ -288,9 +289,10 @@ body {
 }
 
 /* sidebar to stack on small screns */
+/* need to fix phone layout first
 @media (max-width: 900px) {
   .games-layout {
     grid-template-columns: 1fr;
   }
 }
-
+*/
