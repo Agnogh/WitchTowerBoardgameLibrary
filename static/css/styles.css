@@ -307,6 +307,28 @@ body {
   box-shadow: var(--wtl-shadow-main);
 }
 
+
+/* All headings */
+.games-list-page h1 {
+  margin: 0 0 var(--wtl-space-2) 0;
+  color: var(--wtl-text-main);
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.03em;  /*EXPERIMETAL - Change if needed*/
+}
+
+.games-sidebar__title {
+  margin: 0 0 var(--wtl-space-3) 0;
+  color: var(--wtl-accent-gold);  /*Might not be best choise - LEAVE FOR NOW*/
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.03em;
+}
+
+/* Small counts just below title */
+.games-list__range {
+  color: var(--wtl-text-soft);
+  margin: 0 0 var(--wtl-space-1) 0;
+}
+
 /* sidebar to stack on small screns */
 /* need to fix phone layout first
 @media (max-width: 900px) {
