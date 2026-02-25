@@ -1,7 +1,60 @@
+
+:root {
+  /* ============================================================
+     WITCH TOWER LIBRARY (WTL) THEME TOKENS
+     Base colours, borders, shadows, spacing, radius, effects, glows
+     =============================================================== */
+
+  /* Page + surfaces */
+  --wtl-page: #0d1020;  /* overall page / background canvas (colour behind everything) */
+  --wtl-panel: #1a1735;  /* box surface on top sidebar / cards / panels */
+  --wtl-control-bg: #141229;   /* inputs / form fileds / select / buttons (for diff with 'panel')*/
+
+  /* Text */
+  --wtl-text-main: #f2edff;  /* normal readable text */
+  --wtl-text-soft: #cec5eb;  /* secondary / backup text */
+  --wtl-text-muted: #aa9fd0;  /* extra soft hints */
+
+  /* Accents */
+  --wtl-accent-magic: #b58cff;  /* main magic purple */
+  --wtl-accent-magic-soft: rgba(181, 140, 255, 0.14);  /* soft hover / active tint */
+  --wtl-accent-gold: #d8b46c;  /* fantasy /library highlight */
+
+  /* Borders */
+  --wtl-border: rgba(181, 140, 255, 0.26);  /* default panel/control border */
+  --wtl-border-soft: rgba(181, 140, 255, 0.14);  /* softer subtle border */
+  --wtl-border-strong: rgba(217, 181, 109, 0.35);  /* stronger/active/gold bodrer */
+
+  /* Effects */
+  --wtl-shadow-main: 0 16px 40px rgba(4, 5, 12, 0.45);
+  --wtl-shadow-soft: 0 8px 18px rgba(4, 5, 12, 0.25);
+
+  /* Magic glow effect for 'fantasy' vibe (used on panels / focus / activ elements) */
+  --wtl-glow-magic:
+    0 0 0 1px rgba(109, 211, 255, 0.05),
+    0 0 26px rgba(181, 140, 255, 0.14);
+
+  /* Focus ring colour - outline on interaction (for input/button focus outlines) */
+  --wtl-focus-ring: rgba(109, 211, 255, 0.35);
+
+  /* Border radius -for nicely formed elements (shared) */
+  --wtl-radius-sm: 8px;  /* small part*/
+  --wtl-radius: 12px;  /*for buttons /  dropdowns menu*/
+  --wtl-radius-lg: 18px;  /*sidebar / large conteiners */
+
+  /* Spacing scale (shared) */
+  --wtl-space-1: 0.25rem;  /* 4px */
+  --wtl-space-2: 0.5rem;  /* 8px */
+  --wtl-space-3: 0.75rem;  /* 12px */
+  --wtl-space-4: 1rem;  /* 16px */
+  --wtl-space-5: 1.25rem;  /* 20px */
+  --wtl-space-6: 1.5rem;  /* 24px */
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background:
+  background:  /* "root" change later maybe */
   radial-gradient(circle at 12% 8%, rgba(181, 140, 255, 0.1), transparent 40%),
   radial-gradient(circle at 88% 15%, rgba(109, 211, 255, 0.07), transparent 35%),
   linear-gradient(180deg, var(--wt-bg-1) 0%, #0b0d18 100%);
@@ -16,15 +69,15 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;  /* colour might change due to "root" */
 }
 
-/* Header / nav / footer theme (keeps your structure, just re-colors) */
+/* Header / nav / footer theme (keeps structure, just re-colours might change wioth "root") */
 .site-header,
 .site-nav,
 .site-footer {
-  background: rgba(10, 11, 22, 0.7);
-  border-color: rgba(181, 140, 255, 0.14);
+  background: rgba(10, 11, 22, 0.7);  /*"root" might need to change it */
+  border-color: rgba(181, 140, 255, 0.14);  /*"root" might need to change it */
 }
 
 .page-title {
@@ -37,7 +90,7 @@ body {
   display: flex;
   gap: 12px;
   padding: 10px 16px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eee;  /* colour might change due to "root" */
 }
 
 .site-nav a {
@@ -46,7 +99,7 @@ body {
 
 .site-footer {
   padding: 12px 16px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #ddd;  /*"root" might need to change it */
 }
 
 .games-layout {
@@ -58,7 +111,7 @@ body {
 
 .games-sidebar {
   padding: 16px;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd;  /*"root" might need to change it */
   border-radius: 10px;
 }
 
@@ -76,14 +129,14 @@ body {
 .games-list-controls select {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd;  /*"root" might need to change it */
   border-radius: 8px;
   box-sizing: border-box;
 }
 
 .games-list-controls button[type="submit"] {
   padding: 10px 12px;
-  border: 1px solid #222;
+  border: 1px solid #222;  /*"root" might need to change it */
   border-radius: 8px;
   background: transparent;
   cursor: pointer;
@@ -92,7 +145,7 @@ body {
 .games-list-controls__clear {
   display: inline-block;
   padding: 10px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd;  /*"root" might need to change it */
   border-radius: 8px;
   text-decoration: none;
   text-align: center;
@@ -112,13 +165,13 @@ body {
 
 .games-list-sort__link {
   padding: 6px 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd;  /*"root" might need to change it */
   border-radius: 999px;
   text-decoration: none;
 }
 
 .games-list-sort__link.is-active {
-  border-color: #222;
+  border-color: #222;  /*"root" might need to change it */
   font-weight: 700;
 }
 
@@ -141,7 +194,7 @@ body {
   padding: 12px;
   border: 1px solid #eee;
   border-radius: 10px;
-  background: #fafafa;
+  background: #fafafa;  /*"root" might need to change it */
 }
 
 .active-filters__title {
@@ -170,22 +223,22 @@ body {
 .filter-chip {
   display: inline-block;
   padding: 6px 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd;  /*"root" might need to change it */
   border-radius: 999px;
   text-decoration: none;
   font-size: 13px;
-  background: #fff;
+  background: #fff;  /*"root" might need to change it */
 }
 
 /* Clear all filters button*/
 .filter-chip--clear {
-  border-color: #222;
+  border-color: #222;  /*"root" might need to change it */
   font-weight: 700;
 }
 
 .games-list__item {
   padding: 12px;
-  border: 1px solid #eee;
+  border: 1px solid #eee;  /*"root" might need to change it */
   border-radius: 10px;
   margin-bottom: 10px;
 }
@@ -211,12 +264,12 @@ body {
   font-size: 12px;
   padding: 4px 8px;
   border-radius: 999px;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd;  /*"root" might need to change it */
 }
 
 /* for available games */
 .badge--in {
-  border-color: #222;
+  border-color: #222;  /*"root" might need to change it */
   font-weight: 700;
 }
 
