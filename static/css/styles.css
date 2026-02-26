@@ -329,6 +329,23 @@ body {
   margin: 0 0 var(--wtl-space-1) 0;
 }
 
+/* number of game found based on filters applied */
+.games-list__count {
+  color: var(--wtl-accent-gold);
+  margin: 0 0 var(--wtl-space-4) 0;
+  font-weight: 700;
+}
+
+/* Panels- sidebar + main list contaner */
+.games-sidebar,
+.games-main {
+  background: linear-gradient(180deg, var(--wtl-panel) 0%, rgba(26, 23, 53, 0.82) 100%);
+  border: 1px solid var(--wtl-border);
+  border-radius: var(--wtl-radius-lg);
+  box-shadow: var(--wtl-shadow-soft), var(--wtl-glow-magic);
+  padding: var(--wtl-space-5);
+}
+
 /* sidebar to stack on small screns */
 /* need to fix phone layout first
 @media (max-width: 900px) {
