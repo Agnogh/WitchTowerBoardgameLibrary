@@ -346,6 +346,28 @@ body {
   padding: var(--wtl-space-5);
 }
 
+/* FIlters */
+/* Active filters box */
+.active-filters {
+  background: rgba(10, 11, 22, 0.55);
+  border: 1px solid var(--wtl-border-strong);
+  border-radius: var(--wtl-radius);
+  padding: var(--wtl-space-4);
+}
+
+/* Active filters title */
+.active-filters__title {
+  color: var(--wtl-accent-gold);
+  margin-bottom: var(--wtl-space-2);
+}
+
+/* Filter hints text */
+.filter-hint {
+  color: var(--wtl-text-muted);
+  opacity: 1;  /* override previsu opacity */
+  line-height: 1.35;
+}
+
 /* sidebar to stack on small screns */
 /* need to fix phone layout first
 @media (max-width: 900px) {
