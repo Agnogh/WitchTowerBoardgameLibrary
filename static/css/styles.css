@@ -368,6 +368,49 @@ body {
   line-height: 1.35;
 }
 
+/* =========================================================
+   Form controls, list control, row fitlers, focus, buttons
+   
+   ====================================================
+ */
+
+ /* I need this to make form spacing consistent */
+.games-list-controls {
+  gap: var(--wtl-space-4);
+}
+
+/* Text + number inputs + select share the same look LOOKS GOOD FOR NOW
+MaYBE CHANGE LATER*/
+.games-list-controls input[type="text"],
+.games-list-controls input[type="number"],
+.games-list-controls select {
+  width: 100%;
+  padding: 10px 12px;
+  box-sizing: border-box;
+
+  background: var(--wtl-control-bg);
+  color: var(--wtl-text-main);
+
+  border: 1px solid var(--wtl-border);
+  border-radius: var(--wtl-radius);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+/* Placeholder text */
+.games-list-controls input::placeholder {
+  color: var(--wtl-text-muted);
+}
+
+/* Focus ring (keyboard + click) */
+.games-list-controls input[type="text"]:focus,
+.games-list-controls input[type="number"]:focus,
+.games-list-controls select:focus {
+  outline: 2px solid var(--wtl-focus-ring);
+  outline-offset: 2px;
+  border-color: rgba(109, 211, 255, 0.45);
+  box-shadow: var(--wtl-glow-magic);
+}
+
 /* sidebar to stack on small screns */
 /* need to fix phone layout first
 @media (max-width: 900px) {
