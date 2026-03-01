@@ -414,6 +414,20 @@ MaYBE CHANGE LATER*/
   box-shadow: var(--wtl-glow-magic);
 }
 
+
+/* Number ranges (players min/max, time min/max) */
+.games-filter-row {
+  display: grid;  /*EITHER KEEP IT, OR CHANGE PLACEHOLDER*/
+  grid-template-columns: 1fr auto 1fr;  /*EITHER KEEP IT, OR CHANGE PLACEHOLDER*/
+  gap: var(--wtl-space-2);
+  align-items: center;
+}
+
+.games-filter-row span[aria-hidden="true"] {
+  color: var(--wtl-text-muted);
+  padding: 0 var(--wtl-space-1);
+}
+
 /* sidebar to stack on small screns */
 /* need to fix phone layout first
 @media (max-width: 900px) {
