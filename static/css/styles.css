@@ -136,11 +136,26 @@ body {
 }
 
 .games-list-controls button[type="submit"] {
-  padding: 10px 12px;
+  width: 100%;
+  padding: 12px 14px;
   border: 1px solid #222;  /*"root" might need to change it */
+  border: 1px solid rgba(181, 140, 255, 0.35);  /*MAYBE THIS IS BETTER*/
   border-radius: 8px;
   background: transparent;
   cursor: pointer;
+
+  border-radius: var(--wtl-radius);
+  box-shadow: var(--wtl-shadow-soft);
+/*EXPERIMENTAL - works now, MAYBE CHANGE LATER*/
+  font-weight: 700;
+  letter-spacing: 0.02em;
+/*EXPERIMNTAL MAYBE CHANGE LATER*/
+  background: linear-gradient(
+    180deg,
+    rgba(181, 140, 255, 0.22),
+    rgba(181, 140, 255, 0.10)
+  );
+  color: var(--wtl-text-main);
 }
 
 .games-list-controls__clear {
@@ -182,12 +197,16 @@ body {
   gap: 10px;
   align-items: center;
   font-size: 14px;
+  color: var(--wtl-text-soft);
 }
 
 /* selection of 'games in store' chekcbox*/
 .games-filter-toggle input {
   width: 16px;
   height: 16px;
+  accent-color: var(--wtl-accent-magic);
+  opacity: 0.5;  /*for dim appearance when disabld*/
+  cursor: not-allowed;
 }
 
 /* current search filters applied */ 
@@ -399,6 +418,11 @@ MaYBE CHANGE LATER*/
   font-size: 16px;
 }
 
+/* Select (dropdown) extra fancy polish */
+.games-list-controls select {
+  cursor: pointer;
+}
+
 /* Placeholder text */
 .games-list-controls input::placeholder {
   color: var(--wtl-text-muted);
@@ -427,6 +451,9 @@ MaYBE CHANGE LATER*/
   color: var(--wtl-text-muted);
   padding: 0 var(--wtl-space-1);
 }
+
+
+
 
 /* sidebar to stack on small screns */
 /* need to fix phone layout first
