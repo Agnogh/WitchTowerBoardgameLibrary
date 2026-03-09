@@ -333,26 +333,41 @@ body {
 
 
 .games-list__item {
-  padding: 12px;
-  border: 1px solid #eee;  /*"root" might need to change it */
-  border-radius: 10px;
-  margin-bottom: 10px;
+  /* padding: 12px; using VARIABLE - WORKS */
+  padding: var(--wtl-space-4);
+  /* border: 1px solid #eee;  /*"root" might need to change it */ /*VARIABLE - WORKS*/
+  border: 1px solid var(--wtl-border-soft);
+  /* border-radius: 10px; using VARAIBEL - KINDA WORKS - RECONSIDER */
+  border-radius: var(--wtl-radius);
+  /* margin-bottom: 10px; using VARIABLE - WORKS */
+  margin-bottom: var(--wtl-space-3);
+  box-shadow: var(--wtl-shadow-soft);
 }
 
 .games-list__item.is-out {
-  opacity: 0.65;
+  opacity: 0.65; /* MIGHT NEEED NEW VARIABLE FOR THIS */
 }
 
 .games-list__link {
   text-decoration: none;
   font-weight: 700;
+  color: var(--wtl-text-main);
+}
+
+.games-list__link:hover,
+.games-list__link:focus-visible {
+  color: var(--wtl-accent-magic);
+  outline: none;
 }
 
 .games-list__meta {
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
+  gap: var(--wtl-space-2);
   align-items: center;
-  margin-top: 6px;
+  /* margin-top: 6px; Use VARIABLES - WORKS */
+  margin-top: var(--wtl-space-2);
+  color: var(--wtl-text-soft);
 }
 
 /* general appearnce of badges (in stocks or out of stocks)*/
