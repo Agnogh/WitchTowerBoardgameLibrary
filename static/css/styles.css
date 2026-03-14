@@ -342,6 +342,7 @@ body {
   /* margin-bottom: 10px; using VARIABLE - WORKS */
   margin-bottom: var(--wtl-space-3);
   box-shadow: var(--wtl-shadow-soft);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .games-list__item.is-out {
@@ -375,18 +376,25 @@ body {
   font-size: 12px;
   padding: 4px 8px;
   border-radius: 999px;
-  border: 1px solid #ddd;  /*"root" might need to change it */
+  border: 1px solid #ddd;  /*"root" might need to change it */ /*VARIABKLES*/
+  border: 1px solid var(--wtl-border);  /*Use Variable WORKS BETTER*/
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--wtl-text-main);
 }
 
 /* for available games */
 .badge--in {
-  border-color: #222;  /*"root" might need to change it */
+  border-color: #222;  /*"root" might need to change it */ /*MAYBE REMOVE*/
+  border-color: rgba(109, 211, 255, 0.35);  /*BETTER -KEEP IT*/
+  background: rgba(109, 211, 255, 0.10);
   font-weight: 700;
 }
 
 /* When where there are no games in store */
 .badge--out {
   border-style: dashed;
+  border-color: rgba(217, 181, 109, 0.30);  /*GOOD KEEP*/
+  background: rgba(217, 181, 109, 0.06);  /*MAYBE KEEP*/
 }
 
 
