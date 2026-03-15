@@ -51,6 +51,12 @@
   --wtl-space-6: 1.5rem;  /* 24px */
 }
 
+
+/* 
+-----------------------------------------------
+                    BASE  
+----------------------------------------------- 
+*/
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -64,6 +70,12 @@ body {
 .container {
   padding: 16px;
 }
+
+/* 
+-----------------------------------------------
+        HEADRER / NAVIGATION /FOOTER  
+----------------------------------------------- 
+*/
 
 .site-header {
   display: flex;
@@ -84,7 +96,7 @@ body {
 .page-title {
   margin: 0;
   font-size: 18px;
-  letter-spacing: 0.02em
+  letter-spacing: 0.02em;
 }
 
 .site-nav {
@@ -102,6 +114,12 @@ body {
   padding: 12px 16px;
   border-top: 1px solid #ddd;  /*"root" might need to change it */
 }
+
+/* 
+-----------------------------------------------
+          GAME PAGE LAYOUT + PANELS  
+----------------------------------------------- 
+*/
 
 .games-layout {
   display: grid;
