@@ -598,6 +598,12 @@ MaYBE CHANGE LATER*/
 }
 
 
+/* Disabled look (if I add disabled links later MAYBE) */
+.pagination__link[aria-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 /* sidebar to stack on small screns */
 /* need to fix phone layout first
 @media (max-width: 900px) {
