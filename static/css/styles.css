@@ -121,22 +121,71 @@ body {
 ----------------------------------------------- 
 */
 
+/* Main games page wrapper */
+.games-list-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--wtl-space-6);
+
+  /* Slightly more transparent so it is bit differnt */
+  background:  /* EXPERIMENTAL - CHange later if needed*/
+    radial-gradient(circle at 18% 10%, rgba(181, 140, 255, 0.08), transparent 42%),
+    radial-gradient(circle at 90% 12%, rgba(109, 211, 255, 0.06), transparent 35%),
+    linear-gradient(180deg, rgba(13, 16, 32, 0.65), rgba(13, 16, 32, 0.35));
+
+  border: 1px solid var(--wtl-border-soft);
+  border-radius: var(--wtl-radius-lg);
+  box-shadow: var(--wtl-shadow-main);
+}
+
+/* All headings */
+.games-list-page h1 {
+  margin: 0 0 var(--wtl-space-2) 0;
+  color: var(--wtl-text-main);
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.03em;  /*EXPERIMETAL - Change if needed*/
+}
+
+/* Small counts just below title */
+.games-list__range {
+  color: var(--wtl-text-soft);
+  margin: 0 0 var(--wtl-space-1) 0;
+}
+
+/* number of game found based on filters applied */
+.games-list__count {
+  color: var(--wtl-accent-gold);
+  margin: 0 0 var(--wtl-space-4) 0;
+  font-weight: 700;
+}
+
 .games-layout {
   display: grid;
   grid-template-columns: 1fr;  /* mobile by def:stack */
   gap: var(--wtl-space-6);
   align-items: start;
 }
-/* defined later - SEPERATE IF NEEDED
-.games-sidebar {
-  padding: 16px;
-  border: 1px solid #ddd;  /*"root" might need to change it *//*
-  border-radius: 10px;
+
+.games-sidebar__title {
+  margin: 0 0 var(--wtl-space-3) 0;
+  color: var(--wtl-accent-gold);  /*Might not be best choise - LEAVE FOR NOW*/
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.03em;
 }
-*/
+
+/* Panels- sidebar + main list contaner */ 
+/*SEPERATE IF NEEDED*/
+.games-sidebar,
+.games-main {
+  background: linear-gradient(180deg, var(--wtl-panel) 0%, rgba(26, 23, 53, 0.82) 100%);
+  border: 1px solid var(--wtl-border);
+  border-radius: var(--wtl-radius-lg);
+  box-shadow: var(--wtl-shadow-soft), var(--wtl-glow-magic);
+  padding: var(--wtl-space-5);
+}
 
 
-
+/*----------------------------------------------------------*/
 
 
 .games-list-controls button[type="submit"] {
@@ -417,64 +466,14 @@ body {
 
 
 
-/* GAME PAGE */
-
-/* Main games page wrapper */
-.games-list-page {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: var(--wtl-space-6);
-
-  /* Slightly more transparent so it is bit differnt */
-  background:  /* EXPERIMENTAL - CHange later if needed*/
-    radial-gradient(circle at 18% 10%, rgba(181, 140, 255, 0.08), transparent 42%),
-    radial-gradient(circle at 90% 12%, rgba(109, 211, 255, 0.06), transparent 35%),
-    linear-gradient(180deg, rgba(13, 16, 32, 0.65), rgba(13, 16, 32, 0.35));
-
-  border: 1px solid var(--wtl-border-soft);
-  border-radius: var(--wtl-radius-lg);
-  box-shadow: var(--wtl-shadow-main);
-}
 
 
-/* All headings */
-.games-list-page h1 {
-  margin: 0 0 var(--wtl-space-2) 0;
-  color: var(--wtl-text-main);
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: 0.03em;  /*EXPERIMETAL - Change if needed*/
-}
 
-.games-sidebar__title {
-  margin: 0 0 var(--wtl-space-3) 0;
-  color: var(--wtl-accent-gold);  /*Might not be best choise - LEAVE FOR NOW*/
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: 0.03em;
-}
 
-/* Small counts just below title */
-.games-list__range {
-  color: var(--wtl-text-soft);
-  margin: 0 0 var(--wtl-space-1) 0;
-}
 
-/* number of game found based on filters applied */
-.games-list__count {
-  color: var(--wtl-accent-gold);
-  margin: 0 0 var(--wtl-space-4) 0;
-  font-weight: 700;
-}
 
-/* Panels- sidebar + main list contaner */ 
-/*SEPERATE IF NEEDED*/
-.games-sidebar,
-.games-main {
-  background: linear-gradient(180deg, var(--wtl-panel) 0%, rgba(26, 23, 53, 0.82) 100%);
-  border: 1px solid var(--wtl-border);
-  border-radius: var(--wtl-radius-lg);
-  box-shadow: var(--wtl-shadow-soft), var(--wtl-glow-magic);
-  padding: var(--wtl-space-5);
-}
+
+
 
 
 
