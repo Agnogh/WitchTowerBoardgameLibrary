@@ -185,8 +185,61 @@ body {
 }
 
 
-/*----------------------------------------------------------*/
 
+/* 
+  -----------------------------------------------------------
+      FILTERS Form, list control, active fitlers, chips
+  -----------------------------------------------------------
+*/
+
+ /* I need this to make form spacing consistent */
+.games-list-controls {
+  gap: var(--wtl-space-4);
+  display: grid;
+  /* gap: 12px; Variable is better for now */
+}
+
+
+/* Text + number inputs + select share the same look LOOKS GOOD FOR NOW
+MaYBE CHANGE LATER*/
+.games-list-controls input[type="text"],
+.games-list-controls input[type="number"],
+.games-list-controls select {
+  width: 100%;
+  padding: 10px 12px;
+  box-sizing: border-box;
+
+  background: var(--wtl-control-bg);
+  color: var(--wtl-text-main);
+
+  border: 1px solid var(--wtl-border);
+  border-radius: var(--wtl-radius);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02);
+
+  /* Helps with scaling on mobile  weird behaviour on some iOSs */
+  font-size: 16px;
+}
+
+
+/* Select (dropdown) extra fancy polish */
+.games-list-controls select {
+  cursor: pointer;
+}
+
+/* Placeholder text */
+.games-list-controls input::placeholder {
+  color: var(--wtl-text-muted);
+}
+
+/* Focus ring (keyboard + click) */
+.games-list-controls input[type="text"]:focus,
+.games-list-controls input[type="number"]:focus,
+.games-list-controls select:focus {
+  outline: 2px solid var(--wtl-focus-ring);
+  outline-offset: 2px;
+  border-color: rgba(109, 211, 255, 0.45);
+  box-shadow: var(--wtl-glow-magic);
+}
 
 .games-list-controls button[type="submit"] {
   width: 100%;
@@ -234,6 +287,130 @@ body {
   text-align: center;
 }
 
+/* check box for 'games in store' */
+.games-filter-toggle {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--wtl-text-soft);
+}
+
+/* selection of 'games in store' chekcbox*/
+/*
+.games-filter-toggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--wtl-accent-magic);
+  opacity: 0.5;  /*for dim appearance when disabld
+  cursor: not-allowed; - move to
+}
+*/
+
+/*games in store enabled*/
+.games-filter-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--wtl-accent-magic);
+}
+
+/* game ins tore disabled */
+.games-filter-toggle input[type="checkbox"]:disabled {
+  opacity: 0.5;  /*for dim appearance when disabld*/
+  cursor: not-allowed;
+}
+
+/* 
+  ---------------------------------------------
+        FILTERS - Active filters box
+  ---------------------------------------------
+*/
+
+/* current search filters applied */ 
+.active-filters {
+  padding: 12px;
+  padding: var(--wtl-space-4);  /*Var - better option*/
+  border: 1px solid #eee;
+  border: 1px solid var(--wtl-border-strong);  /*This is better*/
+  border-radius: 10px;
+  border-radius: var(--wtl-radius);  /*use variable KEEP IT MOST LIEKLY*/
+  background: #fafafa;  /*"root" might need to change it */
+  background: rgba(10, 11, 22, 0.55);  /**/
+}
+
+/* Active filters title */
+.active-filters__title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  margin-bottom: var(--wtl-space-2);  /* VAR - Better option KEEP IT*/
+
+  color: var(--wtl-accent-gold);
+}
+
+.active-filters__list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.active-filters__list li {
+  margin: 4px 0;
+}
+
+/* Filter hints (explanations for filters) text */
+.filter-hint {
+  color: var(--wtl-text-muted);
+  display:block;
+  opacity: 1;  /* override previsu opacity */
+  line-height: 1.35;
+  /*margin:0.25rem 0 0.5rem; NOPE */
+  margin: var(--wtl-space-1) 0 var(--wtl-space-3);  /*VAriable - Keep it*/
+  font-size:0.85rem;
+}
+
+/* individual filters */
+.filter-chip {
+  /* display: inline-block; */
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  /* border: 1px solid #ddd;  /*"root" might need to change it - VAR works OK */
+  border: 1px solid var(--wtl-border);  /*ACCEPTABLE*/
+  border-radius: 999px;
+  text-decoration: none;
+  /*font-size: 13px; */
+  font-size: 0.86rem;
+  background: #fff;  /*"root" might need to change it VAR WORKS OK*/
+  background: var(--wtl-accent-magic-soft);  /*WORKS - PASS*/
+  color: var(--wtl-text-main);
+}
+
+/* Styling for area holding individual filters */
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  /* gap: 8px; variable is good here - ignore manualy adjustment */
+  gap: var(--wtl-space-2);
+  /* margin-top: 8px; ignore manual adjsutment */
+  margin-top: var(--wtl-space-2);  /*WORKS KEEP*/
+}
+
+/* Clear all filters button*/
+.filter-chip--clear {
+  /*border-color: #222;  /*"root" might need to change it */ /*not good*/
+  border-color: rgba(109, 211, 255, 0.35);  /* works for now - REPLACE Variable */
+  font-weight: 700;
+  background: rgba(109, 211, 255, 0.12);
+}
+
+.filter-chip:hover,
+.filter-chip:focus-visible {
+  background: rgba(181, 140, 255, 0.22);
+  border-color: rgba(109, 211, 255, 0.35);
+  outline: none;
+}
+
+/*----------------------------------------------------------*/
+
 /* Sort links look like pills */
 .games-list-sort {
   display: flex;
@@ -278,126 +455,7 @@ body {
   outline: none;
 }
 
-
-/* check box for 'games in store' */
-.games-filter-toggle {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  font-size: 14px;
-  color: var(--wtl-text-soft);
-}
-
-/* selection of 'games in store' chekcbox*/
-/*
-.games-filter-toggle input {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--wtl-accent-magic);
-  opacity: 0.5;  /*for dim appearance when disabld
-  cursor: not-allowed; - move to
-}
-*/
-
-/*games in store enabled*/
-.games-filter-toggle input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--wtl-accent-magic);
-}
-/* game ins tore disabled */
-.games-filter-toggle input[type="checkbox"]:disabled {
-  opacity: 0.5;  /*for dim appearance when disabld*/
-  cursor: not-allowed;
-}
-
-/* FIlters */
-/* ** Active filters box ** */
-/* current search filters applied */ 
-.active-filters {
-  padding: 12px;
-  padding: var(--wtl-space-4);  /*Var - better option*/
-  border: 1px solid #eee;
-  border: 1px solid var(--wtl-border-strong);  /*This is better*/
-  border-radius: 10px;
-  border-radius: var(--wtl-radius);  /*use variable KEEP IT MOST LIEKLY*/
-  background: #fafafa;  /*"root" might need to change it */
-  background: rgba(10, 11, 22, 0.55);  /**/
-}
-
-/* Active filters title */
-.active-filters__title {
-  font-weight: 700;
-  margin-bottom: 8px;
-  margin-bottom: var(--wtl-space-2);  /* VAR - Better option KEEP IT*/
-
-  color: var(--wtl-accent-gold);
-}
-
-.active-filters__list {
-  margin: 0;
-  padding-left: 18px;
-}
-
-.active-filters__list li {
-  margin: 4px 0;
-}
-
-
-/* Filter hints (explanations for filters) text */
-.filter-hint {
-  color: var(--wtl-text-muted);
-  display:block;
-  opacity: 1;  /* override previsu opacity */
-  line-height: 1.35;
-  /*margin:0.25rem 0 0.5rem; NOPE */
-  margin: var(--wtl-space-1) 0 var(--wtl-space-3);  /*VAriable - Keep it*/
-  font-size:0.85rem;
-}
-
-
-/* individual filters */
-.filter-chip {
-  /* display: inline-block; */
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 10px;
-  /* border: 1px solid #ddd;  /*"root" might need to change it - VAR works OK */
-  border: 1px solid var(--wtl-border);  /*ACCEPTABLE*/
-  border-radius: 999px;
-  text-decoration: none;
-  /*font-size: 13px; */
-  font-size: 0.86rem;
-  background: #fff;  /*"root" might need to change it VAR WORKS OK*/
-  background: var(--wtl-accent-magic-soft);  /*WORKS - PASS*/
-  color: var(--wtl-text-main);
-}
-
-/* Styling for area holding individual filters */
-.filter-chips {
-  display: flex;
-  flex-wrap: wrap;
-  /* gap: 8px; variable is good here - ignore manualy adjustment */
-  gap: var(--wtl-space-2);
-  /* margin-top: 8px; ignore manual adjsutment */
-  margin-top: var(--wtl-space-2);  /*WORKS KEEP*/
-}
-
-/* Clear all filters button*/
-.filter-chip--clear {
-  /*border-color: #222;  /*"root" might need to change it */ /*not good*/
-  border-color: rgba(109, 211, 255, 0.35);  /* works for now - REPLACE Variable */
-  font-weight: 700;
-  background: rgba(109, 211, 255, 0.12);
-}
-
-.filter-chip:hover,
-.filter-chip:focus-visible {
-  background: rgba(181, 140, 255, 0.22);
-  border-color: rgba(109, 211, 255, 0.35);
-  outline: none;
-}
-
+/*badges*/
 
 .games-list__item {
   /* padding: 12px; using VARIABLE - WORKS */
@@ -477,60 +535,7 @@ body {
 
 
 
-/* =========================================================
-   Form controls, list control, row fitlers, focus, buttons
-   
-   ====================================================
- */
 
- /* I need this to make form spacing consistent */
-.games-list-controls {
-  gap: var(--wtl-space-4);
-  display: grid;
-  gap: 12px;
-}
-
-
-/* Text + number inputs + select share the same look LOOKS GOOD FOR NOW
-MaYBE CHANGE LATER*/
-.games-list-controls input[type="text"],
-.games-list-controls input[type="number"],
-.games-list-controls select {
-  width: 100%;
-  padding: 10px 12px;
-  box-sizing: border-box;
-
-  background: var(--wtl-control-bg);
-  color: var(--wtl-text-main);
-
-  border: 1px solid var(--wtl-border);
-  border-radius: var(--wtl-radius);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02);
-
-  /* Helps with scaling on mobile  weird behaviour on some iOSs */
-  font-size: 16px;
-}
-
-
-/* Select (dropdown) extra fancy polish */
-.games-list-controls select {
-  cursor: pointer;
-}
-
-/* Placeholder text */
-.games-list-controls input::placeholder {
-  color: var(--wtl-text-muted);
-}
-
-/* Focus ring (keyboard + click) */
-.games-list-controls input[type="text"]:focus,
-.games-list-controls input[type="number"]:focus,
-.games-list-controls select:focus {
-  outline: 2px solid var(--wtl-focus-ring);
-  outline-offset: 2px;
-  border-color: rgba(109, 211, 255, 0.45);
-  box-shadow: var(--wtl-glow-magic);
-}
 
 
 /* Number ranges (players min/max, time min/max) */
