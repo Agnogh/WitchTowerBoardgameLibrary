@@ -409,7 +409,13 @@ MaYBE CHANGE LATER*/
   outline: none;
 }
 
-/*----------------------------------------------------------*/
+
+/* 
+  ------------------------------------
+              SORT PILS
+  ------------------------------------
+*/
+
 
 /* Sort links look like pills */
 .games-list-sort {
@@ -427,7 +433,7 @@ MaYBE CHANGE LATER*/
 .games-list-sort__link {
   padding: 6px 10px;
   padding: 8px 12px;  /*Let TRY like this - EXPERIMENTAL*/
-  border: 1px solid #ddd;  /*"root" might need to change it */ /*CAN BE REMOVED*/
+  /* border: 1px solid #ddd;  /*"root" might need to change it */ /*CAN BE REMOVED*/
   border: 1px solid var(--wtl-border-soft);  /*USE VARIABLE - GOOD SOLUTION*/
   border-radius: 999px;
   text-decoration: none;
@@ -441,7 +447,7 @@ MaYBE CHANGE LATER*/
 }
 
 .games-list-sort__link.is-active {
-  border-color: #222;  /*"root" might need to change it */
+  /* border-color: #222;  /*"root" might need to change it */ /*Drop*/
   border-color: var(--wtl-border-strong);  /*USE VARIABLE - CHANGE VARIABLE MAYBE*/
   font-weight: 700;
 
@@ -455,6 +461,14 @@ MaYBE CHANGE LATER*/
   outline: none;
 }
 
+
+/* 
+  ----------------------------------
+              BADGES
+  ----------------------------------
+*/
+
+/*----------------------------------------------------------*/
 /*badges*/
 
 .games-list__item {
