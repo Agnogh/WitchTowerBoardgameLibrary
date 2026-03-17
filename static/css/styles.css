@@ -515,7 +515,7 @@ MaYBE CHANGE LATER*/
   font-size: 12px;
   padding: 4px 8px;
   border-radius: 999px;
-  border: 1px solid #ddd;  /*"root" might need to change it */ /*VARIABKLES*/
+  /* border: 1px solid #ddd;  /*"root" might need to change it */ /*VARIABKLES*/
   border: 1px solid var(--wtl-border);  /*Use Variable WORKS BETTER*/
   background: rgba(255, 255, 255, 0.02);
   color: var(--wtl-text-main);
@@ -537,6 +537,11 @@ MaYBE CHANGE LATER*/
 }
 
 
+/* 
+  ----------------------------------
+            PAGINATION
+  ----------------------------------
+*/
 
 
 
@@ -551,6 +556,7 @@ MaYBE CHANGE LATER*/
 
 
 
+/*----------------------------------------------------------*/
 
 /* Number ranges (players min/max, time min/max) */
 .games-filter-row {
@@ -566,10 +572,7 @@ MaYBE CHANGE LATER*/
 }
 
 
-/* =======================================================
-   Pagination Witch Tower Library (WTL) theme
-   =========================================================ž
-*/
+
 
 .pagination {
   margin-top: var(--wtl-space-5);
