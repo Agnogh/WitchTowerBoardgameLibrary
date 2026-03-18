@@ -61,7 +61,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: var(--wtl-text-main);
-  background:  /* "root" change later maybe FIXED!! */
+  background:  /* "root" ->> FIXED!! */
   radial-gradient(circle at 12% 8%, rgba(181, 140, 255, 0.1), transparent 40%),
   radial-gradient(circle at 88% 15%, rgba(109, 211, 255, 0.07), transparent 35%),
   linear-gradient(180deg, var(--wtl-page) 0%, #0b0d18 100%);
@@ -82,15 +82,15 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  border-bottom: 1px solid #ddd;  /* colour might change due to "root" */
+  border-bottom: 1px solid #ddd;  /* colour might change due to "root" USE VARIABLE */
 }
 
 /* Header / nav / footer theme (keeps structure, just re-colours might change wioth "root") */
 .site-header,
 .site-nav,
 .site-footer {
-  background: rgba(10, 11, 22, 0.7);  /*"root" might need to change it */
-  border-color: rgba(181, 140, 255, 0.14);  /*"root" might need to change it */
+  background: rgba(10, 11, 22, 0.7);  /*"root" USE VARIABLE */
+  border-color: rgba(181, 140, 255, 0.14);  /*"root" USE VARIABLE */
 }
 
 .page-title {
@@ -103,7 +103,7 @@ body {
   display: flex;
   gap: 12px;
   padding: 10px 16px;
-  border-bottom: 1px solid #eee;  /* colour might change due to "root" */
+  border-bottom: 1px solid #eee;  /* colour might change due to "root" USE VARIABLE */
 }
 
 .site-nav a {
@@ -112,7 +112,7 @@ body {
 
 .site-footer {
   padding: 12px 16px;
-  border-top: 1px solid #ddd;  /*"root" might need to change it */
+  border-top: 1px solid #ddd;  /*"root" ->> USE VARIABLE */
 }
 
 /* 
@@ -128,7 +128,7 @@ body {
   padding: var(--wtl-space-6);
 
   /* Slightly more transparent so it is bit differnt */
-  background:  /* EXPERIMENTAL - CHange later if needed*/
+  background:  /* EXPERIMENTAL - USE VARIABLE*/
     radial-gradient(circle at 18% 10%, rgba(181, 140, 255, 0.08), transparent 42%),
     radial-gradient(circle at 90% 12%, rgba(109, 211, 255, 0.06), transparent 35%),
     linear-gradient(180deg, rgba(13, 16, 32, 0.65), rgba(13, 16, 32, 0.35));
@@ -143,7 +143,7 @@ body {
   margin: 0 0 var(--wtl-space-2) 0;
   color: var(--wtl-text-main);
   font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: 0.03em;  /*EXPERIMETAL - Change if needed*/
+  letter-spacing: 0.03em;  /*EXPERIMETAL - USE VARIABLE*/
 }
 
 /* Small counts just below title */
@@ -168,7 +168,7 @@ body {
 
 .games-sidebar__title {
   margin: 0 0 var(--wtl-space-3) 0;
-  color: var(--wtl-accent-gold);  /*Might not be best choise - LEAVE FOR NOW*/
+  color: var(--wtl-accent-gold);
   font-family: Georgia, "Times New Roman", serif;
   letter-spacing: 0.03em;
 }
@@ -185,7 +185,6 @@ body {
 }
 
 
-
 /* 
   -----------------------------------------------------------
       FILTERS Form, list control, active fitlers, chips
@@ -196,7 +195,6 @@ body {
 .games-list-controls {
   gap: var(--wtl-space-4);
   display: grid;
-  /* gap: 12px; Variable is better for now */
 }
 
 
@@ -256,18 +254,18 @@ MaYBE CHANGE LATER*/
 .games-list-controls button[type="submit"] {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid #222;  /*"root" might need to change it */
-  border: 1px solid rgba(181, 140, 255, 0.35);  /*MAYBE THIS IS BETTER*/
+
+  border: 1px solid rgba(181, 140, 255, 0.35);  /* better */
   border-radius: 8px;
   background: transparent;
   cursor: pointer;
 
   border-radius: var(--wtl-radius);
   box-shadow: var(--wtl-shadow-soft);
-/*EXPERIMENTAL - works now, MAYBE CHANGE LATER*/
+/*works now*/
   font-weight: 700;
   letter-spacing: 0.02em;
-/*EXPERIMNTAL MAYBE CHANGE LATER*/
+/*EXPERIMNTAL MAYBE CHANGE LATER - USE VARIABLE */
   background: linear-gradient(
     180deg,
     rgba(181, 140, 255, 0.22),
@@ -277,7 +275,7 @@ MaYBE CHANGE LATER*/
 }
 
 .games-list-controls button[type="submit"]:hover {
-  background: linear-gradient(  /*to match buttons, CHANGE LATER */
+  background: linear-gradient(  /*to match buttons, USE VARIABLE */
     180deg,
     rgba(109, 211, 255, 0.18),
     rgba(181, 140, 255, 0.14)
@@ -293,7 +291,7 @@ MaYBE CHANGE LATER*/
 .games-list-controls__clear {
   display: inline-block;
   padding: 10px 12px;
-  border: 1px solid #ddd;  /*"root" might need to change it */
+  border: 1px solid #ddd;  /*"root" USE VARIABLE */
   border-radius: 8px;
   text-decoration: none;
   text-align: center;
@@ -342,19 +340,19 @@ MaYBE CHANGE LATER*/
 .active-filters {
   padding: 12px;
   padding: var(--wtl-space-4);  /*Var - better option*/
-  border: 1px solid #eee;
-  border: 1px solid var(--wtl-border-strong);  /*This is better*/
-  border-radius: 10px;
-  border-radius: var(--wtl-radius);  /*use variable KEEP IT MOST LIEKLY*/
+
+  border: 1px solid var(--wtl-border-strong);
+
+  border-radius: var(--wtl-radius);  /*Keep it*/
   background: #fafafa;  /*"root" might need to change it */
-  background: rgba(10, 11, 22, 0.55);  /**/
+  background: rgba(10, 11, 22, 0.55);  /* USE VARIABLE */
 }
 
 /* Active filters title */
 .active-filters__title {
   font-weight: 700;
-  margin-bottom: 8px;
-  margin-bottom: var(--wtl-space-2);  /* VAR - Better option KEEP IT*/
+
+  margin-bottom: var(--wtl-space-2);  /* Better option */
 
   color: var(--wtl-accent-gold);
 }
@@ -374,8 +372,8 @@ MaYBE CHANGE LATER*/
   display:block;
   opacity: 1;  /* override previsu opacity */
   line-height: 1.35;
-  /*margin:0.25rem 0 0.5rem; NOPE */
-  margin: var(--wtl-space-1) 0 var(--wtl-space-3);  /*VAriable - Keep it*/
+
+  margin: var(--wtl-space-1) 0 var(--wtl-space-3);  /* Keep it*/
   font-size:0.85rem;
 }
 
@@ -385,14 +383,14 @@ MaYBE CHANGE LATER*/
   display: inline-flex;
   align-items: center;
   padding: 6px 10px;
-  /* border: 1px solid #ddd;  /*"root" might need to change it - VAR works OK */
-  border: 1px solid var(--wtl-border);  /*ACCEPTABLE*/
+
+  border: 1px solid var(--wtl-border);
   border-radius: 999px;
   text-decoration: none;
-  /*font-size: 13px; */
+
   font-size: 0.86rem;
-  background: #fff;  /*"root" might need to change it VAR WORKS OK*/
-  background: var(--wtl-accent-magic-soft);  /*WORKS - PASS*/
+
+  background: var(--wtl-accent-magic-soft);
   color: var(--wtl-text-main);
 }
 
@@ -400,16 +398,16 @@ MaYBE CHANGE LATER*/
 .filter-chips {
   display: flex;
   flex-wrap: wrap;
-  /* gap: 8px; variable is good here - ignore manualy adjustment */
+
   gap: var(--wtl-space-2);
-  /* margin-top: 8px; ignore manual adjsutment */
-  margin-top: var(--wtl-space-2);  /*WORKS KEEP*/
+
+  margin-top: var(--wtl-space-2);
 }
 
 /* Clear all filters button*/
 .filter-chip--clear {
-  /*border-color: #222;  /*"root" might need to change it */ /*not good*/
-  border-color: rgba(109, 211, 255, 0.35);  /* works for now - REPLACE Variable */
+
+  border-color: rgba(109, 211, 255, 0.35);  /* works for now - USE VARIABLE */
   font-weight: 700;
   background: rgba(109, 211, 255, 0.12);
 }
@@ -443,10 +441,10 @@ MaYBE CHANGE LATER*/
 
 /*Sorting pill - magical touch & tapable */
 .games-list-sort__link {
-  padding: 6px 10px;
-  padding: 8px 12px;  /*Let TRY like this - EXPERIMENTAL*/
-  /* border: 1px solid #ddd;  /*"root" might need to change it */ /*CAN BE REMOVED*/
-  border: 1px solid var(--wtl-border-soft);  /*USE VARIABLE - GOOD SOLUTION*/
+
+  padding: 8px 12px;  /*EXPERIMENTAL*/
+
+  border: 1px solid var(--wtl-border-soft);
   border-radius: 999px;
   text-decoration: none;
 
@@ -459,8 +457,8 @@ MaYBE CHANGE LATER*/
 }
 
 .games-list-sort__link.is-active {
-  /* border-color: #222;  /*"root" might need to change it */ /*Drop*/
-  border-color: var(--wtl-border-strong);  /*USE VARIABLE - CHANGE VARIABLE MAYBE*/
+
+  border-color: var(--wtl-border-strong);
   font-weight: 700;
 
   box-shadow: inset 0 0 0 1px rgba(217, 181, 109, 0.12);
@@ -484,20 +482,20 @@ MaYBE CHANGE LATER*/
 /*badges*/
 
 .games-list__item {
-  /* padding: 12px; using VARIABLE - WORKS */
+
   padding: var(--wtl-space-4);
-  /* border: 1px solid #eee;  /*"root" might need to change it */ /*VARIABLE - WORKS*/
+
   border: 1px solid var(--wtl-border-soft);
-  /* border-radius: 10px; using VARAIBEL - KINDA WORKS - RECONSIDER */
+
   border-radius: var(--wtl-radius);
-  /* margin-bottom: 10px; using VARIABLE - WORKS */
+
   margin-bottom: var(--wtl-space-3);
   box-shadow: var(--wtl-shadow-soft);
   background: rgba(255, 255, 255, 0.02);
 }
 
 .games-list__item.is-out {
-  opacity: 0.65; /* MIGHT NEEED NEW VARIABLE FOR THIS */
+  opacity: 0.65; /* USE VARIABLE */
 }
 
 .games-list__link {
@@ -514,10 +512,10 @@ MaYBE CHANGE LATER*/
 
 .games-list__meta {
   display: flex;
-  /* gap: 10px; */
+
   gap: var(--wtl-space-2);
   align-items: center;
-  /* margin-top: 6px; Use VARIABLES - WORKS */
+
   margin-top: var(--wtl-space-2);
   color: var(--wtl-text-soft);
 }
@@ -527,25 +525,25 @@ MaYBE CHANGE LATER*/
   font-size: 12px;
   padding: 4px 8px;
   border-radius: 999px;
-  /* border: 1px solid #ddd;  /*"root" might need to change it */ /*VARIABKLES*/
-  border: 1px solid var(--wtl-border);  /*Use Variable WORKS BETTER*/
+
+  border: 1px solid var(--wtl-border);
   background: rgba(255, 255, 255, 0.02);
   color: var(--wtl-text-main);
 }
 
 /* for available games */
 .badge--in {
-  border-color: #222;  /*"root" might need to change it */ /*MAYBE REMOVE*/
-  border-color: rgba(109, 211, 255, 0.35);  /*BETTER -KEEP IT*/
-  background: rgba(109, 211, 255, 0.10);
+
+  border-color: rgba(109, 211, 255, 0.35);  /*USE VARIABLE*/
+  background: rgba(109, 211, 255, 0.10);  /*USE VARIABLE*/
   font-weight: 700;
 }
 
 /* When where there are no games in store */
 .badge--out {
   border-style: dashed;
-  border-color: rgba(217, 181, 109, 0.30);  /*GOOD KEEP*/
-  background: rgba(217, 181, 109, 0.06);  /*MAYBE KEEP*/
+  border-color: rgba(217, 181, 109, 0.30);  /*USE VARIABLE*/
+  background: rgba(217, 181, 109, 0.06);  /*USE VARIABLE*/
 }
 
 
@@ -575,7 +573,7 @@ MaYBE CHANGE LATER*/
   display: inline-flex;
   align-items: center;
   justify-content: center;  /* cente number */
-  /*min-width: 60px; */
+
   min-width: 40px;
   padding: 8px 12px;  /*For Now works - MAYBE CHANGE later*/
 
@@ -583,9 +581,9 @@ MaYBE CHANGE LATER*/
   color: var(--wtl-text-main);
 /* a
 */
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.02);  /* USE VARIABLE */
   border: 1px solid var(--wtl-border-soft);
-  border-radius: 999px;
+  border-radius: 999px;  /*USE VARIABLE */
 
   box-shadow: var(--wtl-shadow-soft);
 }
@@ -593,7 +591,7 @@ MaYBE CHANGE LATER*/
 /* Hover / focus */
 .pagination__link:hover,
 .pagination__link:focus-visible {
-  background: rgba(181, 140, 255, 0.12);  /*USE VARIABLE IF POSSIBLE */
+  background: rgba(181, 140, 255, 0.12);  /*USE VARIABLE */
   border-color: rgba(109, 211, 255, 0.35);  /* USE VARIABLE IF POSS */
   outline: none;
 }
@@ -610,10 +608,10 @@ MaYBE CHANGE LATER*/
   border-radius: 999px;
   border: 1px solid var(--wtl-border-strong);
 
-  color: #fff8e8;  /* TRY TO FIND GOOD VARIABLE */
-  background: rgba(217, 181, 109, 0.10);  /* TRY TO FIND GOOD VARIABLE */
+  color: #fff8e8;  /* TRY TO USE VARIABLE */
+  background: rgba(217, 181, 109, 0.10);  /* TRY TO USE VARIABLE */
 
-  box-shadow: inset 0 0 0 1px rgba(217, 181, 109, 0.12);  /* TRY TO FIND GOOD VARIABLE */
+  box-shadow: inset 0 0 0 1px rgba(217, 181, 109, 0.12);  /* USE VARIABLE */
 }
 
 /* Disabled look (if I add disabled links later MAYBE) */
