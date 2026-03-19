@@ -647,6 +647,9 @@ MaYBE CHANGE LATER*/
   .games-filter-row {
     grid-template-columns: 1fr;
   }
+  .games-filter-row span[aria-hidden="true"] {
+    display: none;
+  }
 }
 
 
