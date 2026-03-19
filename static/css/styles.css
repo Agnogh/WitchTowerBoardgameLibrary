@@ -49,6 +49,21 @@
   --wtl-space-4: 1rem;  /* 16px */
   --wtl-space-5: 1.25rem;  /* 20px */
   --wtl-space-6: 1.5rem;  /* 24px */
+
+/* Extra tokens for reused hardcoded vaules */
+--wtl-page-bottom: #0b0d18;  /* bottom of body gradient */
+--wtl-line-1: #ddd;  /* light divider line */
+--wtl-line-2: #eee;  /* even more lighter divider line */
+
+--wtl-header-bg: rgba(10, 11, 22, 0.7);  /* header/nav/footer background */
+
+--wtl-hover-magic: rgba(181, 140, 255, 0.12);  /* hover background tint */
+--wtl-hover-cyan: rgba(109, 211, 255, 0.35);  /* hover border tint */
+
+--wtl-text-warm: #fff8e8;  /* pagination current text */
+--wtl-gold-soft: rgba(217, 181, 109, 0.10);  /* pagination current bg */
+--wtl-gold-soft-inset: rgba(217, 181, 109, 0.12);  /* inset ring */
+
 }
 
 
