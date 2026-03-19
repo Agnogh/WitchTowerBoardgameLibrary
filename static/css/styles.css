@@ -106,7 +106,7 @@ body {
 .site-nav,
 .site-footer {
   background: var(--wtl-header-bg);
-  border-color: rgba(181, 140, 255, 0.14);  /*"root" USE VARIABLE */
+  border-color: var(--wtl-border-soft);
 }
 
 .page-title {
