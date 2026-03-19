@@ -641,6 +641,15 @@ MaYBE CHANGE LATER*/
   ----------------------------------
 */
 
+
+/* On very small screens, stack min/max vertically */
+@media (max-width: 420px) {
+  .games-filter-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* sidebar to stack on small screns */
 /* need to fix phone layout first
 @media (max-width: 900px) {
