@@ -647,17 +647,16 @@ MaYBE CHANGE LATER*/
   .games-filter-row {
     grid-template-columns: 1fr;
   }
+  /*remove "dash" as it looks weird vertical alignment*/
   .games-filter-row span[aria-hidden="true"] {
     display: none;
   }
 }
 
 
-/* sidebar to stack on small screns */
-/* need to fix phone layout first
 @media (max-width: 900px) {
   .games-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 280px 1fr;
   }
 }
-*/
+
