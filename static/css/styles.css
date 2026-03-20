@@ -666,3 +666,20 @@ MaYBE CHANGE LATER*/
     grid-template-columns: 320px 1fr; /* MAYBE change 320px to 280px */
   }
 }
+
+
+/* Desktop */
+@media (min-width: 1100px) {
+  .games-list-page {
+    padding: var(--wtl-space-6);  /*MIGHT NEED ADJUSTMENTS*/
+  }
+
+  .games-sidebar,
+  .games-main {
+    padding: var(--wtl-space-6);
+  }
+
+  .games-layout {
+    gap: calc(var(--wtl-space-6) + var(--wtl-space-2));  /* slightly more breathing space */
+  }
+}
