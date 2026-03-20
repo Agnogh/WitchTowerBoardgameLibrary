@@ -660,3 +660,9 @@ MaYBE CHANGE LATER*/
   }
 }
 
+/* show sidebar + main in two columns*/
+@media (min-width: 900px) {
+  .games-layout {
+    grid-template-columns: 320px 1fr; /* MAYBE change 320px to 280px */
+  }
+}
