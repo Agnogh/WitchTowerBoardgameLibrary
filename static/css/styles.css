@@ -65,6 +65,11 @@
   --wtl-gold-soft-inset: rgba(217, 181, 109, 0.12);  /* inset ring */
 
   --wtl-surface-tint: rgba(255, 255, 255, 0.02);  /* subtle surface fill */
+
+  /*borders - EXPERIMENTAL*/
+  --wtl-header-border: var(--wtl-border-soft);  /* used by header/nav/footer */
+  --wtl-border-magic-strong: rgba(181, 140, 255, 0.35);  /* borders of submit buttona */
+  --wtl-hover-cyan-strong: rgba(109, 211, 255, 0.45);  /* stronger border focus/hover */
 }
 
 
@@ -106,7 +111,8 @@ body {
 .site-nav,
 .site-footer {
   background: var(--wtl-header-bg);
-  border-color: var(--wtl-border-soft);
+  /*border-color: var(--wtl-border-soft); EXPERIMENTAL - REMOVE later*/
+  border-color: var(--wtl-header-border);
 }
 
 .page-title {
@@ -263,7 +269,8 @@ MaYBE CHANGE LATER*/
 .games-list-controls select:focus {
   outline: 2px solid var(--wtl-focus-ring);
   outline-offset: 2px;
-  border-color: rgba(109, 211, 255, 0.45);
+  /*border-color: rgba(109, 211, 255, 0.45); EXPERIMETAL - REMOVE IF NG*/
+  border-color: var(--wtl-hover-cyan-strong);
   box-shadow: var(--wtl-glow-magic);
 }
 
@@ -272,6 +279,7 @@ MaYBE CHANGE LATER*/
   padding: 12px 14px;
 
   border: 1px solid rgba(181, 140, 255, 0.35);  /* better */
+  border: 1px solid var(--wtl-border-magic-strong); /*VAR - MAybe Change Var*/
   border-radius: 8px;
   background: transparent;
   cursor: pointer;
