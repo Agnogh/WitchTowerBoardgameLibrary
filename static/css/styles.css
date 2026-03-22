@@ -322,16 +322,6 @@ MaYBE CHANGE LATER*/
   color: var(--wtl-text-soft);
 }
 
-/* selection of 'games in store' chekcbox*/
-/*
-.games-filter-toggle input {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--wtl-accent-magic);
-  opacity: 0.5;  for dim appearance when disabld
-  cursor: not-allowed; - move to
-}
-*/
 
 /*games in store enabled*/
 .games-filter-toggle input[type="checkbox"] {
@@ -494,8 +484,6 @@ MaYBE CHANGE LATER*/
   ----------------------------------
 */
 
-/*----------------------------------------------------------*/
-/*badges*/
 
 .games-list__item {
 
