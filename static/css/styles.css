@@ -661,6 +661,11 @@ MaYBE CHANGE LATER*/
   .games-layout {
     grid-template-columns: 320px 1fr; /* MAYBE change 320px to 280px */
   }
+
+  .games-list-page {
+    padding: calc(var(--wtl-space-6) + var(--wtl-space-2));
+  }
+
 }
 
 
