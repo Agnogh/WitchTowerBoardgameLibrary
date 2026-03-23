@@ -358,7 +358,7 @@ MaYBE CHANGE LATER*/
   border: 1px solid var(--wtl-border-strong);
 
   border-radius: var(--wtl-radius);  /*Keep it*/
-  background: #fafafa;  /*"root" might need to change it */
+
   background: rgba(10, 11, 22, 0.55);  /* USE VARIABLE */
 }
 
