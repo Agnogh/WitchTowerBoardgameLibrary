@@ -304,7 +304,7 @@ MaYBE CHANGE LATER*/
     rgba(109, 211, 255, 0.18),
     rgba(181, 140, 255, 0.14)
   );
-  border-color: --wtl-hover-cyan-strong;
+  border-color: var(--wtl-hover-cyan-strong);
 }
 
 .games-list-controls button[type="submit"]:focus-visible {
