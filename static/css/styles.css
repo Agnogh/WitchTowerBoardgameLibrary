@@ -5,6 +5,8 @@
      Base colours, borders, shadows, spacing, radius, effects, glows
      =============================================================== */
 
+     /*COME BACK TO THIS COMMIT IN CASE I MESS UP VARIABLES BECAUSE I WASN'T PLANNING AHEAD*/
+
   /* Page + surfaces */
   --wtl-page: #0d1020;  /* overall page / background canvas (colour behind everything) */
   --wtl-panel: #1a1735;  /* box surface on top sidebar / cards / panels */
