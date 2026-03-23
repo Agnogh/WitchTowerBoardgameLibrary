@@ -652,7 +652,7 @@ MaYBE CHANGE LATER*/
 
 @media (max-width: 900px) {
   .games-layout {
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
