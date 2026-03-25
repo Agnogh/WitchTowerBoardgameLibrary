@@ -12,20 +12,12 @@
   --wtl-panel: #1a1735;  /* box surface on top sidebar / cards / panels */
   --wtl-control-bg: #141229;   /* inputs / form fileds / select / buttons (for diff with 'panel')*/
 
-  /* Text */
-  --wtl-text-main: #f2edff;  /* normal readable text */
-  --wtl-text-soft: #cec5eb;  /* secondary / backup text */
-  --wtl-text-muted: #aa9fd0;  /* extra soft hints */
-
   /* Accents */
   --wtl-accent-magic: #b58cff;  /* main magic purple */
   --wtl-accent-magic-soft: rgba(181, 140, 255, 0.14);  /* soft hover / active tint */
   --wtl-accent-gold: #d8b46c;  /* fantasy /library highlight */
 
-  /* Borders */
-  --wtl-border: rgba(181, 140, 255, 0.26);  /* default panel/control border */
-  --wtl-border-soft: rgba(181, 140, 255, 0.14);  /* softer subtle border */
-  --wtl-border-strong: rgba(217, 181, 109, 0.35);  /* stronger/active/gold bodrer */
+
 
   /* Effects */
   --wtl-shadow-main: 0 16px 40px rgba(4, 5, 12, 0.45);
@@ -39,18 +31,6 @@
   /* Focus ring colour - outline on interaction (for input/button focus outlines) */
   --wtl-focus-ring: var(--wtl-hover-cyan);
 
-  /* Border radius -for nicely formed elements (shared) */
-  --wtl-radius-sm: 8px;  /* small part*/
-  --wtl-radius: 12px;  /*for buttons /  dropdowns menu*/
-  --wtl-radius-lg: 18px;  /*sidebar / large conteiners */
-
-  /* Spacing scale (shared) */
-  --wtl-space-1: 0.25rem;  /* 4px */
-  --wtl-space-2: 0.5rem;  /* 8px */
-  --wtl-space-3: 0.75rem;  /* 12px */
-  --wtl-space-4: 1rem;  /* 16px */
-  --wtl-space-5: 1.25rem;  /* 20px */
-  --wtl-space-6: 1.5rem;  /* 24px */
 
   /* Extra tokens for reused hardcoded vaules */
   --wtl-page-bottom: #0b0d18;  /* bottom of body gradient */
@@ -62,11 +42,11 @@
   --wtl-hover-magic: rgba(181, 140, 255, 0.12);  /* hover background tint */
   --wtl-hover-cyan: rgba(109, 211, 255, 0.35);  /* hover border tint */
 
-  --wtl-text-warm: #fff8e8;  /* pagination current text */
+
   --wtl-gold-soft: rgba(217, 181, 109, 0.10);  /* pagination current bg */
   --wtl-gold-soft-inset: rgba(217, 181, 109, 0.12);  /* inset ring */
 
-  --wtl-surface-tint: rgba(255, 255, 255, 0.02);  /* subtle surface fill */
+
 
   /*borders - EXPERIMENTAL*/
   --wtl-header-border: var(--wtl-border-soft);  /* used by header/nav/footer */
@@ -78,14 +58,44 @@
 
 :root {
 
+  /* Spacing scale (shared) */
+  --wtl-space-1: 0.25rem;  /* 4px */
+  --wtl-space-2: 0.5rem;  /* 8px */
+  --wtl-space-3: 0.75rem;  /* 12px */
+  --wtl-space-4: 1rem;  /* 16px */
+  --wtl-space-5: 1.25rem;  /* 20px */
+  --wtl-space-6: 1.5rem;  /* 24px */
+
+  /* Border radius -for nicely formed elements (shared) */
+  --wtl-radius-sm: 8px;  /* small part*/
+  --wtl-radius: 12px;  /*for buttons /  dropdowns menu*/
+  --wtl-radius-lg: 18px;  /*sidebar / large conteiners */
+
   /* Surfaces (background fills) */
+  --wtl-surface-page: #0d1020;
   --wtl-surface-page-bottom: #0b0d18;
+  --wtl-surface-panel: #1a1735;
+  --wtl-surface-control: #141229;
+  --wtl-surface-header: rgba(10, 11, 22, 0.7);
   --wtl-surface-header-bg: rgba(10, 11, 22, 0.7);
-  --wtl-surface-tint: rgba(255, 255, 255, 0.02);
+  --wtl-surface-tint: rgba(255, 255, 255, 0.02);  /* subtle surface fill */
+
+  /* Text */
+  --wtl-text-main: #f2edff;  /* normal readable text */
+  --wtl-text-soft: #cec5eb;  /* secondary / backup text */
+  --wtl-text-muted: #aa9fd0;  /* extra soft hints */
+  --wtl-text-warm: #fff8e8;  /* pagination current text */
 
   /* Dividers / lines */
   --wtl-divider-1: #ddd;
   --wtl-divider-2: #eee;
+
+  /* Borders */
+  --wtl-border: rgba(181, 140, 255, 0.26);  /* default panel/control border */
+  --wtl-border-soft: rgba(181, 140, 255, 0.14);  /* softer subtle border */
+  --wtl-border-strong: rgba(217, 181, 109, 0.35);  /* stronger/active/gold bodrer */
+
+  --wtl-border-header: var(--wtl-border-soft);  /*var in var as I am all out of ideas for colours RETHINK SELECTION*/
 
   /* Accents */
   --wtl-accent-gold: #d8b46c;
