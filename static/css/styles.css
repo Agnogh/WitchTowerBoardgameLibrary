@@ -97,6 +97,11 @@
 
   --wtl-border-header: var(--wtl-border-soft);  /*var in var as I am all out of ideas for colours RETHINK SELECTION*/
 
+  /* Hover (borders) */
+  --wtl-hover-bg: rgba(181, 140, 255, 0.12);
+  --wtl-hover-border: var(--wtl-accent-cyan-soft);
+  --wtl-hover-border-strong: var(--wtl-accent-cyan-strong);
+
   /* Accents */
   --wtl-accent-gold: #d8b46c;
   --wtl-accent-gold-soft: rgba(217, 181, 109, 0.10);
@@ -113,6 +118,29 @@
   --wtl-hover-bg-magic: rgba(181, 140, 255, 0.12);
   --wtl-hover-border-cyan: rgba(109, 211, 255, 0.35);
   --wtl-hover-border-cyan-strong: rgba(109, 211, 255, 0.45);
+
+  /* Buttons (helpers) */
+  --wtl-button-grad-top: rgba(181, 140, 255, 0.22);
+  --wtl-button-grad-bottom: rgba(181, 140, 255, 0.10);
+  --wtl-button-hover-grad-top: rgba(109, 211, 255, 0.18);
+  --wtl-button-hover-grad-bottom: rgba(181, 140, 255, 0.14);
+
+  /* Badges (helpers) */
+  --wtl-badge-bg: var(--wtl-surface-tint);
+  --wtl-badge-border: var(--wtl-border);
+  --wtl-badge-in-bg: rgba(109, 211, 255, 0.10);
+  --wtl-badge-out-border: rgba(217, 181, 109, 0.30);
+  --wtl-badge-out-bg: rgba(217, 181, 109, 0.06);
+
+  /* Effects */
+  --wtl-shadow-main: 0 16px 40px rgba(4, 5, 12, 0.45);
+  --wtl-shadow-soft: 0 8px 18px rgba(4, 5, 12, 0.25);
+
+  --wtl-glow-magic:
+    0 0 0 1px rgba(109, 211, 255, 0.05),
+    0 0 26px rgba(181, 140, 255, 0.14);
+
+  --wtl-focus-ring: var(--wtl-hover-border);
 
   /* Buttons */
   --wtl-button-border: rgba(181, 140, 255, 0.35);
