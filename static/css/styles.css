@@ -259,9 +259,9 @@ MaYBE CHANGE LATER*/
   padding: 12px 14px;
 
 
-  border: 1px solid var(--wtl-border-magic-strong); /*VAR - MAybe Change Var*/
+  border: 1px solid var(--wtl-button-border);
 
-  background: transparent;
+  background: var(--wtl-button-bg);
   cursor: pointer;
 
   border-radius: var(--wtl-radius);
@@ -269,22 +269,12 @@ MaYBE CHANGE LATER*/
 /*works now*/
   font-weight: 700;
   letter-spacing: 0.02em;
-/*EXPERIMNTAL MAYBE CHANGE LATER - USE VARIABLE */
-  background: linear-gradient(
-    180deg,
-    rgba(181, 140, 255, 0.22),
-    rgba(181, 140, 255, 0.10)
-  );
   color: var(--wtl-text-main);
 }
 
 .games-list-controls button[type="submit"]:hover {
-  background: linear-gradient(  /*to match buttons, USE VARIABLE */
-    180deg,
-    rgba(109, 211, 255, 0.18),
-    rgba(181, 140, 255, 0.14)
-  );
-  border-color: var(--wtl-hover-border-cyan-strong);
+  background: var(--wtl-button-bg-hover);
+  border-color: var(--wtl-button-border-hover);
 }
 
 .games-list-controls button[type="submit"]:focus-visible {
@@ -403,12 +393,12 @@ MaYBE CHANGE LATER*/
 
   border-color: var(--wtl-hover-border-cyan);
   font-weight: 700;
-  background: rgba(109, 211, 255, 0.12);
+  background: var(--wtl-accent-cyan-soft);
 }
 
 .filter-chip:hover,
 .filter-chip:focus-visible {
-  background: rgba(181, 140, 255, 0.22);
+  background: var(--wtl-hover-bg-magic);
   border-color: var(--wtl-hover-border-cyan);
   outline: none;
 }
@@ -518,16 +508,16 @@ MaYBE CHANGE LATER*/
   padding: 4px 8px;
   border-radius: 999px;
 
-  border: 1px solid var(--wtl-border);
-  background: var(--wtl-surface-tint);
+  border: 1px solid var(--wtl-badge-border);
+  background: var(--wtl-badge-bg);
   color: var(--wtl-text-main);
 }
 
 /* for available games */
 .badge--in {
 
-  border-color: var(--wtl-hover-border-cyan);
-  background: rgba(109, 211, 255, 0.10);  /*USE VARIABLE*/
+  border-color: var(--wtl-badge-in-border);
+  background: var(--wtl-badge-in-bg);
   font-weight: 700;
 }
 
@@ -535,7 +525,7 @@ MaYBE CHANGE LATER*/
 .badge--out {
   border-style: dashed;
   border-color: rgba(217, 181, 109, 0.30);  /*USE VARIABLE*/
-  background: rgba(217, 181, 109, 0.06);  /*USE VARIABLE*/
+  background: rgba(217, 181, 109, 0.06);
 }
 
 
