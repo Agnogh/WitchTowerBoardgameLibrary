@@ -5,13 +5,60 @@
      =============================================================== */
 
 /*NEW purpsoe based names*/
+  /* Surfaces (background fills) */
+  --wtl-surface-page-bottom: #0b0d18;
+  --wtl-surface-header-bg: rgba(10, 11, 22, 0.7);
+  --wtl-surface-tint: rgba(255, 255, 255, 0.02);
 
-/*I HATE CSS and variables and complexity and everything. Next project will have 2 colours and that is it!!!*/
+  /* Dividers / Lines */
+  --wtl-divider-1: #ddd;
+  --wtl-divider-2: #eee;
+
+  /* Accents */
+  --wtl-accent-gold: #d8b46c;
+  --wtl-accent-gold-soft: rgba(217, 181, 109, 0.10);
+  --wtl-accent-gold-inset: rgba(217, 181, 109, 0.12);
+
+  --wtl-accent-magic: #b58cff;
+  --wtl-accent-magic-soft: rgba(181, 140, 255, 0.14);
+
+  --wtl-accent-cyan: rgba(109, 211, 255, 0.35);
+  --wtl-accent-cyan-strong: rgba(109, 211, 255, 0.45);
+  --wtl-accent-cyan-soft: rgba(109, 211, 255, 0.10);
+
+  /* Hover (backgrounds/borders) */
+  --wtl-hover-bg-magic: rgba(181, 140, 255, 0.12);
+  --wtl-hover-border-cyan: rgba(109, 211, 255, 0.35);
+  --wtl-hover-border-cyan-strong: rgba(109, 211, 255, 0.45);
+
+  /* Buttons */
+  --wtl-button-border: rgba(181, 140, 255, 0.35);
+  --wtl-button-border-hover: rgba(109, 211, 255, 0.45);
+  --wtl-button-bg: linear-gradient(
+    180deg,
+    rgba(181, 140, 255, 0.22),
+    rgba(181, 140, 255, 0.10)
+  );
+  --wtl-button-bg-hover: linear-gradient(
+    180deg,
+    rgba(109, 211, 255, 0.18),
+    rgba(181, 140, 255, 0.14)
+  );
+
+  /* Badges */
+  --wtl-badge-bg: rgba(255, 255, 255, 0.02);
+  --wtl-badge-border: rgba(181, 140, 255, 0.26);
+
+  --wtl-badge-in-bg: rgba(109, 211, 255, 0.10);
+  --wtl-badge-in-border: rgba(109, 211, 255, 0.35);
 }
+
+/*
 -----------------------------------------------
                     BASE  
 ----------------------------------------------- 
 */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
