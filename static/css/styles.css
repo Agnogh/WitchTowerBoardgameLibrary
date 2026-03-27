@@ -51,6 +51,35 @@
 
   --wtl-badge-in-bg: rgba(109, 211, 255, 0.10);
   --wtl-badge-in-border: rgba(109, 211, 255, 0.35);
+
+  /* Text */
+  --wtl-text-muted: rgba(255, 255, 255, 0.58);
+  --wtl-text-warm: #f0ddb0;
+
+  /* Borders */
+  --wtl-border: rgba(181, 140, 255, 0.26);
+  --wtl-border-soft: rgba(181, 140, 255, 0.18);
+  --wtl-border-strong: rgba(217, 181, 109, 0.32);
+
+  /* Radius */
+  --wtl-radius: 8px;
+  --wtl-radius-lg: 16px;
+
+  /* Shadows / glow */
+  --wtl-shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.18);
+  --wtl-shadow-main: 0 18px 48px rgba(0, 0, 0, 0.28);
+  --wtl-glow-magic: 0 0 0 1px rgba(181, 140, 255, 0.10), 0 0 24px rgba(181, 140, 255, 0.08);
+
+  /* Focus */
+  --wtl-focus-ring: rgba(109, 211, 255, 0.40);
+
+  /* Spacing */
+  --wtl-space-1: 4px;
+  --wtl-space-2: 8px;
+  --wtl-space-3: 12px;
+  --wtl-space-4: 16px;
+  --wtl-space-5: 20px;
+  --wtl-space-6: 24px;
 }
 
 /*
@@ -62,11 +91,11 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  color: var(--wtl-text-main);
+  color: var(--wtl-text-primary);
   background:  /* "root" ->> FIXED!! */
   radial-gradient(circle at 12% 8%, rgba(181, 140, 255, 0.1), transparent 40%),
   radial-gradient(circle at 88% 15%, rgba(109, 211, 255, 0.07), transparent 35%),
-  linear-gradient(180deg, var(--wtl-page) 0%, var(--wtl-surface-page-bottom) 100%);
+  linear-gradient(180deg, var(--wtl-surface-page-top) 0%, var(--wtl-surface-page-bottom) 100%);
 }
 
 .container {
@@ -143,14 +172,14 @@ body {
 /* All headings */
 .games-list-page h1 {
   margin: 0 0 var(--wtl-space-2) 0;
-  color: var(--wtl-text-main);
+  color: var(--wtl-text-primary);
   font-family: Georgia, "Times New Roman", serif;
   letter-spacing: 0.03em;  /*EXPERIMETAL - USE VARIABLE*/
 }
 
 /* Small counts just below title */
 .games-list__range {
-  color: var(--wtl-text-soft);
+  color: var(--wtl-text-secondary);
   margin: 0 0 var(--wtl-space-1) 0;
 }
 
@@ -179,7 +208,7 @@ body {
 /*SEPERATE IF NEEDED*/
 .games-sidebar,
 .games-main {
-  background: linear-gradient(180deg, var(--wtl-panel) 0%, rgba(26, 23, 53, 0.82) 100%);
+  background: linear-gradient(180deg, var(--wtl-surface-panel) 0%, rgba(26, 23, 53, 0.82) 100%);
   border: 1px solid var(--wtl-border);
   border-radius: var(--wtl-radius-lg);
   box-shadow: var(--wtl-shadow-soft), var(--wtl-glow-magic);
@@ -209,8 +238,8 @@ MaYBE CHANGE LATER*/
   padding: 10px 12px;
   box-sizing: border-box;
 
-  background: var(--wtl-control-bg);
-  color: var(--wtl-text-main);
+  background: var(--wtl-surface-control);
+  color: var(--wtl-text-primary);
 
   border: 1px solid var(--wtl-border);
   border-radius: var(--wtl-radius);
@@ -260,7 +289,6 @@ MaYBE CHANGE LATER*/
 
 
   border: 1px solid var(--wtl-button-border);
-
   background: var(--wtl-button-bg);
   cursor: pointer;
 
@@ -269,7 +297,7 @@ MaYBE CHANGE LATER*/
 /*works now*/
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--wtl-text-main);
+  color: var(--wtl-text-primary);
 }
 
 .games-list-controls button[type="submit"]:hover {
@@ -297,7 +325,7 @@ MaYBE CHANGE LATER*/
   gap: 10px;
   align-items: center;
   font-size: 14px;
-  color: var(--wtl-text-soft);
+  color: var(--wtl-text-secondary);
 }
 
 
@@ -375,7 +403,7 @@ MaYBE CHANGE LATER*/
   font-size: 0.86rem;
 
   background: var(--wtl-accent-magic-soft);
-  color: var(--wtl-text-main);
+  color: var(--wtl-text-primary);
 }
 
 /* Styling for area holding individual filters */
@@ -436,7 +464,7 @@ MaYBE CHANGE LATER*/
   align-items: center;
   gap: 6px;
 
-  color: var(--wtl-text-main);
+  color: var(--wtl-text-primary);
   background: var(--wtl-surface-tint);
 }
 
@@ -483,7 +511,7 @@ MaYBE CHANGE LATER*/
 .games-list__link {
   text-decoration: none;
   font-weight: 700;
-  color: var(--wtl-text-main);
+  color: var(--wtl-text-primary);
 }
 
 .games-list__link:hover,
@@ -499,7 +527,7 @@ MaYBE CHANGE LATER*/
   align-items: center;
 
   margin-top: var(--wtl-space-2);
-  color: var(--wtl-text-soft);
+  color: var(--wtl-text-secondary);
 }
 
 /* general appearnce of badges (in stocks or out of stocks)*/
@@ -510,7 +538,7 @@ MaYBE CHANGE LATER*/
 
   border: 1px solid var(--wtl-badge-border);
   background: var(--wtl-badge-bg);
-  color: var(--wtl-text-main);
+  color: var(--wtl-text-primary);
 }
 
 /* for available games */
@@ -560,7 +588,7 @@ MaYBE CHANGE LATER*/
   padding: 8px 12px;  /*For Now works - MAYBE CHANGE later*/
 
   text-decoration: none;  /* reomve line beneath link */
-  color: var(--wtl-text-main);
+  color: var(--wtl-text-primary);
 
   background: var(--wtl-surface-tint);
   border: 1px solid var(--wtl-border-soft);
