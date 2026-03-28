@@ -12,7 +12,9 @@
 
   --wtl-surface-page-top: #121526;
   --wtl-surface-panel: rgba(22, 20, 44, 0.88);
-  --wtl-surface-control: rgba(255, 255, 255, 0.04);  
+  --wtl-surface-control: rgba(255, 255, 255, 0.04);
+
+  --wtl-surface-active-filters: rgba(10, 11, 22, 0.55);
 
   /* Dividers / Lines */
   --wtl-divider-1: #ddd;
@@ -55,6 +57,9 @@
 
   --wtl-badge-in-bg: rgba(109, 211, 255, 0.10);
   --wtl-badge-in-border: rgba(109, 211, 255, 0.35);
+
+  --wtl-badge-out-border: rgba(217, 181, 109, 0.30);
+  --wtl-badge-out-bg: rgba(217, 181, 109, 0.06);
 
   /* Text */
   --wtl-text-muted: rgba(255, 255, 255, 0.58);
@@ -357,14 +362,10 @@ MaYBE CHANGE LATER*/
 
 /* current search filters applied */ 
 .active-filters {
-  padding: 12px;
-  padding: var(--wtl-space-4);  /*Var - better option*/
-
+  padding: var(--wtl-space-4);
   border: 1px solid var(--wtl-border-strong);
-
-  border-radius: var(--wtl-radius);  /*Keep it*/
-
-  background: rgba(10, 11, 22, 0.55);  /* USE VARIABLE */
+  border-radius: var(--wtl-radius);
+  background: var(--wtl-surface-active-filters);
 }
 
 /* Active filters title */
@@ -559,8 +560,8 @@ MaYBE CHANGE LATER*/
 /* When where there are no games in store */
 .badge--out {
   border-style: dashed;
-  border-color: rgba(217, 181, 109, 0.30);  /*USE VARIABLE*/
-  background: rgba(217, 181, 109, 0.06);
+  border-color: var(--wtl-badge-out-border);
+  background: var(--wtl-badge-out-bg);
 }
 
 
