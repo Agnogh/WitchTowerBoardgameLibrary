@@ -10,6 +10,10 @@
   --wtl-surface-header-bg: rgba(10, 11, 22, 0.7);
   --wtl-surface-tint: rgba(255, 255, 255, 0.02);
 
+  --wtl-surface-page-top: #121526;
+  --wtl-surface-panel: rgba(22, 20, 44, 0.88);
+  --wtl-surface-control: rgba(255, 255, 255, 0.04);  
+
   /* Dividers / Lines */
   --wtl-divider-1: #ddd;
   --wtl-divider-2: #eee;
@@ -55,6 +59,9 @@
   /* Text */
   --wtl-text-muted: rgba(255, 255, 255, 0.58);
   --wtl-text-warm: #f0ddb0;
+
+  --wtl-text-primary: rgba(255, 255, 255, 0.92);
+  --wtl-text-secondary: rgba(255, 255, 255, 0.72);
 
   /* Borders */
   --wtl-border: rgba(181, 140, 255, 0.26);
