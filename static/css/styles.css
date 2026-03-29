@@ -4,23 +4,18 @@
      Base colours, borders, shadows, spacing, radius, effects, glows
      =============================================================== */
 
-/*NEW purpsoe based names*/
+
   /* Surfaces (background fills) */
   --wtl-surface-page-bottom: #0b0d18;
   --wtl-surface-header-bg: rgba(10, 11, 22, 0.7);
   --wtl-surface-tint: rgba(255, 255, 255, 0.02);
-
   --wtl-surface-page-top: #121526;
   --wtl-surface-panel: rgba(22, 20, 44, 0.88);
   --wtl-surface-control: rgba(255, 255, 255, 0.04);
-
   --wtl-surface-active-filters: rgba(10, 11, 22, 0.55);
-
   --wtl-surface-panel-deep: rgba(26, 23, 53, 0.82);
-
   --wtl-surface-glow-magic-page: rgba(181, 140, 255, 0.10);
   --wtl-surface-glow-cyan-page: rgba(109, 211, 255, 0.07);
-
   --wtl-surface-glow-magic-panel: rgba(181, 140, 255, 0.08);
   --wtl-surface-glow-cyan-panel: rgba(109, 211, 255, 0.06);
 
@@ -32,10 +27,8 @@
   --wtl-accent-gold: #d8b46c;
   --wtl-accent-gold-soft: rgba(217, 181, 109, 0.10);
   --wtl-accent-gold-inset: rgba(217, 181, 109, 0.12);
-
   --wtl-accent-magic: #b58cff;
   --wtl-accent-magic-soft: rgba(181, 140, 255, 0.14);
-
   --wtl-accent-cyan: rgba(109, 211, 255, 0.35);
   --wtl-accent-cyan-strong: rgba(109, 211, 255, 0.45);
   --wtl-accent-cyan-soft: rgba(109, 211, 255, 0.10);
@@ -62,17 +55,14 @@
   /* Badges */
   --wtl-badge-bg: rgba(255, 255, 255, 0.02);
   --wtl-badge-border: rgba(181, 140, 255, 0.26);
-
   --wtl-badge-in-bg: rgba(109, 211, 255, 0.10);
   --wtl-badge-in-border: rgba(109, 211, 255, 0.35);
-
   --wtl-badge-out-border: rgba(217, 181, 109, 0.30);
   --wtl-badge-out-bg: rgba(217, 181, 109, 0.06);
 
   /* Text */
   --wtl-text-muted: rgba(255, 255, 255, 0.58);
   --wtl-text-warm: #f0ddb0;
-
   --wtl-text-primary: rgba(255, 255, 255, 0.92);
   --wtl-text-secondary: rgba(255, 255, 255, 0.72);
 
@@ -89,7 +79,6 @@
   --wtl-shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.18);
   --wtl-shadow-main: 0 18px 48px rgba(0, 0, 0, 0.28);
   --wtl-glow-magic: 0 0 0 1px rgba(181, 140, 255, 0.10), 0 0 24px rgba(181, 140, 255, 0.08);
-
   --wtl-shadow-control-highlight: 0 1px 0 rgba(255, 255, 255, 0.02);
 
   /* Focus */
@@ -114,7 +103,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: var(--wtl-text-primary);
-  background:  /* "root" ->> FIXED!! */
+  background:  /* "root" */
   radial-gradient(circle at 12% 8%, var(--wtl-surface-glow-magic-page), transparent 40%),
   radial-gradient(circle at 88% 15%, var(--wtl-surface-glow-cyan-page), transparent 35%),
   linear-gradient(180deg, var(--wtl-surface-page-top) 0%, var(--wtl-surface-page-bottom) 100%);
@@ -138,7 +127,7 @@ body {
   border-bottom: 1px solid var(--wtl-divider-1);
 }
 
-/* Header / nav / footer theme (keeps structure, just re-colours might change wioth "root") */
+/* Header / nav / footer theme */
 .site-header,
 .site-nav,
 .site-footer {
@@ -160,7 +149,7 @@ body {
 }
 
 .site-nav a {
-  text-decoration: none;  /* Add something later on REMINDER */
+  text-decoration: none;  /* */
 }
 
 .site-footer {
@@ -196,7 +185,7 @@ body {
   margin: 0 0 var(--wtl-space-2) 0;
   color: var(--wtl-text-primary);
   font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: 0.03em;  /*EXPERIMETAL - USE VARIABLE*/
+  letter-spacing: 0.03em;
 }
 
 /* Small counts just below title */
@@ -227,7 +216,6 @@ body {
 }
 
 /* Panels- sidebar + main list contaner */ 
-/*SEPERATE IF NEEDED*/
 .games-sidebar,
 .games-main {
   background: linear-gradient(180deg, var(--wtl-surface-panel) 0%, var(--wtl-surface-panel-deep) 100%);
@@ -251,8 +239,7 @@ body {
 }
 
 
-/* Text + number inputs + select share the same look LOOKS GOOD FOR NOW
-MaYBE CHANGE LATER*/
+/* Text + number inputs + select share the same look*/
 .games-list-controls input[type="text"],
 .games-list-controls input[type="number"],
 .games-list-controls select {
@@ -267,7 +254,7 @@ MaYBE CHANGE LATER*/
   border-radius: var(--wtl-radius);
   box-shadow: var(--wtl-shadow-control-highlight);
 
-  /* Helps with scaling on mobile  weird behaviour on some iOSs */
+  /* Helps with scaling on mobile weird behaviour on some iOSs */
   font-size: 16px;
 }
 
@@ -316,7 +303,7 @@ MaYBE CHANGE LATER*/
 
   border-radius: var(--wtl-radius);
   box-shadow: var(--wtl-shadow-soft);
-/*works now*/
+
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--wtl-text-primary);
@@ -381,9 +368,7 @@ MaYBE CHANGE LATER*/
 /* Active filters title */
 .active-filters__title {
   font-weight: 700;
-
-  margin-bottom: var(--wtl-space-2);  /* Better option */
-
+  margin-bottom: var(--wtl-space-2);
   color: var(--wtl-accent-gold);
 }
 
@@ -402,24 +387,19 @@ MaYBE CHANGE LATER*/
   display:block;
   opacity: 1;  /* override previsu opacity */
   line-height: 1.35;
-
   margin: var(--wtl-space-1) 0 var(--wtl-space-3);  /* Keep it*/
   font-size:0.85rem;
 }
 
 /* individual filters */
 .filter-chip {
-  /* display: inline-block; */
   display: inline-flex;
   align-items: center;
   padding: 6px 10px;
-
   border: 1px solid var(--wtl-border);
   border-radius: 999px;
   text-decoration: none;
-
   font-size: 0.86rem;
-
   background: var(--wtl-accent-magic-soft);
   color: var(--wtl-text-primary);
 }
@@ -428,15 +408,12 @@ MaYBE CHANGE LATER*/
 .filter-chips {
   display: flex;
   flex-wrap: wrap;
-
   gap: var(--wtl-space-2);
-
   margin-top: var(--wtl-space-2);
 }
 
 /* Clear all filters button*/
 .filter-chip--clear {
-
   border-color: var(--wtl-hover-border-cyan);
   font-weight: 700;
   background: var(--wtl-accent-cyan-soft);
@@ -471,26 +448,20 @@ MaYBE CHANGE LATER*/
 
 /*Sorting pill - magical touch & tapable */
 .games-list-sort__link {
-
-  padding: 8px 12px;  /*EXPERIMENTAL*/
-
+  padding: 8px 12px;
   border: 1px solid var(--wtl-border-soft);
   border-radius: 999px;
   text-decoration: none;
-
   display: inline-flex;
   align-items: center;
   gap: 6px;
-
   color: var(--wtl-text-primary);
   background: var(--wtl-surface-tint);
 }
 
 .games-list-sort__link.is-active {
-
   border-color: var(--wtl-border-strong);
   font-weight: 700;
-
   box-shadow: inset 0 0 0 1px var(--wtl-accent-gold-inset);
 }
 
@@ -510,20 +481,16 @@ MaYBE CHANGE LATER*/
 
 
 .games-list__item {
-
   padding: var(--wtl-space-4);
-
   border: 1px solid var(--wtl-border-soft);
-
   border-radius: var(--wtl-radius);
-
   margin-bottom: var(--wtl-space-3);
   box-shadow: var(--wtl-shadow-soft);
   background: var(--wtl-surface-tint);
 }
 
 .games-list__item.is-out {
-  opacity: 0.65; /* USE VARIABLE */
+  opacity: 0.65;
 }
 
 .games-list__link {
@@ -540,10 +507,8 @@ MaYBE CHANGE LATER*/
 
 .games-list__meta {
   display: flex;
-
   gap: var(--wtl-space-2);
   align-items: center;
-
   margin-top: var(--wtl-space-2);
   color: var(--wtl-text-secondary);
 }
@@ -553,7 +518,6 @@ MaYBE CHANGE LATER*/
   font-size: 12px;
   padding: 4px 8px;
   border-radius: 999px;
-
   border: 1px solid var(--wtl-badge-border);
   background: var(--wtl-badge-bg);
   color: var(--wtl-text-primary);
@@ -561,7 +525,6 @@ MaYBE CHANGE LATER*/
 
 /* for available games */
 .badge--in {
-
   border-color: var(--wtl-badge-in-border);
   background: var(--wtl-badge-in-bg);
   font-weight: 700;
@@ -589,7 +552,6 @@ MaYBE CHANGE LATER*/
   list-style: none;
   padding: 0;
   margin: 0;
-
   display: flex;
   flex-wrap: wrap;
   gap: var(--wtl-space-2);
@@ -601,17 +563,13 @@ MaYBE CHANGE LATER*/
   display: inline-flex;
   align-items: center;
   justify-content: center;  /* cente number */
-
   min-width: 40px;
-  padding: 8px 12px;  /*For Now works - MAYBE CHANGE later*/
-
+  padding: 8px 12px;
   text-decoration: none;  /* reomve line beneath link */
   color: var(--wtl-text-primary);
-
   background: var(--wtl-surface-tint);
   border: 1px solid var(--wtl-border-soft);
-  border-radius: 999px;  /*USE VARIABLE */
-
+  border-radius: 999px;
   box-shadow: var(--wtl-shadow-soft);
 }
 
@@ -628,16 +586,12 @@ MaYBE CHANGE LATER*/
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   min-width: 40px;
   padding: 8px 12px;
-
   border-radius: 999px;
   border: 1px solid var(--wtl-border-strong);
-
   color: var(--wtl-text-warm);
   background: var(--wtl-accent-gold-soft);
-
   box-shadow: inset 0 0 0 1px var(--wtl-accent-gold-inset);
 }
 
@@ -688,7 +642,7 @@ MaYBE CHANGE LATER*/
 /* Desktop */
 @media (min-width: 1100px) {
   .games-list-page {
-    padding: var(--wtl-space-6);  /*MIGHT NEED ADJUSTMENTS*/
+    padding: var(--wtl-space-6);
   }
 
   .games-sidebar,
