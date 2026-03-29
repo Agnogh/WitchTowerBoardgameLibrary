@@ -90,6 +90,8 @@
   --wtl-shadow-main: 0 18px 48px rgba(0, 0, 0, 0.28);
   --wtl-glow-magic: 0 0 0 1px rgba(181, 140, 255, 0.10), 0 0 24px rgba(181, 140, 255, 0.08);
 
+  --wtl-shadow-control-highlight: 0 1px 0 rgba(255, 255, 255, 0.02);
+
   /* Focus */
   --wtl-focus-ring: rgba(109, 211, 255, 0.40);
 
@@ -263,7 +265,7 @@ MaYBE CHANGE LATER*/
 
   border: 1px solid var(--wtl-border);
   border-radius: var(--wtl-radius);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02);
+  box-shadow: var(--wtl-shadow-control-highlight);
 
   /* Helps with scaling on mobile  weird behaviour on some iOSs */
   font-size: 16px;
