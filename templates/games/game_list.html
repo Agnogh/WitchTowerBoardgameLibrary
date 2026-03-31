@@ -164,11 +164,11 @@
 
           <label class="games-filter-label" for="players_min">Players</label>
           <small class="filter-hint">
-            <b>Range</b> = shows games in group size range (e.g. 2–6).
+            <b>Range</b> = shows games that fit a group size range (e.g. 2–6).
             <br></br>
-            <b>Exact</b> = shows games supporting this player count (e.g. 5 in range 2-7) 
+            <b>Exact</b> = shows games supporting exact group size (e.g. 5 in range 2-7) 
             <br></br>
-            <b>Fixed player count only</b> = shows games with exactly that player count (no more, no less).
+            <b>Fixed player count only</b> = shows games with only that exact player count (no more, no less).
           </small>
           <div class="games-filter-row">
             <input
@@ -194,7 +194,7 @@
             >
           </div>
 
-          <label class="games-filter-label" for="players_exact">Exact players</label>
+          <label class="games-filter-label" for="players_exact">Exact player count</label>
           <div class="games-filter-row">
             <input
               id="players_exact"
@@ -202,7 +202,7 @@
               type="number"
               min="1"
               inputmode="numeric"
-              placeholder="one value (e.g. 5)"
+              placeholder="e.g. 5"
               value="{{ players_exact }}"
             >
           </div>
@@ -217,7 +217,7 @@
             Fixed player count only (min = max)
           </label>
 
-          <label class="games-filter-label" for="time_min">Play time (minutes)</label>
+          <label class="games-filter-label" for="time_min">Play time (min)</label>
           <div class="games-filter-row">
             <input
               id="time_min"
@@ -242,8 +242,10 @@
 
           <label class="games-filter-label" for="age_min">Player age</label>
           <small class="filter-hint">
-            Shows games suitable for players aged X and older (game age rating must be X or lower).
-            <br></br>
+            Shows games suitable for players aged X and older
+            <br>
+            game age rating must be X or lower.
+            <br></br>'
             <small>*use the checkbox below to also include games with no age rating.</small> 
           </small>
             <input
@@ -272,7 +274,7 @@
           <label class="screen-reader-only" for="category">Category</label>
           <select id="category" name="category" onchange="this.form.submit()">
 
-            <option value="">All categories</option>
+            <option value="">All game categories</option>
 
             {% for cat in categories %}
               <option value="{{ cat.slug }}" {% if category_slug == cat.slug %}selected{% endif %}>
