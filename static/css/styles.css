@@ -640,7 +640,7 @@ body {
 
 
 /* Desktop */
-@media (min-width: 1100px) {
+@media (min-width: 1199px) {
   .games-list-page {
     padding: var(--wtl-space-6);
   }
@@ -652,5 +652,6 @@ body {
 
   .games-layout {
     gap: calc(var(--wtl-space-6) + var(--wtl-space-2));  /* slightly more breathing space */
+    grid-template-columns: 460px 1fr;  /* CHECK ALL DEVICE SIZE FOR BEST FIT */
   }
 }
