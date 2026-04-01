@@ -619,8 +619,8 @@ body {
   }
 }
 
-
-@media (max-width: 900px) {
+/* phones and smaller tablets */
+@media (max-width: 899px) {
   .games-layout {
     grid-template-columns: 1fr;
   }
