@@ -627,13 +627,13 @@ body {
 }
 
 /* show sidebar + main in two columns*/
-@media (min-width: 900px) {
+@media (min-width: 900px) and (max-width: 1199px) {
   .games-layout {
-    grid-template-columns: 320px 1fr; /* MAYBE change 320px to 280px */
+    grid-template-columns: 360px 1fr; /* CHECK ALL DEVICE SIZE FOR BEST FIT */
   }
 
   .games-list-page {
-    padding: calc(var(--wtl-space-6) + var(--wtl-space-2));
+    padding: calc(var(--wtl-space-6) + var(--wtl-space-1));
   }
 
 }
