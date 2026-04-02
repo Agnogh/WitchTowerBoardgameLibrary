@@ -637,29 +637,34 @@ body {
   }
 /*Font adjsutments*/
   .games-sidebar {
-      font-size: 15px;
+      font-size: 16px;
     }
 
   .games-filter-label,
   .games-list-sort__label {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   
   .filter-hint {
     font-size: 1.11rem;
-    line-height: 1.45;
+    line-height: 1.5;
   }
 
   .games-filter-toggle {
-      font-size: 19px;
+      font-size: 16px;
   }
 
   .filter-chip {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
+  .games-list-controls input[type="text"],
+  .games-list-controls input[type="number"],
+  .games-list-controls select,
+  .games-list-controls button[type="submit"] {
+    font-size: 1rem;  
+  }
 }
-
 
 /* Desktop */
 @media (min-width: 1199px) {
