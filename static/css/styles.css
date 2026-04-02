@@ -629,29 +629,30 @@ body {
 /* show sidebar + main in two columns*/
 @media (min-width: 900px) and (max-width: 1199px) {
   .games-layout {
-    grid-template-columns: 360px 1fr; /* CHECK ALL DEVICE SIZE FOR BEST FIT */
+    grid-template-columns: 420px 1fr; /* CHECK ALL DEVICE SIZE FOR BEST FIT */
+    gap: var(--wtl-space-4);
   }
 
   .games-list-page {
-    padding: calc(var(--wtl-space-6) + var(--wtl-space-1));
+    padding: var(--wtl-space-5);
   }
 /*Font adjsutments*/
   .games-sidebar {
-      font-size: 16px;
+      font-size: 17px;
     }
 
   .games-filter-label,
   .games-list-sort__label {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
   }
   
   .filter-hint {
     font-size: 1.11rem;
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
   .games-filter-toggle {
-      font-size: 16px;
+      font-size: 17px;
   }
 
   .filter-chip {
