@@ -28,5 +28,7 @@ urlpatterns = [
     path('', home, name='home'),
     # link to 'games'
     path("games/", include("games.urls")),
+    # built-in auth routes
+    path("accounts/", include("django.contrib.auth.urls")),
 
 ]
