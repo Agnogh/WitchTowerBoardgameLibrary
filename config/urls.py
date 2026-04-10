@@ -19,7 +19,7 @@ from django.contrib import admin
 # to connect url's
 from django.urls import path, include
 # import function 'home' from 'views.py'
-from .views import home
+from .views import home, signup_view
 
 urlpatterns = [
     # admin is for handing over control to Django
@@ -28,7 +28,9 @@ urlpatterns = [
     path('', home, name='home'),
     # link to 'games'
     path("games/", include("games.urls")),
+    path("accounts/signup/", signup_view, name="signup"),
     # built-in auth routes
     path("accounts/", include("django.contrib.auth.urls")),
+
 
 ]
