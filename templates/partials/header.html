@@ -8,21 +8,20 @@
   </div>
 
   <div class="witch_tower_header-right">
-    <a href="#" class="header-link">Login</a>
+    {% if user.is_authenticated %}
+      <span class="header-link">Hello, {{ user.username }}</span>
+
+      <form method="post" action="{% url 'logout' %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="header-link">Log out</button>
+      </form>
+    {% else %}
+      <a href="{% url 'login' %}" class="header-link">Log in</a>
+      <a href="{% url 'signup' %}" class="header-link">Sign up</a>
+    {% endif %}
+
     <a href="#" class="header-link">Cart</a>
   </div>
-
-  {% if user.is_authenticated %}
-  <span>Hello, {{ user.username }}</span>
-
-  <form method="post" action="{% url 'logout' %}" style="display:inline;">
-    {% csrf_token %}
-    <button type="submit">Log out</button>
-  </form>
-  {% else %}
-    <a href="{% url 'login' %}">Log in</a>
-    <a href="{% url 'signup' %}">Sign up</a>
-  {% endif %}
 </header>
 
 <nav class="site-nav">
