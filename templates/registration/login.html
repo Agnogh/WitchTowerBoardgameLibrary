@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Log in{% endblock %}
+
+{% block content %}
+<main class="container">
+  <h1>Log in</h1>
+
+  {% if form.errors %}
+    <p>Username or password was not correct. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>You do not have access to that page.</p>
+    {% else %}
+      <p>Please log in to continue.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Log in</button>
+  </form>
+
+  <p>
+    Do not have an account yet?
+    <a href="{% url 'signup' %}">Sign up</a>
+  </p>
+</main>
+{% endblock %}
