@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.conf import settings
 # Create your models here.
 
 # CharField - Short text (title, tagline...)
@@ -57,3 +57,40 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+
+# review database model
+class Review(models.Model):
+    game = models.ForeignKey(
+        # connected to 'Game' model
+        "Game",
+        # delete reviews if game deletes
+        on_delete=models.CASCADE,
+        related_name="reviews",
+    )
+    user = models.ForeignKey(
+        # user model is used
+        settings.AUTH_USER_MODEL,
+        # if account is deleted, delete comment
+        on_delete=models.CASCADE,
+        # all reviews from this specif user
+        related_name="reviews",
+    )
+    # for storing rating/score
+    rating = models.PositiveSmallIntegerField()
+    # stores comment in text
+    comment = models.TextField()
+    # time & date 1st tidme
+    created_at = models.DateTimeField(auto_now_add=True)
+    # time & date when something is changed / updated
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        # so only 1 review per customer is allowed
+        unique_together = ("game", "user")
+        # order so last review added show up first FIFO
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        # use variable so I get Zombicide - Agnogh - 5/5
+        return f"{self.game.title} - {self.user.username} ({self.rating}/5)"
