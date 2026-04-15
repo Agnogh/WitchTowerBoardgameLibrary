@@ -163,6 +163,50 @@
     </dl>
   </section>
 
+  <section class="game-reviews">
+    <h2 class="section-title">Reviews</h2>
+
+    {% if reviews %}
+      <div class="game-reviews__list">
+        {% for review in reviews %}
+          <article class="game-review">
+            <p class="game-review__meta">
+              <strong>{{ review.user.username }}</strong>
+              · {{ review.rating }}/5
+              · {{ review.created_at|date:"M j, Y" }}
+            </p>
+            <div class="game-review__comment">
+              {{ review.comment|linebreaks }}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No reviews yet.</p>
+    {% endif %}
+
+    <div class="game-review-form">
+      {% if user.is_authenticated %}
+        {% if existing_review %}
+          <p>You already reviewed this game.</p>
+        {% else %}
+          <h3>Leave a review</h3>
+
+          <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="review_submit" value="1">
+            {{ review_form.as_p }}
+            <button type="submit" class="btn-primary">Submit review</button>
+          </form>
+        {% endif %}
+      {% else %}
+        <p>
+          <a href="{% url 'login' %}">Log in</a> to leave a review.
+        </p>
+      {% endif %}
+    </div>
+  </section>
+
   <section class="game-purchase-box">
     <div class="game-purchase-box__inner">
 

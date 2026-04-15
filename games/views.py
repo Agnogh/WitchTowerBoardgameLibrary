@@ -14,6 +14,10 @@ from django.urls import reverse
 from .models import Game
 # import category
 from .models import Category
+# import review
+from .models import Review
+
+from .forms import ReviewForm
 
 from django.db.models import Count, Q  # 'q' for stock filter
 
@@ -30,7 +34,50 @@ def category_counts_page(request):
 
 def game_detail(request, slug):
     game = get_object_or_404(Game, slug=slug)
-    return render(request, "games/game_details.html", {"game": game})
+    # get all reviews for that post
+    reviews = game.reviews.select_related("user").all()
+
+    # chek if there is already post from logged in user (failsafe)
+    existing_review = None
+    if request.user.is_authenticated:
+        existing_review = Review.objects.filter(
+            game=game,
+            user=request.user
+        ).first()
+
+    # show page & form or process submited data
+    if request.method == "POST" and "review_submit" in request.POST:
+        # trying to post without loged in -> send log in request (failsafe)
+        if not request.user.is_authenticated:
+            return redirect("login")
+
+        # prevent additional review (failsafe)
+        if existing_review:
+            return redirect("game_detail", slug=game.slug)
+
+        # build form from submited data
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            # add review to that open game
+            review.game = game
+            # link reivew to loged in user
+            review.user = request.user
+            # save to database
+            review.save()
+            # reload page after done (failsafe from duplcates)
+            return redirect("game_detail", slug=game.slug)
+    else:
+        form = ReviewForm()
+
+    context = {
+        "game": game,
+        "reviews": reviews,
+        "review_form": form,
+        "existing_review": existing_review,
+    }
+
+    return render(request, "games/game_details.html", context)
 
 
 # can render games & games/category/<type>
