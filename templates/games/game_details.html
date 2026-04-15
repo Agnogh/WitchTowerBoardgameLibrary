@@ -178,6 +178,17 @@
             <div class="game-review__comment">
               {{ review.comment|linebreaks }}
             </div>
+            <!-- in case there is already review from user-->
+            {% if user.is_authenticated and review.user == user %}
+              <div class="game-review__actions">
+                <a href="{% url 'review_edit' review.id %}">Edit</a>
+
+                <form method="post" action="{% url 'review_delete' review.id %}" style="display:inline;">
+                  {% csrf_token %}
+                  <button type="submit">Delete</button>
+                </form>
+              </div>
+            {% endif %}
           </article>
         {% endfor %}
       </div>

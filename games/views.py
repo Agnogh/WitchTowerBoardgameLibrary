@@ -21,6 +21,8 @@ from .forms import ReviewForm
 
 from django.db.models import Count, Q  # 'q' for stock filter
 
+from django.contrib.auth.decorators import login_required
+
 
 def category_counts_page(request):
     categories = Category.objects.annotate(
@@ -78,6 +80,55 @@ def game_detail(request, slug):
     }
 
     return render(request, "games/game_details.html", context)
+
+
+# need to be loged in
+@login_required
+def review_edit(request, review_id):
+    # look for review + id need to match + user logged in to avoid 404
+    review = get_object_or_404(Review, id=review_id, user=request.user)
+
+    if request.method == "POST":
+        # use submited form but apply over existng
+        form = ReviewForm(request.POST, instance=review)
+        # if form is good (rating == num, mandatoy fileds populated)
+        if form.is_valid():
+            # save updated value
+            form.save()
+            # go back to 'game details' page
+            return redirect("game_detail", slug=review.game.slug)
+    else:
+        # otherwise show previous/old entires
+        form = ReviewForm(instance=review)
+
+    # returns data to template (form, review, game)
+    return render(
+        request,
+        "games/review_form.html",
+        {
+            "form": form,
+            "review": review,
+            "game": review.game,
+        },
+    )
+
+
+# only if you are logged in
+@login_required
+def review_delete(request, review_id):
+    # review & id need to match & user logged in to be able to delte
+    review = get_object_or_404(Review, id=review_id, user=request.user)
+    game_slug = review.game.slug
+
+    # delete only if it was submited
+    if request.method == "POST":
+        # remove reivew from records
+        review.delete()
+        # return to main gamne page
+        return redirect("game_detail", slug=game_slug)
+
+    # failsafe
+    return redirect("game_detail", slug=game_slug)
 
 
 # can render games & games/category/<type>
