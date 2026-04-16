@@ -18,6 +18,19 @@
     {% include "partials/header.html" %}
     <!-- this is for 'child' template to inject their own specific content-->
     <main class="container">
+      <!-- if there is a message show following -->
+      {% if messages %}
+        <div class="site-messages">
+          <!--- loop over each message -->
+          {% for message in messages %}
+          <!-- message box -->
+            <div class="site-message {{ message.tags }}">
+              <!-- print message -->
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
     <!-- replaceble section ends here (stop here)-->
       {% block content %}{% endblock %}
     </main>

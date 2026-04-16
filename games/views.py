@@ -22,6 +22,8 @@ from .forms import ReviewForm
 from django.db.models import Count, Q  # 'q' for stock filter
 
 from django.contrib.auth.decorators import login_required
+# import messages (for user)
+from django.contrib import messages
 
 
 def category_counts_page(request):
@@ -51,10 +53,14 @@ def game_detail(request, slug):
     if request.method == "POST" and "review_submit" in request.POST:
         # trying to post without loged in -> send log in request (failsafe)
         if not request.user.is_authenticated:
+            # instructions for user
+            messages.info(request, "Log in to leave a review.")
             return redirect("login")
 
         # prevent additional review (failsafe)
         if existing_review:
+            # explanation for user
+            messages.info(request, "You reviewed this game alredy.")
             return redirect("game_detail", slug=game.slug)
 
         # build form from submited data
@@ -67,6 +73,8 @@ def game_detail(request, slug):
             review.user = request.user
             # save to database
             review.save()
+            # review confirmation for user
+            messages.success(request, "Review was added successfully.")
             # reload page after done (failsafe from duplcates)
             return redirect("game_detail", slug=game.slug)
     else:
@@ -95,6 +103,8 @@ def review_edit(request, review_id):
         if form.is_valid():
             # save updated value
             form.save()
+            # review update sucess for user
+            messages.success(request, "Review was updated successfully.")
             # go back to 'game details' page
             return redirect("game_detail", slug=review.game.slug)
     else:
@@ -124,6 +134,8 @@ def review_delete(request, review_id):
     if request.method == "POST":
         # remove reivew from records
         review.delete()
+        # review erased confirmation for user
+        messages.success(request, "Review was deleted successfully.")
         # return to main gamne page
         return redirect("game_detail", slug=game_slug)
 
