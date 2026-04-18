@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 # Create your models here.
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # CharField - Short text (title, tagline...)
 # SlugField - url text
@@ -77,7 +78,10 @@ class Review(models.Model):
         related_name="reviews",
     )
     # for storing rating/score
-    rating = models.PositiveSmallIntegerField()
+    # bug fix to prevent values going below 1 and over 5
+    rating = models.PositiveSmallIntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(5)]
+    )
     # stores comment in text
     comment = models.TextField()
     # time & date 1st tidme
