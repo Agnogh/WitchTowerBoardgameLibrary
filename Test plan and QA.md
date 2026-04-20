@@ -24,9 +24,9 @@
 | Feature | Action | Expected Result | Actual Result |
 |---|---|---|---|
 | Logged-out review access | Logged-out user opens game detail page | User can read reviews but cannot submit one | Pass |
-| Logged-out create attempt | Logged-out user trie to submit a review | User is redirected to log in / prevented from submitting | Pass |
+| Logged-out create attempt | Logged-out user tries to submit a review | User is redirected to log in / prevented from submitting | Pass |
 | Owner edit access | Review owner opens their review actions | Edit and Delete controls are visible | Pass |
-| Non-owner edit access | Different logged-in user opens same game page | Edit and Delete kontrols are not visible for another user's review | Pass |
+| Non-owner edit access | Different logged-in user opens same game page | Edit and Delete controls are not visible for another user's review | Pass |
 | Non-owner direct edit/delete attempt | Different logged-in user manually tries edit/delete URL | Access is denied / object is not accessible | Pass |
 
 #### Game List Page
@@ -50,7 +50,7 @@
 |---|---|---|---|
 | Mobile | Sidebar, filters, chips, pagination | Layout stacks correctly and remains readable | Pass |
 | Tablet | Sidebar and game list side by side | Text remains readable and layout stays usable | Pass |
-| Desktop | Full list, sidebar, sort controls | Layout is spacious and readable | Not fully pass |
+| Desktop | Full list, sidebar, sort controls | Layout is spacious and readable | Partially pass – layout works, but spacing/readability around 1200px width still needs polish |
 
 ### Validation Testing
 
@@ -69,7 +69,7 @@ CSS was tested and corrected where needed.
 - Fixed tablet sidebar readability with improved responsive layout and font sizing
 - Fixed review duplication by allowing only one review per user per game
 - Fixed review permissions so users can only edit or delete their own reviews
-- Added feedback messages for sing up, log in, log out, create review, edit review, and delete review
+- Added feedback messages for sign up, log in, log out, create review, edit review, and delete review
 - Limiting rating between 1 and 5
 - Adding user text for Log in, log out, sign up, add, edit and delete review
 
@@ -77,5 +77,10 @@ CSS was tested and corrected where needed.
 
 - Review Edit and Delete controls are not yet equally styled
 - Further UI polish may still be applied to some buttons and messages
-- Improving resolution for 1200 (desktops)
+- Desktop layout around 1199–1200px width still needs visual polish
 - Additional UI styling (improvement)
+- Grammar check
+- Deployment / security clean up
+- Allow host
+- Add to Basket feature
+- Database creation for games (actual games)
