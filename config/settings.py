@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,10 +23,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-6&2eqpj#c6^q2$-76x%mp0!m9u#xghen9_cu35-ix29q2%4d&o'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Instead of hardcoded key, Django reads it from env variables
+# (falls to '"dev-secret-key-change-me"')
+SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key-change-me")
 
-ALLOWED_HOSTS = []
+# SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True
+
+# NOw reads from env variable as well
+DEBUG = os.environ.get("DEBUG", "True") == "True"
+
+# TO contorl allowed hosts from envirnment variables
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.environ.get("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+    if host.strip()
+]
 
 
 # Application definition
