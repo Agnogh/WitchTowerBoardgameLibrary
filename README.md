@@ -53,3 +53,122 @@ Repo for gameboard shop, rental and workshop site
   - [10.1 Code / Learning References](#101-code--learning-references)
   - [10.2 Media / Content](#102-media--content)
   - [10.3 Acknowledgements](#103-acknowledgements)
+
+
+## 1. Project Overview
+
+  ### 1.1 Purpose
+
+  Witch Tower Boardgame Library is a full-stack web aplication designed to display a personal library (of my friend Katarina) of board games in a clear and structrued way. The project was created to help users (her frends and family members) browse available games, learn more about them, and decide in advance what they would like to play before meeting in person (and sometimes spending time deciding on what game to play).
+
+  Also it will help decide if game is even available and should friends bring their own copy, or addonns (DLC-s), if the number of people joining is supported for the game they want ot play.
+
+  The long-term idea behind the project is closer to a library or lending system than an online shop. Although some shop-like featurs are currently used in the layout, the intended purpose is not selling games, but helping users track, reserve, and borrow them.
+
+  The main purpose of the site is to make game selection easier and faster. Instead of spending time during a gathering deciding what to play, users can search, filter, and review the available games beforehand. The site also helps communicate whether a game is currently available, reserved, or unavailable.
+
+  Witch Tower Boardgame Library is a full-stack web application designed to act as a shared board game database for a small group of users, such as family members or close friends. Its purpose is to let users see what board games are available, which games are currently lent out, and which games may be reserved for future play sessions.
+
+
+  ### 1.2 User Goals
+
+  The main goals for the user are:
+
+  - to browse a library of available board games
+  - to see which games are curently available and which are already lent out
+  - to search and filter games by useful criteria such as player count, play time, age sutability, and category
+  - to view detaield information about each game
+  - to read and write revievs for games
+  - to decide more easily which game to play before meeting up
+  - to check weather they need to bring their own games or expansions
+
+
+  ### 1.3 Site Ownr Goals
+
+The main goals for the site owner are:
+
+- to display a personal board game collection in an organised and user-friendly way
+- to update collection when games are added, changed or removedž
+-  -to let visitors quickly understand what games are available
+- to reduce time spent deciding what to play during in-person gatherings
+- to support a system where games may later be reserved, borrowed, or tracked more clearly
+- to treck which games are available and which are currently borrowed
+- to support planning and organising gaming nights more efficiently
+- to provide usful information about each game, including stock/availability and user reviews
+
+
+  ### 1.4 Target Audience
+
+The target audience for this project is mainly a small, familiar group off users, such as family members and close friends who regularly meet to play board games.
+
+- friends or grups planning to meet and play board games
+- people who want to see what games are available before visiting
+- users who want to compare games by number of players, play time, and other features- 
+- returning usres who want to leave feedback or reviews on games they have played
+
+
+
+## 4. Data Model
+### 4.1 Game Model
+
+Game model is the central model of the application. It prepresents one board game in the library and stores the main infromation users need in order to browse, compare, and choose games.
+
+#### Key fields include:
+
+- title
+- slug
+- tagline
+- short description
+- full description
+ - price
+-stock
+-  minimum and maximum players
+- minimum and maximum play time
+- recommended age
+- publisher
+- designer
+- category
+- SKU
+- created and updated timestamps
+
+This model exists to give users structured way to explore the available board games and to support filtering, sorting, and detailwd game pages.
+
+### 4.2 Category Model
+
+The Category model is used to group games into organized categories such as strategy, family, or similar groupings.
+
+Key fields include:
+
+- name
+- slug
+
+This model impruves navigation and filtering by allowing users to browse games by category. It also supports cleaner URLs and more structured organization of the game library.
+
+### 4.3 Review Model
+
+The Review model allows authenticated users to leave feedback on a game.
+
+#### Key fields include:
+
+- linked game
+- linked user
+- rating
+- comment
+- created timestamp
+- updated timestamp
+
+This model was added to provide front-end CRUD functionallity. Logged-in users can create, read, update, and delete their own reviews directly from the site without using the Django admin panel.
+
+The review model also includes a restriction that allows one user to leave one one review per game. This helps keep feedback clear and prevents duplicate reviews from the same user for the same game.
+
+### 4.4 Relationshihps Between Models
+
+The models in the project are conencted in the following way:
+
+- one Category can contain many Games
+- one Game can belong to one Category
+- one Game can have many Reviews
+- -one User can write many Reviews
+ -one User can leave only one Review per Game
+
+These relationships support the main business logic of the application by allowing games to be grouped, displayed in detail, and reviewed by autenticated users.
