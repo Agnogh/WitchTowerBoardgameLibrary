@@ -180,44 +180,103 @@ These relationships support the main business logic of the application by allowi
 
 ![Home Page image here]
 
-Serves as a base where the the links are for Game lists, sign in/out/sign up.
-Contact page, Event page. It is a hub from where we progress and navigate
+The Home Page acts as the main entry point of the application. It provides users with a simple starting hub from which they can navigate to the main parts of the site, such as the game list, authentication pages, and other planned sections such as Events and Contact.
+
+Its purpose is to give users a clear first step into the application and make navigation easier across 
 
 ### 5.2 Game List Page
 
 ![Game list image here]
 
-List of all the games and filters. Applying filters and selecting "Apply FIlters" updates search results
-Idea was that filters are applied only after "Apply Filters" button is applied to take to load of constant results update as user chanegs multiple searches.
+The Game List Page displays the collection of board games available in the library. It is one of the main functional pages of the project and allows users to browse the current collection in an organised way.
 
-It might be tediosu for user as well as memory cunsimuing 
+This page includes filters, sorting options, active filter chips, and pagination. Users can narrow down the results based on their needs and then apply the selected filters using the **Apply Filters** button.
+
+A deliberate design decision was made to apply filters only when the user clicks **Apply Filters**, rather than updating results instantly on every field change. This was done to keep the experience more predictable for the user and to avoid unnecessary repeated page reloads while multiple filters are being adjusted.
 
 ### 5.3 Filtering and Sorting
 
 ![Filtering and sorting image here]
 
-Filztering is the corner stone of games. TGhsi si where the magic happens and wherre users will spend most of the time
+Filtering and sorting form one of the most important features of the application. This is the area where users can narrow down the game collection and focus only on games that suit their current needs.
+
+Users can filter games by:
+- title search
+- stock availability
+- number of players
+- exact player count
+- play time
+- age suitability
+- category
+
+Users can also sort the results by:
+- title
+- price
+- newest entries
+
+This feature is central to the purpose of the project, because it helps users decide in advance what to play based on group size, available time, and other practical criteria.
 
 ### 5.4 Game Detail Page
 
-![Game Deetails image here]
+![Game Details image here]
 
-This si where user will spend time browing through the games and finding out about the game itself that potential player will play
+The Game Detail Page gives the user more detailed information about a selected game. This is where users can spend time learning about a game before deciding whether it is suitable for their group or event.
+
+The page includes information such as:
+- title
+- tagline
+- price
+- stock status
+- player information
+- play time
+- age suitability
+- description
+- box contents
+- game details such as publisher, designer, category, and SKU
+
+This page supports the project goal of helping users make decisions before meeting in person, instead of spending time choosing a game during the event itself.
+
 
 ### 5.5 Authentication
 
 ![Authentication image here]
 
-To filter just average users and members, auth method is provided. Everyone can sign up, and automatically write reviews and pick games. BUt this is possible onlly for sign up users
+Authentication allows users to sign up, log in, and log out of the site. This creates a distinction between general visitors and authenticated users.
+
+Any visitor can browse the available games, but only registered and logged-in users can interact with the review system. This helps create a more controlled and accountable environment for user-generated content.
+
+Authentication is also important for ownership-based permissions, as it ensures that users can only edit or delete their own reviews.
+
 
 ### 5.6 Review CRUD
 
 ![Review CRUD image here]
 
-Abbility to add review and edit it (and even delete it). Only one review per user per game is possible tfor logivcal reasons and as well to reduce clutter
+The review system provides full front-end CRUD functionality for authenticated users.
+
+Logged-in users can:
+- create a review
+- read reviews left by other users
+- update their own review
+- delete their own review
+
+Each user is limited to one review per game. This was a deliberate design choice to keep feedback clear, reduce clutter, and prevent duplicate reviews for the same game by the same person.
+
+This feature is one of the most important parts of the project because it satisfies the front-end CRUD requirement while also adding real value for users.
+
 
 ### 5.7 User Feedback Messages
 
 ![User feedback image here]
 
-User woill be notified if their auth action was sucessfull as well as their comments and review status as Add, edited and deleted review.
+The application provides clear feedback messages to users after important actions.
+
+Users receive confirmation messages for actions such as:
+- signing up
+- logging in
+- logging out
+- adding a review
+- editing a review
+- deleting a review
+
+This improves usability by clearly informing users that their action was completed successfully. It also supports better overall UX by reducing uncertainty after important interactions.
