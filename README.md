@@ -172,3 +172,52 @@ The models in the project are conencted in the following way:
  -one User can leave only one Review per Game
 
 These relationships support the main business logic of the application by allowing games to be grouped, displayed in detail, and reviewed by autenticated users.
+
+
+## 5. Features
+
+### 5.1 Home Page
+
+![Home Page image here]
+
+Serves as a base where the the links are for Game lists, sign in/out/sign up.
+Contact page, Event page. It is a hub from where we progress and navigate
+
+### 5.2 Game List Page
+
+![Game list image here]
+
+List of all the games and filters. Applying filters and selecting "Apply FIlters" updates search results
+Idea was that filters are applied only after "Apply Filters" button is applied to take to load of constant results update as user chanegs multiple searches.
+
+It might be tediosu for user as well as memory cunsimuing 
+
+### 5.3 Filtering and Sorting
+
+![Filtering and sorting image here]
+
+Filztering is the corner stone of games. TGhsi si where the magic happens and wherre users will spend most of the time
+
+### 5.4 Game Detail Page
+
+![Game Deetails image here]
+
+This si where user will spend time browing through the games and finding out about the game itself that potential player will play
+
+### 5.5 Authentication
+
+![Authentication image here]
+
+To filter just average users and members, auth method is provided. Everyone can sign up, and automatically write reviews and pick games. BUt this is possible onlly for sign up users
+
+### 5.6 Review CRUD
+
+![Review CRUD image here]
+
+Abbility to add review and edit it (and even delete it). Only one review per user per game is possible tfor logivcal reasons and as well to reduce clutter
+
+### 5.7 User Feedback Messages
+
+![User feedback image here]
+
+User woill be notified if their auth action was sucessfull as well as their comments and review status as Add, edited and deleted review.
