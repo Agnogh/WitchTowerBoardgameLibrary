@@ -20,7 +20,7 @@ def signup_view(request):
             user = form.save()
             login(request, user)
             messages.success(request,
-                             "Account creted successfully. You are logged in")
+                             "Account created successfully. You are logged in")
             return redirect("home")
     else:
         form = SignUpForm()
@@ -49,7 +49,7 @@ def login_view(request):
 def logout_view(request):
     if request.method == "POST":
         logout(request)
-        messages.success(request, "You have loged out successfully.")
+        messages.success(request, "You have logged out successfully.")
         return redirect("home")
 
     return redirect("home")
