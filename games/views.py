@@ -60,7 +60,7 @@ def game_detail(request, slug):
         # prevent additional review (failsafe)
         if existing_review:
             # explanation for user
-            messages.info(request, "You reviewed this game alredy.")
+            messages.info(request, "You reviewed this game already.")
             return redirect("game_detail", slug=game.slug)
 
         # build form from submited data
