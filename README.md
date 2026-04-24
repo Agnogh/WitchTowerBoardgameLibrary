@@ -108,6 +108,117 @@ The target audience for this project is mainly a small, familiar group off users
 
 
 
+## 3. Agile Planing
+
+### 3.1 Project Board
+The project was planned and tracked using a GitHub Project board. This board was used to organise development tasks, monitor progres, and keep the work structured throughout the build.
+
+A simple workflow was used to move tasks through the project lifecycle:
+- **Backlog / To Do**
+- **In Progress**
+- **Done**
+
+![Responsive preview image of starting progress here]
+
+
+![Responsive preview image of mid progess here]
+
+
+![Responsive preview image of Completed tasks here]
+
+This made it easier to separate planned work from active work and completed functionality.
+
+### 3.2 Development Approach
+The project was developed using an Agile approach, with the work being broken into smaller and more manageable steps rather than attempting to build everything at one.
+
+The project originally began as an idea for a friend who wanted a webpage for managing and showing her board game library. As development progressed, the project was adujsted so that required portfolio project features could be built into that original idea. This meant balancing the real-life pourpose of the website with the mandatory technical requirements of the assessment.
+
+Core browsing and filtering features were prioritised first, followed by responsive layout impruvements, authentication, front-end review CRUD, user permissions, and user feedback messages. Documentation, deployment preparation, and final testing were planned as later stages of the project.
+
+
+### 3.3 Epics
+The project board was organised into larger feature areas in in the form of epics. These epics hleped define the main structure of the project and separate core features from future ideas.
+
+Examples of epics sued during planning included:
+- Navigation & Layout
+- Game Library / Catalogue
+- Game Details
+- User Accounts & Authentication
+- Reviews & User Feedbavk
+- Deployment & Documentation
+- Events
+- Contact Page
+- Rewards & Vouchers (Post-MVP)
+
+This structure helped keep the project organised and allowed clear distinction between MVP features and future improvements.
+
+
+### 3.4 User Stories
+Each epic was supported by user stories written from the perspective of the user. This helped keep the project focused on practical user needs rather that only technical tasks.
+
+Examples of user stories included:
+- As a visitor, I want to browse a list of games so that I can see what is available.
+- As a visitor, I want to view a game’s details so that I can decide whether it works my group.
+- As a logged-in user, I want to sign up, log in, and log out so that I can access member-only features.
+- As a logged-in user, I want to leave, edit, and delete my own review so that I can manage my feedback on games.
+
+Using user stories helped ensure that features was built with purpose and tied back to the intended audience.
+
+
+### 3.5 Task Breakdown
+The user stories were then brokan down into smaller practical development tasks. This made the project easier to build step by step and made progress easier to track on the GitHub broad.
+
+Examples of tasks including is:
+- creating the game model
+- creating the base layout template
+- adding navigation links
+- displaying login state in the header
+- creating the review model
+- creating the review form
+- implementing review CRUD on the game detail page
+- restricting review edit/delete actions to the review owner
+- adding user feedback messages for authentication and review actions
+- improving the responsive game list layout
+- preparing settings for deployment with environment variables
+
+This task-based approach helped turn larger features into smaller achievable piece of work.
+
+
+### 3.6 Prioritization
+The project was planned around a mixture of core functionality, user value, and assessment requirements.
+
+Priority was given to:
+- game browsing and filtering
+- game detail pages
+- responsive layout
+- authentication
+- review CRUD
+- premissions and user feedback
+
+Some features, such as Events, Contact, reward systems, and more advanced lending/reservation ideas, were kept as lower-priority or future work. This helped keep the MVP realistic and prevented the scope from growing too large too early.
+
+
+### 3.7 MVP and Post-MVP Tinking
+The project included both MVP and post-MVP planning.
+
+The MVP focused on delivering the main features needed for the current application, including:
+- browsing the game libraryž
+- filtering and sorting games
+- viewing game details
+- authentication
+- review CRUD
+- responsive layout improvements
+
+Post-MVP ideas included is:
+- events page
+- contactc page
+- reward/voucher/cupons functionality
+- more advanced reservation or borrowing tracking
+- improvments such as dynamic category counts and additional UI polish
+
+This separation helped keep the project manegeable while still allowing room for future expansion.
+
+
 ## 4. Data Model
 ### 4.1 Game Model
 
