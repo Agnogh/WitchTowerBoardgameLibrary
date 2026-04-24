@@ -75,24 +75,24 @@ Repo for gameboard shop, rental and workshop site
   The main goals for the user are:
 
   - to browse a library of available board games
-  - to see which games are curently available and which are already lent out
-  - to search and filter games by useful criteria such as player count, play time, age sutability, and category
+  - to see which games are currently available and which are already lent out
+  - to search and filter games by useful criteria such as player count, play time, age suitability, and category
   - to view detailed information about each game
   - to read and write reviews for games
   - to decide more easily which game to play before meeting up
-  - to check weather they need to bring their own games or expansions
+  - to check whether they need to bring their own games or expansions
 
 
-  ### 1.3 Site Ownr Goals
+  ### 1.3 Site Owner Goals
 
 The main goals for the site owner are:
 
 - to display a personal board game collection in an organised and user-friendly way
-- to update collection when games are added, changed or removedž
--  -to let visitors quickly understand what games are available
+- to update the collection when games are added, changed, or removed
+- to let visitors quickly understand what games are available
 - to reduce time spent deciding what to play during in-person gatherings
 - to support a system where games may later be reserved, borrowed, or tracked more clearly
-- to treck which games are available and which are currently borrowed
+- to track which games are available and which are currently borrowed
 - to support planning and organising gaming nights more efficiently
 - to provide useful information about each game, including stock/availability and user reviews
 
@@ -103,15 +103,15 @@ The target audience for this project is mainly a small, familiar group of users,
 
 - friends or groups planning to meet and play board games
 - people who want to see what games are available before visiting
-- users who want to compare games by number of players, play time, and other features- 
-- returning usres who want to leave feedback or reviews on games they have played
+- users who want to compare games by number of players, play time, and other features 
+- returning users who want to leave feedback or reviews on games they have played
 
 
 
 ## 3. Agile Planning
 
 ### 3.1 Project Board
-The project was planned and tracked using a GitHub Project board. This board was used to organise development tasks, monitor progres, and keep the work structured throughout the build.
+The project was planned and tracked using a GitHub Project board. This board was used to organise development tasks, monitor progress, and keep the work structured throughout the build.
 
 A simple workflow was used to move tasks through the project lifecycle:
 - **Backlog / To Do**
@@ -137,7 +137,7 @@ Core browsing and filtering features were prioritised first, followed by respons
 
 
 ### 3.3 Epics
-The project board was organised into larger feature areas in the form of epics. These epics hleped define the main structure of the project and separate core features from future ideas.
+The project board was organised into larger feature areas in the form of epics. These epics helped define the main structure of the project and separate core features from future ideas.
 
 Examples of epics used during planning included:
 - Navigation & Layout
@@ -154,7 +154,7 @@ This structure helped keep the project organised and allowed clear distinction b
 
 
 ### 3.4 User Stories
-Each epic was supported by user stories written from the perspective of the user. This helped keep the project focused on practical user needs rather that only technical tasks.
+Each epic was supported by user stories written from the perspective of the user. This helped keep the project focused on practical user needs rather than only technical tasks.
 
 Examples of user stories included:
 - As a visitor, I want to browse a list of games so that I can see what is available.
@@ -166,7 +166,7 @@ Using user stories helped ensure that features were built with purpose and tied 
 
 
 ### 3.5 Task Breakdown
-The user stories were then broken down into smaller practical development tasks. This made the project easier to build step by step and made progress easier to track on the GitHub broad.
+The user stories were then broken down into smaller practical development tasks. This made the project easier to build step by step and made progress easier to track on the GitHub board.
 
 Examples of tasks included:
 - creating the game model
@@ -211,12 +211,12 @@ The MVP focused on delivering the main features needed for the current applicati
 
 Post-MVP ideas included:
 - events page
-- contactc page
+- contact page
 - reward/voucher functionality
-- more advanced reservation or borrowing tracking
-- improvments such as dynamic category counts and additional UI polish
+- more advanced reservation or lending tracking
+- improvements such as dynamic category counts and additional UI polish
 
-This separation helped keep the project manegeable while still allowing room for future expansion.
+This separation helped keep the project manageable while still allowing room for future expansion.
 
 
 ## 4. Data Model
@@ -244,6 +244,8 @@ The Game model is the central model of the application. It represents one board 
 
 This model exists to give users a structured way to explore the available board games and to support filtering, sorting, and detailed game pages.
 
+The game catalogue is managed through Django Admin, allowing the site owner to add, update, and maintain game records, including stock and descriptive information.
+
 ### 4.2 Category Model
 
 The Category model is used to group games into organized categories such as strategy, family, or similar groupings.
@@ -268,13 +270,13 @@ The Review model allows authenticated users to leave feedback on a game.
 - created timestamp
 - updated timestamp
 
-This model was added to provide front-end CRUD functionallity. Logged-in users can create, read, update, and delete their own reviews directly from the site without using the Django admin panel.
+This model was added to provide front-end CRUD functionality. Logged-in users can create, read, update, and delete their own reviews directly from the site without using the Django admin panel.
 
-The review model also includes a restriction that allows one user to leave one one review per game. This helps keep feedback clear and prevents duplicate reviews from the same user for the same game.
+The review model also includes a restriction that allows one user to leave only one review per game. This helps keep feedback clear and prevents duplicate reviews from the same user for the same game.
 
 ### 4.4 Relationships Between Models
 
-The models in the project are conencted in the following way:
+The models in the project are connected in the following way:
 
 - one Category can contain many Games
 - one Game can belong to one Category
@@ -282,7 +284,7 @@ The models in the project are conencted in the following way:
 - one User can write many Reviews
 - one User can leave only one Review per Game
 
-These relationships support the main busines logic of the application by allowing games to be grouped, displayed in detail, and reviewed by autenticated users.
+These relationships support the main busines logic of the application by allowing games to be grouped, displayed in detail, and reviewed by authenticated users.
 
 
 ## 5. Features
