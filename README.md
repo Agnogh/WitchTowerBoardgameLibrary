@@ -63,7 +63,7 @@ Repo for gameboard shop, rental and workshop site
 
   Also it will help decide if game is even available and should friends bring their own copy, or addonns (DLC-s), if the number of people joining is supported for the game they want ot play.
 
-  The long-term idea behind the project is closer to a library or lending system than an online shop. Although some shop-like featurs are currently used in the layout, the intended purpose is not selling games, but helping users track, reserve, and borrow them.
+  The long-term idea behind the project is closer to a library or lending system than an online shop. Although some shop-like features are currently used in the layout, the intended purpose is not selling games, but helping users track, reserve, and borrow them.
 
   The main purpose of the site is to make game selection easier and faster. Instead of spending time during a gathering deciding what to play, users can search, filter, and review the available games beforehand. The site also helps communicate whether a game is currently available, reserved, or unavailable.
 
@@ -77,8 +77,8 @@ Repo for gameboard shop, rental and workshop site
   - to browse a library of available board games
   - to see which games are curently available and which are already lent out
   - to search and filter games by useful criteria such as player count, play time, age sutability, and category
-  - to view detaield information about each game
-  - to read and write revievs for games
+  - to view detailed information about each game
+  - to read and write reviews for games
   - to decide more easily which game to play before meeting up
   - to check weather they need to bring their own games or expansions
 
@@ -94,21 +94,21 @@ The main goals for the site owner are:
 - to support a system where games may later be reserved, borrowed, or tracked more clearly
 - to treck which games are available and which are currently borrowed
 - to support planning and organising gaming nights more efficiently
-- to provide usful information about each game, including stock/availability and user reviews
+- to provide useful information about each game, including stock/availability and user reviews
 
 
   ### 1.4 Target Audience
 
-The target audience for this project is mainly a small, familiar group off users, such as family members and close friends who regularly meet to play board games.
+The target audience for this project is mainly a small, familiar group of users, such as family members and close friends who regularly meet to play board games.
 
-- friends or grups planning to meet and play board games
+- friends or groups planning to meet and play board games
 - people who want to see what games are available before visiting
 - users who want to compare games by number of players, play time, and other features- 
 - returning usres who want to leave feedback or reviews on games they have played
 
 
 
-## 3. Agile Planing
+## 3. Agile Planning
 
 ### 3.1 Project Board
 The project was planned and tracked using a GitHub Project board. This board was used to organise development tasks, monitor progres, and keep the work structured throughout the build.
@@ -129,22 +129,22 @@ A simple workflow was used to move tasks through the project lifecycle:
 This made it easier to separate planned work from active work and completed functionality.
 
 ### 3.2 Development Approach
-The project was developed using an Agile approach, with the work being broken into smaller and more manageable steps rather than attempting to build everything at one.
+The project was developed using an Agile approach, with the work being broken into smaller and more manageable steps rather than attempting to build everything at once.
 
-The project originally began as an idea for a friend who wanted a webpage for managing and showing her board game library. As development progressed, the project was adujsted so that required portfolio project features could be built into that original idea. This meant balancing the real-life pourpose of the website with the mandatory technical requirements of the assessment.
+The project originally began as an idea for a friend who wanted a webpage for managing and showing her board game library. As development progressed, the project was adjusted so that required portfolio project features could be built into that original idea. This meant balancing the real-life purpose of the website with the mandatory technical requirements of the assessment.
 
-Core browsing and filtering features were prioritised first, followed by responsive layout impruvements, authentication, front-end review CRUD, user permissions, and user feedback messages. Documentation, deployment preparation, and final testing were planned as later stages of the project.
+Core browsing and filtering features were prioritised first, followed by responsive layout improvements, authentication, front-end review CRUD, user permissions, and user feedback messages. Documentation, deployment preparation, and final testing were planned as later stages of the project.
 
 
 ### 3.3 Epics
-The project board was organised into larger feature areas in in the form of epics. These epics hleped define the main structure of the project and separate core features from future ideas.
+The project board was organised into larger feature areas in the form of epics. These epics hleped define the main structure of the project and separate core features from future ideas.
 
-Examples of epics sued during planning included:
+Examples of epics used during planning included:
 - Navigation & Layout
 - Game Library / Catalogue
 - Game Details
 - User Accounts & Authentication
-- Reviews & User Feedbavk
+- Reviews & User Feedback
 - Deployment & Documentation
 - Events
 - Contact Page
@@ -158,17 +158,17 @@ Each epic was supported by user stories written from the perspective of the user
 
 Examples of user stories included:
 - As a visitor, I want to browse a list of games so that I can see what is available.
-- As a visitor, I want to view a game’s details so that I can decide whether it works my group.
+- As a visitor, I want to view a game’s details so that I can decide whether it suits my group.
 - As a logged-in user, I want to sign up, log in, and log out so that I can access member-only features.
 - As a logged-in user, I want to leave, edit, and delete my own review so that I can manage my feedback on games.
 
-Using user stories helped ensure that features was built with purpose and tied back to the intended audience.
+Using user stories helped ensure that features were built with purpose and tied back to the intended audience.
 
 
 ### 3.5 Task Breakdown
-The user stories were then brokan down into smaller practical development tasks. This made the project easier to build step by step and made progress easier to track on the GitHub broad.
+The user stories were then broken down into smaller practical development tasks. This made the project easier to build step by step and made progress easier to track on the GitHub broad.
 
-Examples of tasks including is:
+Examples of tasks included:
 - creating the game model
 - creating the base layout template
 - adding navigation links
@@ -181,10 +181,10 @@ Examples of tasks including is:
 - improving the responsive game list layout
 - preparing settings for deployment with environment variables
 
-This task-based approach helped turn larger features into smaller achievable piece of work.
+This task-based approach helped turn larger features into smaller achievable pieces of work.
 
 
-### 3.6 Prioritization
+### 3.6 Prioritisation
 The project was planned around a mixture of core functionality, user value, and assessment requirements.
 
 Priority was given to:
@@ -193,26 +193,26 @@ Priority was given to:
 - responsive layout
 - authentication
 - review CRUD
-- premissions and user feedback
+- permissions and user feedback
 
 Some features, such as Events, Contact, reward systems, and more advanced lending/reservation ideas, were kept as lower-priority or future work. This helped keep the MVP realistic and prevented the scope from growing too large too early.
 
 
-### 3.7 MVP and Post-MVP Tinking
+### 3.7 MVP and Post-MVP Thinking
 The project included both MVP and post-MVP planning.
 
 The MVP focused on delivering the main features needed for the current application, including:
-- browsing the game libraryž
+- browsing the game library
 - filtering and sorting games
 - viewing game details
 - authentication
 - review CRUD
 - responsive layout improvements
 
-Post-MVP ideas included is:
+Post-MVP ideas included:
 - events page
 - contactc page
-- reward/voucher/cupons functionality
+- reward/voucher functionality
 - more advanced reservation or borrowing tracking
 - improvments such as dynamic category counts and additional UI polish
 
@@ -222,7 +222,7 @@ This separation helped keep the project manegeable while still allowing room for
 ## 4. Data Model
 ### 4.1 Game Model
 
-Game model is the central model of the application. It prepresents one board game in the library and stores the main infromation users need in order to browse, compare, and choose games.
+The Game model is the central model of the application. It represents one board game in the library and stores the main information users need in order to browse, compare, and choose games.
 
 #### Key fields include:
 
@@ -231,9 +231,9 @@ Game model is the central model of the application. It prepresents one board gam
 - tagline
 - short description
 - full description
- - price
--stock
--  minimum and maximum players
+- price
+- stock
+- minimum and maximum players
 - minimum and maximum play time
 - recommended age
 - publisher
@@ -242,7 +242,7 @@ Game model is the central model of the application. It prepresents one board gam
 - SKU
 - created and updated timestamps
 
-This model exists to give users structured way to explore the available board games and to support filtering, sorting, and detailwd game pages.
+This model exists to give users a structured way to explore the available board games and to support filtering, sorting, and detailed game pages.
 
 ### 4.2 Category Model
 
@@ -253,7 +253,7 @@ Key fields include:
 - name
 - slug
 
-This model impruves navigation and filtering by allowing users to browse games by category. It also supports cleaner URLs and more structured organization of the game library.
+This model improves navigation and filtering by allowing users to browse games by category. It also supports cleaner URLs and more structured organization of the game library.
 
 ### 4.3 Review Model
 
@@ -272,17 +272,17 @@ This model was added to provide front-end CRUD functionallity. Logged-in users c
 
 The review model also includes a restriction that allows one user to leave one one review per game. This helps keep feedback clear and prevents duplicate reviews from the same user for the same game.
 
-### 4.4 Relationshihps Between Models
+### 4.4 Relationships Between Models
 
 The models in the project are conencted in the following way:
 
 - one Category can contain many Games
 - one Game can belong to one Category
 - one Game can have many Reviews
-- -one User can write many Reviews
- -one User can leave only one Review per Game
+- one User can write many Reviews
+- one User can leave only one Review per Game
 
-These relationships support the main business logic of the application by allowing games to be grouped, displayed in detail, and reviewed by autenticated users.
+These relationships support the main busines logic of the application by allowing games to be grouped, displayed in detail, and reviewed by autenticated users.
 
 
 ## 5. Features
