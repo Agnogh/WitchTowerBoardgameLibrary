@@ -6,9 +6,9 @@
 
   <div class="witch_tower_header-right">
     {% if user.is_authenticated %}
-      <span class="header-link">Hello, {{ user.username }}</span>
+      <span class="header-greeting">Hello, {{ user.username }}</span>
 
-      <form method="post" action="{% url 'logout' %}" style="display:inline;">
+      <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit" class="header-link">Log out</button>
       </form>
