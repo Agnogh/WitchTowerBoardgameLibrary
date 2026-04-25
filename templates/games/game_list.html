@@ -72,7 +72,7 @@
       -->
 
       <!-- Here comes the tryout-->
-      {% if query or category_slug or in_stock or players_min or players_max or players_exact or time_min or time_max or age_min or sort != "title" %}
+      {% if query or category_slug or in_stock or players_min or players_max or players_exact or time_min or time_max or age_min or sort != "newest" %}
         <div class="active-filters">
           <div class="active-filters__title">Active filters</div>
 
@@ -89,7 +89,7 @@
               <a class="filter-chip" href="{{ remove_in_stock_url }}">✕ In stock only</a>
             {% endif %}
 
-            {% if sort != "title" %}
+            {% if sort != "newest" %}
               <a class="filter-chip" href="{{ remove_sort_url }}">
                 ✕ Sort:
                 {% if sort == "price" %}Price (low → high)

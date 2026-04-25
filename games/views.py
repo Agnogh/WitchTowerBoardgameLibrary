@@ -146,7 +146,8 @@ def review_delete(request, review_id):
 # can render games & games/category/<type>
 def game_list(request, category_slug=None):
     query = request.GET.get("q", "").strip()
-    sort = request.GET.get("sort", "title")
+    # Katarina think it is better to have last games added displayed on top
+    sort = request.GET.get("sort", "newest")
     get_category = request.GET.get("category", "").strip()
     # read games that in stock
     in_stock = request.GET.get("in_stock") == "1"
@@ -371,7 +372,8 @@ def game_list(request, category_slug=None):
     remove_search_url = build_qs(base_url=list_url, remove=["q"])
     remove_category_url = build_qs(base_url=root_url, remove=["category"])
     remove_in_stock_url = build_qs(base_url=list_url, remove=["in_stock"])
-    remove_sort_url = build_qs(base_url=list_url, overrides={"sort": "title"})
+    # same rule (newst first) when fiters are discarded (Katarina's wish)
+    remove_sort_url = build_qs(base_url=list_url, overrides={"sort": "newest"})
     clear_all_url = root_url
     remove_players_url = build_qs(
         base_url=list_url,
