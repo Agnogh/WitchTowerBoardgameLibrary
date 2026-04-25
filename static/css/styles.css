@@ -601,6 +601,54 @@ body {
   pointer-events: none;
 }
 
+
+/* 
+  --------------------------------------
+          REVIEW ACTION BUTTONS
+  ------------------------------------
+*/
+
+.game-review__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wtl-space-2);
+  align-items: center;
+  margin-top: var(--wtl-space-2);
+}
+
+.game-review__delete-form {
+  margin: 0;
+}
+
+.game-review__action-link,
+.game-review__action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border: 1px solid var(--wtl-button-border);
+  border-radius: var(--wtl-radius);
+  background: var(--wtl-button-bg);
+  color: var(--wtl-text-primary);
+  text-decoration: none;
+  box-shadow: var(--wtl-shadow-soft);
+  font: inherit;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.game-review__action-link:hover,
+.game-review__action-link:focus-visible,
+.game-review__action-button:hover,
+.game-review__action-button:focus-visible {
+  background: var(--wtl-button-bg-hover);
+  border-color: var(--wtl-button-border-hover);
+  outline: 2px solid var(--wtl-focus-ring);
+  outline-offset: 2px;
+}
+
+
 /* 
   ----------------------------------
             MEDIA QUERIES
