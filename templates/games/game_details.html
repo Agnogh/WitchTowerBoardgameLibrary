@@ -211,7 +211,7 @@
             {% csrf_token %}
             <input type="hidden" name="review_submit" value="1">
             {{ review_form.as_p }}
-            <button type="submit" class="btn-primary">Submit review</button>
+            <button type="submit" class="game-review__action-button">Submit review</button>
           </form>
         {% endif %}
       {% else %}

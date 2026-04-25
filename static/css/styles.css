@@ -648,6 +648,11 @@ body {
   outline-offset: 2px;
 }
 
+/* Submit Review button  */
+.game-review-form button[type="submit"] {
+  margin-top: var(--wtl-space-2);
+}
+
 
 /* 
   ----------------------------------
