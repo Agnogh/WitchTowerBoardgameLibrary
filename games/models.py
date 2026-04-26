@@ -98,3 +98,36 @@ class Review(models.Model):
     def __str__(self):
         # use variable so I get Zombicide - Agnogh - 5/5
         return f"{self.game.title} - {self.user.username} ({self.rating}/5)"
+
+
+# contact model
+class ContactMessage(models.Model):
+    # drop down options liszt
+    TOPIC_CHOICES = [
+        ("lending", "Lending / borrowing game"),
+        ("event", "Event query"),
+        ("general", "General question"),
+        ("other", "Other"),
+    ]
+
+    # connect messag to loogged in account
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="contact_messages",
+    )
+    # this is for type of messahe / query it will be
+    topic = models.CharField(max_length=20, choices=TOPIC_CHOICES)
+    # actual text in message
+    message = models.TextField()
+    # creation time
+    created_at = models.DateTimeField(auto_now_add=True)
+    # if it was actiond by admin or not (like checklist)
+    is_resolved = models.BooleanField(default=False)
+
+    class Meta:
+        # last messages shows first
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.user.username} - {self.get_topic_display()}"
