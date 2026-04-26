@@ -18,6 +18,7 @@ from .models import Category
 from .models import Review
 
 from .forms import ReviewForm
+from .forms import ContactMessageForm
 
 from django.db.models import Count, Q  # 'q' for stock filter
 
@@ -467,3 +468,37 @@ def game_list(request, category_slug=None):
     }
 
     return render(request, "games/game_list.html", context)
+
+
+# Contact page django view
+def contact_page(request):
+    form = None
+
+    # check if user is logged in (mandatory to be)
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            # create a form based on submited data
+            form = ContactMessageForm(request.POST)
+            # if all data pass validation = good to continue
+            if form.is_valid():
+                contact_message = form.save(commit=False)
+                # add name for 'log in' to the form (save time for user/admin)
+                contact_message.user = request.user
+                # save when all data is in database
+                contact_message.save()
+                # show message
+                messages.success(request, "Message was sent successfully.")
+                # now return to 'Contact page'
+                return redirect("contact_page")
+        else:
+            # otherwise this is 'normal' page visit
+            form = ContactMessageForm()
+
+    return render(
+        # use this template
+        request,
+        "games/contact.html",
+        {
+            "form": form,
+        },
+    )

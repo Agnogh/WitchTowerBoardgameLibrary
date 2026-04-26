@@ -1,5 +1,6 @@
 from django import forms
 from .models import Review
+from .models import ContactMessage
 
 
 class ReviewForm(forms.ModelForm):
@@ -21,5 +22,18 @@ class ReviewForm(forms.ModelForm):
                 "rows": 4,
                 # placeholder text to guide user
                 "placeholder": "Write your review here...",
+            }),
+        }
+
+
+class ContactMessageForm(forms.ModelForm):
+    class Meta:
+        model = ContactMessage
+        fields = ["topic", "message"]
+        widgets = {
+            "topic": forms.Select(),
+            "message": forms.Textarea(attrs={
+                "rows": 5,
+                "placeholder": "Write your message here...",
             }),
         }

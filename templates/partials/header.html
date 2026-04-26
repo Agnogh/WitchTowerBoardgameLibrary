@@ -28,5 +28,6 @@
    href="{% url 'game_list' %}">
   Games</a>
   <a href="/events/">Events</a>
-  <a href="/contact/">Contact</a>
+  <!-- need to change from hardcoded to Django tag-->
+  <a href="{% url 'contact_page' %}">Contact</a>
 </nav>
