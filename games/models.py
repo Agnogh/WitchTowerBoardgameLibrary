@@ -131,3 +131,33 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.get_topic_display()}"
+
+
+# EVENT MODEL
+class Event(models.Model):
+    # Event name (200 is excesive, but I want to be sure about any UI issues)
+    title = models.CharField(max_length=200)
+    # game that will be played (100 char is more than enough)
+    # PLAIN TEXT for now -> link to actual game later
+    game_name = models.CharField(max_length=100, blank=True)
+    # calendar date
+    event_date = models.DateField()
+    # time
+    event_time = models.TimeField()
+    # description (no limites)
+    description = models.TextField(blank=True)
+    # Can be left blank but to have 'rewards' filed
+    reward = models.CharField(max_length=255, blank=True)
+    # wehn was event created saved in admin (MAYBE REMOVE LATER)
+    created_at = models.DateTimeField(auto_now_add=True)
+    # simple activity confirmation so that event can be made in advance
+    # but set as 'active' when ready
+    is_active = models.BooleanField(default=True)
+
+    # in case of 2 events,m order is by date
+    class Meta:
+        ordering = ["event_date", "event_time"]
+
+    # appearance in Django
+    def __str__(self):
+        return f"{self.title} - {self.event_date}"

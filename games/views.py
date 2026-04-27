@@ -16,6 +16,8 @@ from .models import Game
 from .models import Category
 # import review
 from .models import Review
+# Event page view model import
+from .models import Event
 
 from .forms import ReviewForm
 from .forms import ContactMessageForm
@@ -89,6 +91,21 @@ def game_detail(request, slug):
     }
 
     return render(request, "games/game_details.html", context)
+
+
+# Event page viwe
+def events_page(request):
+    # get all events fromdatabase marked as active (no inactive show)
+    events = Event.objects.filter(is_active=True)
+
+    # use template 'games/events", send events data in template
+    return render(
+        request,
+        "games/events.html",
+        {
+            "events": events,
+        },
+    )
 
 
 # need to be loged in

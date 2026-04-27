@@ -27,7 +27,8 @@
   <a class="{% if request.resolver_match.url_name in 'game_list game_detail' %}is-active{% endif %}"
    href="{% url 'game_list' %}">
   Games</a>
-  <a href="/events/">Events</a>
+  <!-- cannot have hardcoded link-->
+  <a href="{% url 'events_page' %}">Events</a>
   <!-- need to change from hardcoded to Django tag-->
   <a href="{% url 'contact_page' %}">Contact</a>
 </nav>

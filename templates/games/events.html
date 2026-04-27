@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+<main class="container">
+  <h1>Upcoming Events</h1>
+
+  <p>
+    Check upcoming boardgame events, planned sessions, and community game nights.
+  </p>
+
+  <section class="events-page">
+    <!-- if ther is 'event' (active events send) loop-->
+    {% if events %}
+      <div class="events-list">
+        <!-- fir each even in event, loop through each in database-->
+        {% for event in events %}
+          <article class="event-card">
+            <!-- variables picked up from Event model-->
+            <h2>{{ event.title }}</h2>
+
+            <p><strong>Date:</strong> {{ event.event_date }}</p>
+            <p><strong>Time:</strong> {{ event.event_time }}</p>
+
+            <!-- Show only if there is content-->
+            {% if event.game_name %}
+              <p><strong>Game:</strong> {{ event.game_name }}</p>
+            {% endif %}
+
+            <!-- Show only if there is content-->
+            {% if event.reward %}
+              <p><strong>Reward:</strong> {{ event.reward }}</p>
+            {% endif %}
+
+            <!-- Show only if there is content-->
+            {% if event.description %}
+              <div class="event-description">
+                {{ event.description|linebreaks }}
+              </div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <!-- show up if nothing is added for event -->
+      <p>No upcoming events yet.</p>
+    {% endif %}
+  </section>
+</main>
+{% endblock %}
