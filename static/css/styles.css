@@ -141,31 +141,44 @@ body {
   letter-spacing: 0.02em;
 }
 
+/* pane holding 'games', 'event', 'contact'  */
 .site-nav {
   display: flex;
-  gap: 12px;
-  padding: 10px 16px;
+  /*gap: 12px; */
+  gap: var(--wtl-space-3);
+  /* padding: 10px 16px; */
+  padding: var(--wtl-space-3) var(--wtl-space-4);
   border-bottom: 1px solid var(--wtl-divider-2);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+/* navigation links 'games', 'event', 'contact' */
 .site-nav a {
+  color: var(--wtl-text-primary);
   text-decoration: none;  /* */
 }
 
 .witch_tower_header-right {
   display: flex;
   align-items: center;
-  gap: var(--wtl-space-3);
+  /* gap: var(--wtl-space-3); trying - EXPERIMENTAL */
+  gap: var(--wtl-space-2);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .witch_tower_header-right form {
   margin: 0;
 }
 
+/* merging with other for simplicity 
 .header-greeting {
   color: var(--wtl-text-primary);
 }
+*/
 
+ /* merging 
 .witch_tower_header-right a.header-link,
 .witch_tower_header-right button.header-link {
   padding: 0;
@@ -176,19 +189,107 @@ body {
   font: inherit;
   cursor: pointer;
 }
+  */
+
+/* login/out, cart, user name section */
+.header-greeting,
+.witch_tower_header-right a.header-link,
+.witch_tower_header-right button.header-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border: 1px solid var(--wtl-border-soft);
+  border-radius: 999px;
+  background: var(--wtl-surface-control);
+  color: var(--wtl-text-primary);
+  text-decoration: none;
+  font: inherit;
+  line-height: 1;
+}
+
 
 .witch_tower_header-right a.header-link:hover,
 .witch_tower_header-right a.header-link:focus-visible,
 .witch_tower_header-right button.header-link:hover,
 .witch_tower_header-right button.header-link:focus-visible {
-  color: var(--wtl-accent-magic);
-  text-decoration: underline;
+  /* color: var(--wtl-accent-magic); EXPERIMENTAL */
+  color: var(--wtl-text-primary);
+  /* text-decoration: underline; MIGHT BE BETTER WITHOUT*/
+  background: var(--wtl-hover-bg-magic);
+  border-color: var(--wtl-hover-border-cyan);
   outline: none;
 }
 
 .site-footer {
   padding: 12px 16px;
   border-top: 1px solid var(--wtl-divider-1);
+}
+
+.witch_tower_header-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wtl-space-2);
+  padding: var(--wtl-space-4);
+  background: var(--wtl-surface-header-bg);
+  border-bottom: 1px solid var(--wtl-divider-1);
+}
+
+/* center title */
+.witch_tower_header-center {
+  display: flex;
+  justify-content: center;
+}
+
+.witch_tower_header-center .page-title {
+  margin: 0;
+  font-size: clamp(1.4rem, 7vw, 2rem);
+  text-align: center;
+  color: var(--wtl-text-primary);
+}
+
+.witch_tower_header-right button.header-link {
+  cursor: pointer;
+}
+
+/* stylistics for 'games', 'contact', 'event'  */
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--wtl-accent-magic);
+  outline: none;
+}
+
+/* Shared content pages like 'Contact / 'Events' */
+.content-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--wtl-space-6) var(--wtl-space-4);
+}
+
+.content-page h1 {
+  margin: 0 0 var(--wtl-space-4) 0;
+  text-align: center;
+  font-size: clamp(2rem, 9vw, 3rem);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--wtl-text-primary);
+}
+
+.contact-page,
+.events-page {
+  padding: var(--wtl-space-5);
+  border: 1px solid var(--wtl-border);
+  border-radius: var(--wtl-radius-lg);
+  background:
+    radial-gradient(circle at 18% 10%, var(--wtl-surface-glow-magic-panel), transparent 42%),
+    radial-gradient(circle at 90% 12%, var(--wtl-surface-glow-cyan-panel), transparent 35%),
+    linear-gradient(180deg, var(--wtl-surface-panel) 0%, var(--wtl-surface-panel-deep) 100%);
+  box-shadow: var(--wtl-shadow-soft), var(--wtl-glow-magic);
+}
+
+.contact-page h2,
+.events-page h2 {
+  color: var(--wtl-accent-gold);
+  margin-top: 0;
 }
 
 /* 
