@@ -101,6 +101,9 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: Arial, sans-serif;
   color: var(--wtl-text-primary);
   background:  /* "root" */
@@ -111,6 +114,9 @@ body {
 
 .container {
   padding: 16px;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 
@@ -284,12 +290,109 @@ body {
     radial-gradient(circle at 90% 12%, var(--wtl-surface-glow-cyan-panel), transparent 35%),
     linear-gradient(180deg, var(--wtl-surface-panel) 0%, var(--wtl-surface-panel-deep) 100%);
   box-shadow: var(--wtl-shadow-soft), var(--wtl-glow-magic);
+  display: grid;
+  gap: var(--wtl-space-5);
 }
 
+/* subtitle on 'contact and 'event' (event name) */
 .contact-page h2,
 .events-page h2 {
   color: var(--wtl-accent-gold);
   margin-top: 0;
+}
+
+.content-page > p {
+  max-width: 34ch;
+  margin: 0 auto var(--wtl-space-5) auto;
+  text-align: center;
+  color: var(--wtl-text-secondary);
+}
+
+.contact-details,
+.contact-form-section {
+  display: grid;
+  gap: var(--wtl-space-3);
+}
+
+/* text in 'contact' and 'event' UI (event description) */
+.contact-details p,
+.contact-form-section p {
+  margin: 0;
+}
+
+.contact-form-section form {
+  display: grid;
+  gap: var(--wtl-space-3);
+}
+
+.contact-form-section form p {
+  margin: 0;
+  display: grid;
+  gap: var(--wtl-space-2);
+}
+
+/* labels 'topic' and 'message' on contact form */
+.contact-form-section label {
+  font-weight: 700;
+  color: var(--wtl-text-primary);
+}
+
+.contact-form-section input[type="text"],
+.contact-form-section input[type="email"],
+.contact-form-section select,
+.contact-form-section textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  background: var(--wtl-surface-control);
+  color: var(--wtl-text-primary);
+  border: 1px solid var(--wtl-border);
+  border-radius: var(--wtl-radius);
+  box-shadow: var(--wtl-shadow-control-highlight);
+  font-size: 16px;
+}
+
+/* box for users text entry in 'contact form' */
+.contact-form-section textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-form-section input[type="text"]:focus,
+.contact-form-section input[type="email"]:focus,
+.contact-form-section select:focus,
+.contact-form-section textarea:focus {
+  outline: 2px solid var(--wtl-focus-ring);
+  outline-offset: 2px;
+  border-color: var(--wtl-hover-border-cyan-strong);
+  box-shadow: var(--wtl-glow-magic);
+}
+
+.events-list {
+  display: grid;
+  gap: var(--wtl-space-4);
+}
+
+.event-card {
+  padding: var(--wtl-space-4);
+  border: 1px solid var(--wtl-border-soft);
+  border-radius: var(--wtl-radius);
+  background: var(--wtl-surface-tint);
+  box-shadow: var(--wtl-shadow-soft);
+}
+
+.event-card h2 {
+  margin: 0 0 var(--wtl-space-3) 0;
+}
+
+.event-card p {
+  margin: 0 0 var(--wtl-space-3) 0;
+  color: var(--wtl-text-primary);
+}
+
+.event-description {
+  color: var(--wtl-text-secondary);
 }
 
 /* 
@@ -755,6 +858,7 @@ body {
   margin: 0;
 }
 
+/* button for submiting question on 'contact fomr' */
 .game-review__action-link,
 .game-review__action-button {
   display: inline-flex;
