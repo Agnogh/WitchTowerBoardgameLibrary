@@ -227,9 +227,14 @@ body {
   outline: none;
 }
 
+/* footer (just copyright for now) */
 .site-footer {
-  padding: 12px 16px;
+  /* padding: 12px 16px; */
+  padding: var(--wtl-space-4);
   border-top: 1px solid var(--wtl-divider-1);
+  /* Katarina wants it centered and not on the left side */
+  text-align: center;
+  color: var(--wtl-text-secondary);
 }
 
 .witch_tower_header-header {
