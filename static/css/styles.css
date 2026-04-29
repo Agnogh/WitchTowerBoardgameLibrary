@@ -394,6 +394,16 @@ body {
   box-shadow: var(--wtl-glow-magic);
 }
 
+/* Form in 'contact page' drop down menu items visibility */
+.contact-form-section option {
+  color: var(--wtl-text-primary);
+  /* maybe this is better */
+  /*background: #16142c;*/
+  /* better choice */
+  background: #1a1735;
+  /* not good - remove */
+}
+
 .events-list {
   display: grid;
   gap: var(--wtl-space-4);
