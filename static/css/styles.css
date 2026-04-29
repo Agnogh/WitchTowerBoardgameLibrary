@@ -331,6 +331,14 @@ body {
   gap: var(--wtl-space-2);
 }
 
+/* extra protection for grid children EXPERIMENTAL!! */
+.contact-page,
+.contact-form-section,
+.contact-form-section form,
+.contact-form-section form p {
+  min-width: 0;
+}
+
 /* labels 'topic' and 'message' on contact form */
 .contact-form-section label {
   font-weight: 700;
@@ -343,6 +351,7 @@ body {
 .contact-form-section textarea {
   width: 100%;
   max-width: 100%;
+  min-width: 0;
   box-sizing: border-box;
   padding: 10px 12px;
   background: var(--wtl-surface-control);
@@ -351,6 +360,22 @@ body {
   border-radius: var(--wtl-radius);
   box-shadow: var(--wtl-shadow-control-highlight);
   font-size: 16px;
+  display: block;
+}
+
+.contact-form-section select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 38px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--wtl-text-primary) 50%),
+    linear-gradient(135deg, var(--wtl-text-primary) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(50% - 3px),
+    calc(100% - 12px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
 }
 
 /* box for users text entry in 'contact form' */
