@@ -136,7 +136,7 @@ body {
 /* Header / nav / footer theme */
 .site-header,
 .site-nav,
-.site-footer {
+.witch_tower_footer {
   background: var(--wtl-surface-header-bg);
   border-color: var(--wtl-divider-1);
 }
