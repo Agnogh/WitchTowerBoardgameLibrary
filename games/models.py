@@ -104,9 +104,9 @@ class Review(models.Model):
 class ContactMessage(models.Model):
     # drop down options liszt
     TOPIC_CHOICES = [
-        ("lending", "Lending / borrowing game"),
+        ("lending", "Lending"),
         ("event", "Event query"),
-        ("general", "General question"),
+        ("general", "General query"),
         ("other", "Other"),
     ]
 
