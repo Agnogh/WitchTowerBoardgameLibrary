@@ -44,33 +44,6 @@
       <aside class="games-sidebar">
         <h2 class="games-sidebar__title">Filters</h2>
 
-        <!-- Keeping for now until I am sure it works
-        {% if query or category_slug or in_stock or sort != "title" %}
-        <div class="active-filters">
-          <div class="active-filters__title">Active filters</div>
-          <ul class="active-filters__list">
-            {% if query %}
-              <li><strong>Search:</strong> “{{ query }}”</li>
-            {% endif %}
-
-            {% if category_slug %}
-              <li><strong>Category:</strong> {{ active_category_name }}</li>
-            {% endif %}
-
-            {% if in_stock %}
-              <li><strong>Stock:</strong> In stock only</li>
-            {% endif %}
-
-            {% if sort != "title" %}
-              <li><strong>Sort:</strong>
-                {% if sort == "price" %}Price (low → high){% elif sort == "-price" %}Price (high → low){% else %}{{ sort }}{% endif %}
-              </li>
-            {% endif %}
-          </ul>
-        </div>
-      {% endif %}
-      -->
-
       <!-- Here comes the tryout-->
       {% if query or category_slug or in_stock or players_min or players_max or players_exact or time_min or time_max or age_min or sort != "newest" %}
         <div class="active-filters">
@@ -282,17 +255,6 @@
             {% endfor %}
           </select>
             
-        <!-- need to replace this with arrows but KEEP IT for now
-          <label class="screen-reader-only" for="sort">Sort</label>
-          <select id="sort" name="sort">
-            <option value="title" {% if sort == "title" %}selected{% endif %}>Title (A–Z)</option>
-            <option value="price" {% if sort == "price" %}selected{% endif %}>Price (low → high)</option>
-            <option value="-price" {% if sort == "-price" %}selected{% endif %}>Price (high → low)</option>
-          </select>
-
-          <button type="submit">Apply</button>
-        -->
-
           <div class="games-list-sort">
             <span class="games-list-sort__label">Sort:</span>
 
@@ -316,12 +278,7 @@
           </a>
 
           <button type="submit">Apply filters</button>
-        <!-- shows 'clear' only when fileters are active ..or for games "in stocks"-->
-         <!-- no need for 2 'clear' button as I added another in clear filters
-          {% if query or category_slug or in_stock or sort != "title" %}
-            <a class="games-list-controls__clear" href="{% url 'game_list' %}" role="button">Clear</a>
-          {% endif %}
-          -->
+
         </form>
       </aside>
         
@@ -329,14 +286,7 @@
         {% if games %}
           <ul class="games-list">
             {% for game in games %}
-              <!-- Adding badhges for in stock and empty - TRY OUT
-              <li class="games-list__item">
-                <a href="{% url 'game_detail' game.slug %}">
-                  {{ game.title }}
-                </a>
-                <span class="games-list__price">{{ game.price }} €</span>
-              </li>
-              -->
+
               <li class="games-list__item {% if game.stock == 0 %}is-out{% endif %}">
                 <a class="games-list__link" href="{% url 'game_detail' game.slug %}">
                   {{ game.title }}
