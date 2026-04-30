@@ -372,6 +372,60 @@ body {
   display: block;
 }
 
+/* entire topic section */
+.contact-topic-group {
+  display: grid;
+  gap: var(--wtl-space-2);
+}
+
+/* titles for section */
+.contact-topic-label {
+  font-weight: 700;
+  color: var(--wtl-text-primary);
+}
+
+/* 'order' of buttons - equal 2x2 grid */
+.contact-topic-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--wtl-space-2);
+}
+
+/* 'pills' for radi buttons */
+.contact-topic-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid var(--wtl-border-soft);
+  border-radius: 999px;
+  color: var(--wtl-text-primary);
+  text-align: center;
+  cursor: pointer;
+  box-shadow: var(--wtl-shadow-control-highlight);
+}
+
+/* text within pill/button */
+.contact-topic-option span {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+
+.contact-topic-option:focus-within {
+  outline: 2px solid var(--wtl-focus-ring);
+  outline-offset: 2px;
+}
+
+/* throwing a little bit of magic when pill is selected */
+.contact-topic-option:has(input[type="radio"]:checked) {
+  border-color: var(--wtl-button-border-hover);
+  box-shadow: var(--wtl-shadow-soft), var(--wtl-glow-magic);
+  font-weight: 700;
+}
+
 .contact-form-section select {
   appearance: none;
   -webkit-appearance: none;
