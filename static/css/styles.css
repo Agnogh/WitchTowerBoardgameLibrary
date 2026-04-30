@@ -1039,8 +1039,9 @@ body {
 */
 
 
-/* On very small screens, stack min/max vertically */
+/* Very small screens */
 @media (max-width: 420px) {
+  /*stack min/max vertically */
   .games-filter-row {
     grid-template-columns: 1fr;
   }
@@ -1050,15 +1051,29 @@ body {
   }
 }
 
-/* phones and smaller tablets */
-@media (max-width: 899px) {
+/* 421–639 = Regular smart phones & small tablets */
+@media (min-width: 421px) and (max-width: 639px) {
+  .games-layout {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* 640–899 -> Large smart phones / small tablets */
+@media (min-width: 640px) and (max-width: 899px) {
+  .contact-topic-options {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .games-layout {
     grid-template-columns: 1fr;
   }
 }
 
-/* show sidebar + main in two columns*/
+/* tablets + small laptops */
 @media (min-width: 900px) and (max-width: 1199px) {
+  /* show sidebar + main in two columns */
   .games-layout {
     grid-template-columns: 420px 1fr; /* CHECK ALL DEVICE SIZE FOR BEST FIT */
     gap: var(--wtl-space-4);
@@ -1098,8 +1113,8 @@ body {
   }
 }
 
-/* Desktop */
-@media (min-width: 1199px) {
+/* 1200+ -> Desktop */
+@media (min-width: 1200px) {
   .games-list-page {
     padding: var(--wtl-space-6);
   }
