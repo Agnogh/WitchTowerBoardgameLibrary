@@ -1080,6 +1080,8 @@ body {
 .cart-toast {
   position: fixed;
   left: 50%;
+  bottom: 20px;  /* EXPERIMENTAL */
+  transform: translateX(-50%) translateY(12px);
   width: min(90vw, 420px);
   padding: 12px 16px;
   border: 1px solid var(--wtl-button-border);

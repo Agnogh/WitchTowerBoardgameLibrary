@@ -13,5 +13,11 @@ if (cartLink && cartToast) {
     // show hidden msg
     cartToast.classList.add("is-visible");
 
+    // prevents stacking in multiple clicks
+    clearTimeout(toastTimer);
+    // hides after 3000 mili sec
+    toastTimer = setTimeout(function () {
+      cartToast.classList.remove("is-visible");
+    }, 3000);
   });
 }
