@@ -105,8 +105,8 @@ class ContactMessage(models.Model):
     # drop down options liszt
     TOPIC_CHOICES = [
         ("lending", "Lending"),
-        ("event", "Event query"),
-        ("general", "General query"),
+        ("event", "Events"),
+        ("general", "General"),
         ("other", "Other"),
     ]
 
