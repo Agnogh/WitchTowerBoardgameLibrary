@@ -31,7 +31,8 @@ class ContactMessageForm(forms.ModelForm):
         model = ContactMessage
         fields = ["topic", "message"]
         widgets = {
-            "topic": forms.Select(),
+            # I hate dropd downs menus!!! "topic": forms.Select(),
+            "topic": forms.RadioSelect(),
             "message": forms.Textarea(attrs={
                 "rows": 5,
                 "placeholder": "Write your message here...",

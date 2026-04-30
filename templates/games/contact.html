@@ -31,9 +31,52 @@
         <p><strong>Sending as:</strong> {{ user.username }}</p>
 
         <form method="post">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit" class="game-review__action-button">Send message</button>
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="form-errors">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            <!-- wrapper -->
+            <div class="contact-topic-group">
+                <span class="contact-topic-label">Topic</span>
+
+                <!-- error if in not filled properly -->
+                {% if form.topic.errors %}
+                    <div class="form-errors">
+                        {{ form.topic.errors }}
+                    </div>
+                {% endif %}
+
+                <div class="contact-topic-options">
+                    <!-- loop through each topic -->
+                    {% for radio in form.topic %}
+                        <label class="contact-topic-option">
+                            <!-- html radio inptu -->
+                            {{ radio.tag }}
+                            <!-- print text for user on slected radio -->
+                            <span>{{ radio.choice_label }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="contact-message-group">
+                <!-- label for msg box (uses actual html ID of msg field) -->
+                <label for="{{ form.message.id_for_label }}">Message</label>
+
+                {% if form.message.errors %}
+                <div class="form-errors">
+                    {{ form.message.errors }}
+                </div>
+                {% endif %}
+
+                {{ form.message }}
+            </div>
+
+            <button type="submit" class="game-review__action-button">Send message</button>
         </form>
       {% else %}
         <!-- redirect log in -->
