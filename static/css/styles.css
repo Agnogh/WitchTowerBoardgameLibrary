@@ -548,10 +548,12 @@ body {
 .home-page__panel {
   padding: var(--wtl-space-5);
   border: 1px solid var(--wtl-border);
+  border-radius: var(--wtl-radius-lg);
   background:
     radial-gradient(circle at 18% 10%, var(--wtl-surface-glow-magic-panel), transparent 42%),
     radial-gradient(circle at 90% 12%, var(--wtl-surface-glow-cyan-panel), transparent 35%),
     linear-gradient(180deg, var(--wtl-surface-panel) 0%, var(--wtl-surface-panel-deep) 100%);
+  box-shadow: var(--wtl-shadow-soft), var(--wtl-glow-magic);
 }
 
 .home-page__panel h2 {
@@ -566,6 +568,10 @@ body {
 .home-page__list {
   margin: 0;
   padding-left: 18px;
+}
+
+.home-page__list li + li {
+  margin-top: var(--wtl-space-2);
 }
 
 /* 
