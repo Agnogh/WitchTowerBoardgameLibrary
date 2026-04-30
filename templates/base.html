@@ -34,9 +34,13 @@
     <!-- replaceble section ends here (stop here)-->
       {% block content %}{% endblock %}
     </main>
+    <div id="cart-toast" class="cart-toast" role="status" aria-live="polite">
+      Cart system will be available in v1.2.
+    </div>
     <!-- Shared and reusable footer-->
     {% include "partials/footer.html" %}
     <!-- script tag - loading script-->
     <script src="{% static 'js/games_filters.js' %}" defer></script>
+    <script src="{% static 'js/cart_notice.js' %}" defer></script>
   </body>
 </html>

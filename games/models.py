@@ -92,7 +92,7 @@ class Review(models.Model):
     class Meta:
         # so only 1 review per customer is allowed
         unique_together = ("game", "user")
-        # order so last review added show up first FIFO
+        # order so last review added show up first
         ordering = ["-created_at"]
 
     def __str__(self):

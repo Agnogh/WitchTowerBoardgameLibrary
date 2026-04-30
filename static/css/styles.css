@@ -1076,6 +1076,31 @@ body {
   margin-top: var(--wtl-space-2);
 }
 
+/* Cart system failsafe*/
+.cart-toast {
+  position: fixed;
+  left: 50%;
+  width: min(90vw, 420px);
+  padding: 12px 16px;
+  border: 1px solid var(--wtl-button-border);
+  border-radius: var(--wtl-radius-lg);
+  background:
+    radial-gradient(circle at 18% 10%, var(--wtl-surface-glow-magic-panel), transparent 42%),
+    radial-gradient(circle at 90% 12%, var(--wtl-surface-glow-cyan-panel), transparent 35%),
+    linear-gradient(180deg, var(--wtl-surface-panel) 0%, var(--wtl-surface-panel-deep) 100%);
+  box-shadow: var(--wtl-shadow-soft), var(--wtl-glow-magic);
+  color: var(--wtl-text-primary);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+
+.cart-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
 
 /* 
   ----------------------------------
