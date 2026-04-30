@@ -1185,6 +1185,13 @@ body {
   }
 }
 
+/* Positioning of cart failsafe message */
+  .cart-toast {
+    top: 20px;
+    bottom: auto;
+  }
+
+
 /* 1200+ -> Desktop */
 @media (min-width: 1200px) {
   .games-list-page {
