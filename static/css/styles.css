@@ -406,6 +406,13 @@ body {
   box-shadow: var(--wtl-shadow-control-highlight);
 }
 
+/* hides radio circle visually (improvement to user exp) */
+.contact-topic-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* text within pill/button */
 .contact-topic-option span {
   display: block;
