@@ -407,7 +407,10 @@ body {
   box-shadow: var(--wtl-shadow-control-highlight);
 
   padding: 10px 12px;  /*EXPERIMENTAL - Adjust if needed*/
-  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  font-size: 0.95rem;  /* EXPERIMENTAL - adjust if needed*/
+  font-weight: 700;
+  line-height: 1.2;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 /* hides radio circle visually (improvement to user exp) */
@@ -428,11 +431,13 @@ body {
 .contact-topic-option:hover {
   background: var(--wtl-hover-bg-magic);
   border-color: var(--wtl-hover-border-cyan);
+  transform: translateY(-1px);
 }
 
 .contact-topic-option:focus-within {
   outline: 2px solid var(--wtl-focus-ring);
   outline-offset: 2px;
+  transform: translateY(-1px);
 }
 
 /* throwing a little bit of magic when pill is selected */
@@ -440,6 +445,15 @@ body {
   border-color: var(--wtl-button-border-hover);
   background: var(--wtl-button-bg);
   box-shadow: var(--wtl-shadow-soft), var(--wtl-glow-magic);
+  font-weight: 700;
+}
+
+/*check mark to imporve visibility - Katarina's request */
+.contact-topic-option:has(input[type="radio"]:checked)::before {
+  content: "✓";
+  position: absolute;
+  left: 8px;
+  color: var(--wtl-text-warm);
   font-weight: 700;
 }
 
