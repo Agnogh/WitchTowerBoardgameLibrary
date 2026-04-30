@@ -1072,6 +1072,11 @@ body {
 }
 
 
+.auth-form button[type="submit"] {
+  margin-top: var(--wtl-space-2);
+}
+
+
 /* 
   ----------------------------------
             MEDIA QUERIES
