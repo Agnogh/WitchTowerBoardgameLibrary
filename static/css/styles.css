@@ -354,6 +354,12 @@ body {
   color: var(--wtl-text-primary);
 }
 
+/* Spacing for 'message label' on Contact form */
+.contact-message-group label {
+  display: inline-block;
+  margin-bottom: var(--wtl-space-2);
+}
+
 .contact-form-section input[type="text"],
 .contact-form-section input[type="email"],
 .contact-form-section select,
