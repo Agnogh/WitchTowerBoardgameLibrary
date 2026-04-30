@@ -27,12 +27,22 @@ class ReviewForm(forms.ModelForm):
 
 
 class ContactMessageForm(forms.ModelForm):
+    # overide defoult form
+    topic = forms.ChoiceField(
+        # mandating choises (added by me)
+        choices=ContactMessage.TOPIC_CHOICES,
+        # radio chooices, not drop down
+        widget=forms.RadioSelect,
+        # one option must be chosen - failsafe
+        required=True,
+    )
+
     class Meta:
         model = ContactMessage
         fields = ["topic", "message"]
         widgets = {
             # I hate dropd downs menus!!! "topic": forms.Select(),
-            "topic": forms.RadioSelect(),
+            # cannot be selected by default "topic": forms.RadioSelect(), 
             "message": forms.Textarea(attrs={
                 "rows": 5,
                 "placeholder": "Write your message here...",
