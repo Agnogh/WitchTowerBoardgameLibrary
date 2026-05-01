@@ -225,41 +225,8 @@
   <!--- Removing section as Katarina thinks it is better to have only 
   top section, but if she changes her mind she will let me know
   <section class="game-purchase-box">
-    <div class="game-purchase-box__inner">
+    .....
 
-      <div class="game-purchase-box__info">
-        <h2 class="game-purchase-box__title">{{ game.title }}</h2>
-        <p class="game-purchase-box__price">{{ game.price }} €</p>
-
-        <p class="game-purchase-box__stock">
-          {% if game.stock > 10 %}
-            <span class="stock stock--in">In stock</span>
-          {% else %}
-            <span class="stock stock--out">Out of stock</span>
-          {% endif %}
-        </p>
-      </div>
-
-      <form class="add-to-cart add-to-cart--compact" method="post" action="#">
-        {% csrf_token %}
-
-        <label class="screen-reader-only" for="quantity-bottom">Quantity</label>
-        <input
-          id="quantity-bottom"
-          name="quantity"
-          type="number"
-          min="1"
-          value="1"
-          {% if game.stock == 0 %}disabled{% endif %}
-        >
-
-        <button type="submit" class="btn-primary" {% if game.stock == 0 %}disabled{% endif %}>
-          Add to cart
-        </button>
-      </form>
-
-    </div>
-  </section>
 -->
   <section class="related-games-sections">
     <h2 class="section-title">Related or similar games</h2>
@@ -273,18 +240,7 @@
   hardcoded text will be replaced with 
 
   https://github.com/Agnogh/WitchTowerBoardgameLibrary/issues/68
-    <div class="related-games-sections__grid">
 
-      <article class="game-card">
-        <a class="game-card__link" href="#">
-          <img class="game-card__image" src="{% static 'img/placeholders/game-card.png' %}" alt="related-or-similar game cover">
-          <h3 class="game-card__title">Related or similar Game Title</h3>
-          <p class="game-card__price">29.99 €</p>
-        </a>
-      </article>
-
-    </div>
-  </section>
 -->
 </main>
 
