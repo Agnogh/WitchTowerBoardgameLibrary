@@ -1126,6 +1126,59 @@ body {
   margin-top: var(--wtl-space-2);
 }
 
+/* targets all 3 part at the same time
+'add to cart', 'review' (stars 1-5), 'comment' (text entry)
+as this is the only way I can deal with last minute change of 
+mind from Katarina when she want something that I asked her about
+but she said she is fine with appearance, just to tell me she want 
+to change it now [nuke emoji] */
+.add-to-cart input[type="number"],
+.game-review-form input[type="number"],
+.game-review-form textarea {
+  background: var(--wtl-surface-control);
+  color: var(--wtl-text-primary);
+  border: 1px solid var(--wtl-border);
+  border-radius: var(--wtl-radius);
+  box-shadow: var(--wtl-shadow-control-highlight);
+  font-size: 16px;
+}
+
+/*need seperate for each element 'Add to cart' */
+.add-to-cart input[type="number"] {
+  width: 84px;
+}
+
+/*need seperate for each element 'Review' */
+.game-review-form input[type="number"] {
+  width: 96px;
+}
+
+/*need seperate for each element 'comment' (text area) */
+.game-review-form textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.add-to-cart input[type="number"]:focus,
+.game-review-form input[type="number"]:focus,
+.game-review-form textarea:focus {
+  outline-offset: 2px;
+  border-color: var(--wtl-hover-border-cyan-strong);
+}
+
+/*paragraphs needs additional styling*/
+.game-review-form p {
+  display: grid;
+  gap: var(--wtl-space-2);
+}
+
+.game-review-form label {
+  font-weight: 700;
+  color: var(--wtl-text-primary);
+}
+
 /* Cart system failsafe*/
 .cart-toast {
   position: fixed;
