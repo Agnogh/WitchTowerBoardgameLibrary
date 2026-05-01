@@ -1305,6 +1305,16 @@ to change it now [nuke emoji] */
   transform: translateX(-50%) translateY(0);
 }
 
+/* Future feature 'link to similar games' */
+.related-games-sections {
+  margin-top: var(--wtl-space-5);
+}
+
+.related-games-sections__note {
+  margin: 0;
+  color: var(--wtl-text-secondary);
+}
+
 /* 
   ----------------------------------
             MEDIA QUERIES
