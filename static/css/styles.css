@@ -1135,6 +1135,8 @@ to change it now [nuke emoji] */
 .add-to-cart input[type="number"],
 .game-review-form input[type="number"],
 .game-review-form textarea {
+  box-sizing: border-box;
+  padding: 10px 12px;
   background: var(--wtl-surface-control);
   color: var(--wtl-text-primary);
   border: 1px solid var(--wtl-border);
@@ -1164,14 +1166,17 @@ to change it now [nuke emoji] */
 .add-to-cart input[type="number"]:focus,
 .game-review-form input[type="number"]:focus,
 .game-review-form textarea:focus {
+  outline: 2px solid var(--wtl-focus-ring);
   outline-offset: 2px;
   border-color: var(--wtl-hover-border-cyan-strong);
+  box-shadow: var(--wtl-glow-magic);  /* same glow for other elements */
 }
 
 /*paragraphs needs additional styling*/
 .game-review-form p {
   display: grid;
   gap: var(--wtl-space-2);
+  margin: 0 0 var(--wtl-space-3);
 }
 
 .game-review-form label {
