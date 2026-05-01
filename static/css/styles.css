@@ -1355,6 +1355,11 @@ to change it now [nuke emoji] */
     bottom: auto;
   }
 
+/* shortening input fields on auth pages (sing up/Sign in= */
+  .auth-form {
+    max-width: 520px;
+    margin: 0 auto;
+  }
 
 /* 1200+ -> Desktop */
 @media (min-width: 1200px) {
@@ -1370,5 +1375,11 @@ to change it now [nuke emoji] */
   .games-layout {
     gap: calc(var(--wtl-space-6) + var(--wtl-space-2));  /* slightly more breathing space */
     grid-template-columns: 460px 1fr;  /* CHECK ALL DEVICE SIZE FOR BEST FIT */
+  }
+
+  /* shortening auth input fields to avoid oversize*/
+    .auth-form {
+    max-width: 650px;
+    margin: 0 auto;
   }
 }
