@@ -623,6 +623,16 @@ a:focus-visible {
 ----------------------------------------------- 
 */
 
+/* Game detail images */
+.game-hero__media img,
+.game-gallrey__item img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--wtl-radius);
+}
+
 /* Main games page wrapper */
 .games-list-page {
   max-width: 1280px;
@@ -1358,6 +1368,13 @@ to change it now [nuke emoji] */
   .games-layout {
     grid-template-columns: 1fr;
   }
+
+  /* Pictures spacing */
+  .game-hero__media,
+  .game-gallrey__item {
+    max-width: 520px;
+    margin: 0 auto;
+  }
 }
 
 /* tablets + small laptops */
@@ -1400,7 +1417,7 @@ to change it now [nuke emoji] */
   .games-list-controls button[type="submit"] {
     font-size: 1rem;  
   }
-}
+
 
 /* Positioning of cart failsafe message */
   .cart-toast {
@@ -1413,6 +1430,14 @@ to change it now [nuke emoji] */
     max-width: 520px;
     margin: 0 auto;
   }
+
+  /* Pictures spacing */
+  .game-hero__media,
+  .game-gallrey__item {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
 
 /* 1200+ -> Desktop */
 @media (min-width: 1200px) {
@@ -1433,6 +1458,13 @@ to change it now [nuke emoji] */
   /* shortening auth input fields to avoid oversize*/
     .auth-form {
     max-width: 650px;
+    margin: 0 auto;
+  }
+
+  /* Picture spacing */
+  .game-hero__media,
+  .game-gallrey__item {
+    max-width: 680px;
     margin: 0 auto;
   }
 }
