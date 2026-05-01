@@ -1103,13 +1103,26 @@ body {
   font-size: 16px;
 }
 
+/* restirctions jsut ot be safe */
+.review-edit-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
 .review-edit-form input[type="number"]:focus,
 .review-edit-form textarea:focus {
-  outline: 2px solid var(--wtl-focus-ring);	
+  outline: 2px solid var(--wtl-focus-ring);
+  outline-offset: 2px;  /* Experimental just to make it work */
   border-color: var(--wtl-hover-border-cyan-strong);
+  box-shadow: var(--wtl-glow-magic);  /* fancy look*/
 }
 
 .auth-form button[type="submit"] {
+  margin-top: var(--wtl-space-2);
+}
+
+/* I need some spacing above button 'Save' */
+.review-edit-form button[type="submit"] {
   margin-top: var(--wtl-space-2);
 }
 
