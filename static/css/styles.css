@@ -119,6 +119,31 @@ body {
   box-sizing: border-box;
 }
 
+/* unvisited link */
+a {
+  color: var(--wtl-accent-cyan-strong);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* when link is already selected */
+a:visited {
+  /* color: var(--wtl-accent-magic); */
+  /* need to use 'average' colour as nothing stored gives good contrast*/
+  /* color: #b58cff; not gonna work */
+  /* color: #00ffea; maybe */ 
+  color: #00ff00;  /*GOOD*/
+}
+
+/* hovered over link styling */
+a:hover,
+a:focus-visible {
+  color: var(--wtl-text-warm);
+  text-decoration-thickness: 2px;
+  outline: none;
+}
+
 /* 
 -----------------------------------------------
         HEADRER / NAVIGATION /FOOTER  
