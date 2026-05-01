@@ -91,6 +91,11 @@
   --wtl-space-4: 16px;
   --wtl-space-5: 20px;
   --wtl-space-6: 24px;
+
+  /* Links (clicked/unclicked */
+  --wtl-link: #8fdcff;
+  --wtl-link-visited: #b58cff;
+  --wtl-link-hover: var(--wtl-text-warm);
 }
 
 /*
@@ -121,10 +126,12 @@ body {
 
 /* unvisited link */
 a {
-  color: var(--wtl-accent-cyan-strong);
+  /* color: var(--wtl-accent-cyan-strong); */
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+  /* color: #b58cff; */
+    color: var(--wtl-link);
 }
 
 /* when link is already selected */
@@ -133,15 +140,20 @@ a:visited {
   /* need to use 'average' colour as nothing stored gives good contrast*/
   /* color: #b58cff; not gonna work */
   /* color: #00ffea; maybe */ 
-  color: #00ff00;  /*GOOD*/
+  /* color: #00ff00;  not good unfortunetly */
+  /* color: var(--wtl-accent-magic); */
+  color: var(--wtl-link-visited);
+
 }
+
 
 /* hovered over link styling */
 a:hover,
 a:focus-visible {
-  color: var(--wtl-text-warm);
+  color: var(--wtl-link-hover);
   text-decoration-thickness: 2px;
   outline: none;
+  
 }
 
 /* 
