@@ -1077,6 +1077,37 @@ body {
   margin-top: var(--wtl-space-2);
 }
 
+/* element in EDIT review form */
+.review-edit-form p {
+  display: grid;
+  gap: var(--wtl-space-2);
+  margin: 0 0 var(--wtl-space-3);
+}
+
+.review-edit-form label {
+  font-weight: 700;
+  color: var(--wtl-text-primary);
+}
+
+.review-edit-form input[type="number"],
+.review-edit-form textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  background: var(--wtl-surface-control);
+  color: var(--wtl-text-primary);
+  border: 1px solid var(--wtl-border);
+  border-radius: var(--wtl-radius);
+  box-shadow: var(--wtl-shadow-control-highlight);
+  font-size: 16px;
+}
+
+.review-edit-form input[type="number"]:focus,
+.review-edit-form textarea:focus {
+  outline: 2px solid var(--wtl-focus-ring);	
+  border-color: var(--wtl-hover-border-cyan-strong);
+}
 
 .auth-form button[type="submit"] {
   margin-top: var(--wtl-space-2);
