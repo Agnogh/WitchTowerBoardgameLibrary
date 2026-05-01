@@ -34,7 +34,10 @@
             {% endif %}
           </p>
 
-          <form class="add-to-cart" method="post" action="#">
+          <form class="add-to-cart js-feature-toast-form" 
+            method="post" action="#"
+            data-toast-message="Add to cart will be available in v1.2."
+          >
             {% csrf_token %}
 
             <label class="screen-reader-only" for="quantity">Quantity</label>
