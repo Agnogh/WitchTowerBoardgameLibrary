@@ -1375,6 +1375,11 @@ to change it now [nuke emoji] */
     max-width: 520px;
     margin: 0 auto;
   }
+
+  /* breathing room between top edge and button 'add to cart'*/
+  .game-hero__media {
+    margin-top: var(--wtl-space-4);
+  }
 }
 
 /* tablets + small laptops */
@@ -1437,6 +1442,11 @@ to change it now [nuke emoji] */
     max-width: 600px;
     margin: 0 auto;
   }
+
+  /* spacing between top edge and button */
+  .game-hero__media {
+    margin-top: var(--wtl-space-4);
+}
 }
 
 /* 1200+ -> Desktop */
@@ -1466,5 +1476,10 @@ to change it now [nuke emoji] */
   .game-gallrey__item {
     max-width: 680px;
     margin: 0 auto;
+  }
+
+  /* spacing adjustment */
+  .game-hero__media {
+    margin-top: var(--wtl-space-4);
   }
 }
