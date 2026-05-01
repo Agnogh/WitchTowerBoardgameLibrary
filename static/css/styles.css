@@ -1121,6 +1121,51 @@ body {
   margin-top: var(--wtl-space-2);
 }
 
+/**/
+.auth-form p {
+  display: grid;
+  gap: var(--wtl-space-2);
+  margin: 0 0 var(--wtl-space-3);
+}
+
+/**/
+.auth-form label {
+  font-weight: 700;
+  color: var(--wtl-text-primary);
+}
+
+/**/
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+  width: 100%;
+  max-width: 100%;
+  background: var(--wtl-surface-control);
+  color: var(--wtl-text-primary);
+  border: 1px solid var(--wtl-border);
+  border-radius: var(--wtl-radius);
+  box-shadow: var(--wtl-shadow-control-highlight);
+}
+
+
+/**/
+.auth-form input[type="text"]:focus,
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus {
+  outline: 2px solid var(--wtl-focus-ring);
+  outline-offset: 2px;
+  border-color: var(--wtl-hover-border-cyan-strong);
+}
+
+
+.auth-form .helptext,
+.auth-form p.helptext {
+  color: var(--wtl-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+
 /* I need some spacing above button 'Save' */
 .review-edit-form button[type="submit"] {
   margin-top: var(--wtl-space-2);
