@@ -17,7 +17,7 @@
     <!-- Take the contents of header.html and paste it here. -->
     {% include "partials/header.html" %}
     <!-- this is for 'child' template to inject their own specific content-->
-    <main class="container">
+    <div class="container">
       <!-- if there is a message show following -->
       {% if messages %}
         <div class="site-messages">
@@ -33,7 +33,7 @@
       {% endif %}
     <!-- replaceble section ends here (stop here)-->
       {% block content %}{% endblock %}
-    </main>
+    </div>
     <div id="cart-toast" class="cart-toast" role="status" aria-live="polite">
       Cart system will be available in v1.2.
     </div>
