@@ -1,0 +1,534 @@
+[
+{
+  "model": "games.category",
+  "pk": 1,
+  "fields": {
+    "name": "Strategy",
+    "slug": "strategy"
+  }
+},
+{
+  "model": "games.category",
+  "pk": 2,
+  "fields": {
+    "name": "Party",
+    "slug": "party"
+  }
+},
+{
+  "model": "games.category",
+  "pk": 3,
+  "fields": {
+    "name": "Cooperative",
+    "slug": "co-op"
+  }
+},
+{
+  "model": "games.category",
+  "pk": 4,
+  "fields": {
+    "name": "Player VS Player",
+    "slug": "pvp"
+  }
+},
+{
+  "model": "games.category",
+  "pk": 5,
+  "fields": {
+    "name": "Stand alone",
+    "slug": "stand-alone"
+  }
+},
+{
+  "model": "games.category",
+  "pk": 6,
+  "fields": {
+    "name": "Horror",
+    "slug": "horror"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 1,
+  "fields": {
+    "title": "Terraforming Mars",
+    "slug": "terraforming-mars",
+    "tagline": "",
+    "short_description": "Terraforming MArs tile game",
+    "description": "",
+    "price": "6.00",
+    "stock": 3,
+    "min_players": null,
+    "max_players": null,
+    "min_play_time": null,
+    "max_play_time": null,
+    "age": null,
+    "publisher": "",
+    "designer": "",
+    "category": 2,
+    "sku": "",
+    "created_at": "2026-02-03T23:54:25.104Z",
+    "updated_at": "2026-02-03T23:54:25.147Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 2,
+  "fields": {
+    "title": "Gloomhaven",
+    "slug": "gloomhaven",
+    "tagline": "",
+    "short_description": "gloomhaven horror game",
+    "description": "",
+    "price": "8.00",
+    "stock": 2,
+    "min_players": 5,
+    "max_players": 7,
+    "min_play_time": 30,
+    "max_play_time": 600,
+    "age": 16,
+    "publisher": "Weird pigeon",
+    "designer": "Dead artist",
+    "category": 6,
+    "sku": "",
+    "created_at": "2026-02-03T23:54:25.104Z",
+    "updated_at": "2026-02-10T00:01:36.277Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 3,
+  "fields": {
+    "title": "Dune: Imperium",
+    "slug": "dune-imperium",
+    "tagline": "",
+    "short_description": "Tactical turn game",
+    "description": "",
+    "price": "7.00",
+    "stock": 2,
+    "min_players": 4,
+    "max_players": 6,
+    "min_play_time": 120,
+    "max_play_time": 240,
+    "age": 18,
+    "publisher": "Arkanyum",
+    "designer": "Boba Soft",
+    "category": 3,
+    "sku": "",
+    "created_at": "2026-02-03T23:54:25.104Z",
+    "updated_at": "2026-02-10T00:00:57.141Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 4,
+  "fields": {
+    "title": "Wingspan Asia",
+    "slug": "wingspan-asia",
+    "tagline": "",
+    "short_description": "Addon to original wingspan",
+    "description": "",
+    "price": "6.00",
+    "stock": 5,
+    "min_players": null,
+    "max_players": null,
+    "min_play_time": null,
+    "max_play_time": 120,
+    "age": null,
+    "publisher": "",
+    "designer": "",
+    "category": 4,
+    "sku": "",
+    "created_at": "2026-02-03T23:54:25.104Z",
+    "updated_at": "2026-04-13T23:11:37.929Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 5,
+  "fields": {
+    "title": "Zombicide – Black Plague",
+    "slug": "zombicide-black-plague",
+    "tagline": "",
+    "short_description": "Ancient version of Zombiecide",
+    "description": "",
+    "price": "11.00",
+    "stock": 2,
+    "min_players": 1,
+    "max_players": 7,
+    "min_play_time": 60,
+    "max_play_time": 240,
+    "age": 15,
+    "publisher": "Wild rat",
+    "designer": "Gore art Studio",
+    "category": 2,
+    "sku": "",
+    "created_at": "2026-02-03T23:54:25.104Z",
+    "updated_at": "2026-02-10T00:00:12.960Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 6,
+  "fields": {
+    "title": "Smallworld",
+    "slug": "smallworld",
+    "tagline": "",
+    "short_description": "",
+    "description": "",
+    "price": "9.10",
+    "stock": 3,
+    "min_players": 3,
+    "max_players": 5,
+    "min_play_time": 45,
+    "max_play_time": 180,
+    "age": 7,
+    "publisher": "Wild rat",
+    "designer": "Designer studio",
+    "category": 3,
+    "sku": "",
+    "created_at": "2026-02-03T23:54:25.104Z",
+    "updated_at": "2026-02-10T00:13:50.749Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 7,
+  "fields": {
+    "title": "Smallworld - underground",
+    "slug": "smallword_2_underground",
+    "tagline": "",
+    "short_description": "Smallword expansion with new maps and races",
+    "description": "",
+    "price": "8.00",
+    "stock": 5,
+    "min_players": 5,
+    "max_players": 6,
+    "min_play_time": 80,
+    "max_play_time": 160,
+    "age": 11,
+    "publisher": "Decay",
+    "designer": "Zombie Art",
+    "category": 4,
+    "sku": "",
+    "created_at": "2026-02-03T23:54:25.104Z",
+    "updated_at": "2026-02-10T00:13:20.436Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 8,
+  "fields": {
+    "title": "Smallword - curses",
+    "slug": "smallworld_curses",
+    "tagline": "",
+    "short_description": "Cursed races",
+    "description": "",
+    "price": "4.00",
+    "stock": 2,
+    "min_players": 2,
+    "max_players": 3,
+    "min_play_time": 50,
+    "max_play_time": 120,
+    "age": 8,
+    "publisher": "Decay",
+    "designer": "Gore art Studio",
+    "category": 4,
+    "sku": "",
+    "created_at": "2026-02-03T23:54:25.104Z",
+    "updated_at": "2026-02-10T00:12:47.003Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 9,
+  "fields": {
+    "title": "Smallword - Dames",
+    "slug": "smallword_dames",
+    "tagline": "",
+    "short_description": "Ladies and their races in Smallworld. Girl power",
+    "description": "",
+    "price": "2.00",
+    "stock": 2,
+    "min_players": 3,
+    "max_players": 3,
+    "min_play_time": 30,
+    "max_play_time": 60,
+    "age": 10,
+    "publisher": "Wild horse",
+    "designer": "Zombie Art",
+    "category": 5,
+    "sku": "",
+    "created_at": "2026-02-03T23:54:25.104Z",
+    "updated_at": "2026-02-10T00:12:23.564Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 10,
+  "fields": {
+    "title": "Terraforming Mars",
+    "slug": "terraforming_mars",
+    "tagline": "",
+    "short_description": "Strategy game + resuopurces",
+    "description": "",
+    "price": "6.00",
+    "stock": 3,
+    "min_players": null,
+    "max_players": null,
+    "min_play_time": null,
+    "max_play_time": null,
+    "age": null,
+    "publisher": "",
+    "designer": "",
+    "category": 5,
+    "sku": "",
+    "created_at": "2026-02-03T23:56:12.210Z",
+    "updated_at": "2026-02-03T23:56:12.210Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 11,
+  "fields": {
+    "title": "i Zombie",
+    "slug": "i_zombie",
+    "tagline": "",
+    "short_description": "Startegy individual and team game",
+    "description": "",
+    "price": "1.50",
+    "stock": 3,
+    "min_players": 1,
+    "max_players": 6,
+    "min_play_time": 30,
+    "max_play_time": 180,
+    "age": 5,
+    "publisher": "Decay",
+    "designer": "Zombie Art",
+    "category": 6,
+    "sku": "",
+    "created_at": "2026-02-03T23:56:50.277Z",
+    "updated_at": "2026-02-09T23:59:27.210Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 12,
+  "fields": {
+    "title": "Fury of Dracula",
+    "slug": "fury_of_dracula",
+    "tagline": "",
+    "short_description": "Hunt the dracula",
+    "description": "",
+    "price": "13.00",
+    "stock": 4,
+    "min_players": 1,
+    "max_players": 2,
+    "min_play_time": 90,
+    "max_play_time": 150,
+    "age": 6,
+    "publisher": "Crazy games",
+    "designer": "Designer studio",
+    "category": 4,
+    "sku": "",
+    "created_at": "2026-02-04T23:48:29.034Z",
+    "updated_at": "2026-02-04T23:49:27.581Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 13,
+  "fields": {
+    "title": "Imperia strinkes back",
+    "slug": "imperia_strikes_back",
+    "tagline": "",
+    "short_description": "",
+    "description": "",
+    "price": "9.00",
+    "stock": 2,
+    "min_players": 2,
+    "max_players": 2,
+    "min_play_time": 30,
+    "max_play_time": 44,
+    "age": 10,
+    "publisher": "Wild horse",
+    "designer": "Picasso designer",
+    "category": 4,
+    "sku": "",
+    "created_at": "2026-02-04T23:49:20.863Z",
+    "updated_at": "2026-02-04T23:49:20.863Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 14,
+  "fields": {
+    "title": "Sherif or Nothingam",
+    "slug": "sherif_of_nothingma",
+    "tagline": "",
+    "short_description": "",
+    "description": "",
+    "price": "3.00",
+    "stock": 3,
+    "min_players": 3,
+    "max_players": 9,
+    "min_play_time": 30,
+    "max_play_time": 60,
+    "age": 4,
+    "publisher": "Crazy camel",
+    "designer": "Rembrant designer",
+    "category": 2,
+    "sku": "",
+    "created_at": "2026-02-04T23:50:40.989Z",
+    "updated_at": "2026-02-04T23:50:40.989Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 15,
+  "fields": {
+    "title": "Monopoly",
+    "slug": "monopoly",
+    "tagline": "",
+    "short_description": "",
+    "description": "",
+    "price": "2.00",
+    "stock": 1,
+    "min_players": 2,
+    "max_players": 7,
+    "min_play_time": 90,
+    "max_play_time": 300,
+    "age": 5,
+    "publisher": "Crazy rabbit",
+    "designer": "Designer Loco",
+    "category": 1,
+    "sku": "",
+    "created_at": "2026-02-04T23:52:30.872Z",
+    "updated_at": "2026-02-04T23:52:30.872Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 16,
+  "fields": {
+    "title": "Test game (p 3-7)",
+    "slug": "test_game_3_7",
+    "tagline": "",
+    "short_description": "NO Deal",
+    "description": "Still no deal",
+    "price": "11.00",
+    "stock": 1,
+    "min_players": 3,
+    "max_players": 7,
+    "min_play_time": 30,
+    "max_play_time": 90,
+    "age": 6,
+    "publisher": "Crazy camel",
+    "designer": "Gore art Studio",
+    "category": 1,
+    "sku": "",
+    "created_at": "2026-02-10T00:14:48.772Z",
+    "updated_at": "2026-02-10T00:14:48.772Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 17,
+  "fields": {
+    "title": "test game p 1-2",
+    "slug": "test_game_1_2",
+    "tagline": "",
+    "short_description": "No deal",
+    "description": "still no deal",
+    "price": "9.00",
+    "stock": 2,
+    "min_players": 1,
+    "max_players": 2,
+    "min_play_time": 100,
+    "max_play_time": 150,
+    "age": 13,
+    "publisher": "Crazy games",
+    "designer": "Designer Loco",
+    "category": 6,
+    "sku": "",
+    "created_at": "2026-02-10T00:15:45.959Z",
+    "updated_at": "2026-02-10T00:15:45.959Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 18,
+  "fields": {
+    "title": "game p 3-4",
+    "slug": "game_p_3_4",
+    "tagline": "",
+    "short_description": "3-4 game",
+    "description": "",
+    "price": "4.00",
+    "stock": 3,
+    "min_players": 3,
+    "max_players": 4,
+    "min_play_time": 50,
+    "max_play_time": 150,
+    "age": 15,
+    "publisher": "Crazy rabbit",
+    "designer": "Rembrant designer",
+    "category": 5,
+    "sku": "",
+    "created_at": "2026-02-10T00:16:39.916Z",
+    "updated_at": "2026-02-10T00:16:39.917Z"
+  }
+},
+{
+  "model": "games.game",
+  "pk": 19,
+  "fields": {
+    "title": "New QA for Sorting",
+    "slug": "new-qa-for-sorting",
+    "tagline": "",
+    "short_description": "This is just to confirm that sorting is working based on the latest added",
+    "description": "This is just to confirm that sorting is working based on the latest added\r\n------------------------------------------------------------------------------\r\nThis is just to confirm that sorting is working based on the latest added\r\n------------------------------------------------------------------------------\r\nThis is just to confirm that sorting is working based on the latest added\r\n------------------------------------------------------------------------------\r\nThis is just to confirm that sorting is working based on the latest added\r\n------------------------------------------------------------------------------\r\nThis is just to confirm that sorting is working based on the latest added",
+    "price": "7.00",
+    "stock": 2,
+    "min_players": 2,
+    "max_players": 9,
+    "min_play_time": 50,
+    "max_play_time": 360,
+    "age": 14,
+    "publisher": "Agnogh Guild Store",
+    "designer": "Goblin seller",
+    "category": 6,
+    "sku": "",
+    "created_at": "2026-04-25T22:42:50.298Z",
+    "updated_at": "2026-04-27T19:48:25.403Z"
+  }
+},
+{
+  "model": "games.event",
+  "pk": 1,
+  "fields": {
+    "title": "Peanuts throwing at people event",
+    "game_name": "Zombicide - Angry neighbours",
+    "event_date": "2026-04-30",
+    "event_time": "12:45:00",
+    "description": "We wiil get together and enjoy peanuts throwing competition while getting overun by zombies",
+    "reward": "6 pack",
+    "created_at": "2026-04-27T19:50:37.443Z",
+    "is_active": true
+  }
+},
+{
+  "model": "games.event",
+  "pk": 2,
+  "fields": {
+    "title": "Saving the world in Pandemic",
+    "game_name": "Pandemic - at the brink",
+    "event_date": "2026-05-21",
+    "event_time": "16:45:00",
+    "description": "We are saving the world in the co-op game Pandemic\r\n5 players in total are supported\r\nThe game will be played on the hardest difficulties\r\n\r\n\r\nOnly beverages allowed is alchocolic one to kill the viruses.",
+    "reward": "Aspirin, bandages, pain killer, syringe",
+    "created_at": "2026-05-01T10:04:59.658Z",
+    "is_active": true
+  }
+}
+]
