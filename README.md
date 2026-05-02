@@ -55,6 +55,7 @@ Repo for a board game library, browsing, review, and event planning web applicat
     - [7.2.1 Python](#721-python)
     - [7.2.2 HTML](#722-html)
     - [7.2.3 CSS](#723-css)
+    - [7.2.4 Accessibility](#724-accessibility)
   - [7.3 Bugs Fixed](#73-bugs-fixed)
   - [7.4 Remaining Bugs and Known Issues](#74-remaining-bugs-and-known-issues)
 - [8. Deployment](#8-deployment)
@@ -736,8 +737,31 @@ Python code was checked during development for syntax errors and general code qu
   #### 7.2.2. HTML
 HTML was tested and corrected where needed.
 
+
+**HTML Checker**
+
+![HTML Checker](static/assets/readme/html%20checker%20PASS%20-%20README.jpg)
+
+
   #### 7.2.3. CSS
 CSS was tested and corrected where needed.
+
+
+**CSS Checker**
+
+![CSS Checker](static/assets/readme/CSS%20Validator%20-%20README.jpg)
+
+
+
+  #### 7.2.4. Accessibility
+
+Accessibility was tested and corrected where needed.
+
+
+**Accessibility Checker**
+
+![Accessibility Checker](static/assets/readme/Accessibility%20checker%20-%20README.jpg)
+
 
   ### 7.3 Bugs Fixed
 
