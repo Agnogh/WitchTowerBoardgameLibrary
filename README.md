@@ -1,8 +1,6 @@
 # WitchTowerBoardgameLibrary
-Repo for a boardgame library, browsing, review, and event planning web application.
+Repo for a board game library, browsing, review, and event planning web application.
 
-
-![Responsive preview image here]()
 
 ## Table of Contents
 - [1. Project Overview](#1-project-overview)
@@ -49,7 +47,7 @@ Repo for a boardgame library, browsing, review, and event planning web applicati
 - [7. Testing](#7-testing)
   - [7.1 Manual Testing](#71-manual-testing)
     - [7.1.1 Authentication](#711-authentication)
-    - [7.1.2 Review CRUD](#712-Review-crud)
+    - [7.1.2 Review CRUD](#712-review-crud)
     - [7.1.3 Review Permissions](#713-review-permissions)
     - [7.1.4 Game List Page](#714-game-list-page)
     - [7.1.5 Responsiveness](#715-responsiveness)
@@ -58,7 +56,7 @@ Repo for a boardgame library, browsing, review, and event planning web applicati
     - [7.2.2 HTML](#722-html)
     - [7.2.3 CSS](#723-css)
   - [7.3 Bugs Fixed](#73-bugs-fixed)
-  - [7.4 Remaining Bugs / Known Issues](#74-remaining-bugs--known-issues)
+  - [7.4 Remaining Bugs and Known Issues](#74-remaining-bugs-and-known-issues)
 - [8. Deployment](#8-deployment)
   - [8.1 Local Development](#81-local-development)
   - [8.2 Deployment Steps](#82-deployment-steps)
@@ -313,8 +311,6 @@ The MVP focused on delivering the main features needed for the current applicati
 - responsive layout improvements
 
 Post-MVP ideas included:
-- events page
-- contact page
 - reward/voucher functionality
 - more advanced reservation or lending tracking
 - improvements such as dynamic category counts and additional UI polish
@@ -351,14 +347,14 @@ The game catalogue is managed through Django Admin, allowing the site owner to a
 
   ### 4.2 Category Model
 
-The Category model is used to group games into organized categories such as strategy, family, or similar groupings.
+The Category model is used to group games into organised categories such as strategy, family, or similar groupings.
 
 Key fields include:
 
 - name
 - slug
 
-This model improves navigation and filtering by allowing users to browse games by category. It also supports cleaner URLs and more structured organization of the game library.
+This model improves navigation and filtering by allowing users to browse games by category. It also supports cleaner URLs and more structured organisation of the game library.
 
   ### 4.3 Review Model
 
@@ -377,17 +373,6 @@ This model was added to provide front-end CRUD functionality. Logged-in users ca
 
 The review model also includes a restriction that allows one user to leave only one review per game. This helps keep feedback clear and prevents duplicate reviews from the same user for the same game.
 
-  ### 4.4 Relationships Between Models
-
-The models in the project are connected in the following way:
-
-- one Category can contain many Games
-- one Game can belong to one Category
-- one Game can have many Reviews
-- one User can write many Reviews
-- one User can leave only one Review per Game
-
-These relationships support the main business logic of the application by allowing games to be grouped, displayed in detail, and reviewed by authenticated users.
 
   ### 4.4 Event Model
 
@@ -430,19 +415,19 @@ These relationships support the main business logic of the application by allowi
 
   ### 5.1 Home Page
 
-**HOME - Smartphones**
+**Home - Smartphone**
 
 ![Home Page Smartphone](static/assets/readme/Home%20Page%20-%20Smartphone%20-%20README.jpg)
 
 
 **HOME - Tablets**
 
-![Home Page Smartphone](static/assets/readme/Home%20Page%20-%20Tablet%20-%20README.jpg)
+![Home Page Tablets](static/assets/readme/Home%20Page%20-%20Tablet%20-%20README.jpg)
 
 
 **HOME - Desktops**
 
-![Home Page Smartphone](static/assets/readme/Home%20Page%20-%20Desktop%20-%20README.jpg)
+![Home Page Desktops](static/assets/readme/Home%20Page%20-%20Desktop%20-%20README.jpg)
 
 
 
@@ -685,7 +670,7 @@ To avoid a broken-feeling experience, these actions now show clear placeholder t
 - GitHub Projects
 - VS Code
 - SQLite (development database)
-- PostgreSQL configuration prepared for production / deployment
+- PostgreSQL / Heroku Postgres
 - Chrome DevTools for responsive testing and debugging
 
 
@@ -741,7 +726,7 @@ To avoid a broken-feeling experience, these actions now show clear placeholder t
 |---|---|---|---|
 | Mobile | Sidebar, filters, chips, pagination | Layout stacks correctly and remains readable | Pass |
 | Tablet | Sidebar and game list side by side | Text remains readable and layout stays usable | Pass |
-| Desktop | Full list, sidebar, sort controls | Layout is spacious and readable | Partially pass – layout works, but spacing/readability around 1200px width still needs polish |
+| Desktop | Full list, sidebar, sort controls | Layout is spacious and readable | Partial pass – layout works, but spacing/readability around 1200px width still needs polish |
 
 ### 7.2 Validation Testing
 
@@ -782,22 +767,151 @@ The following bugs and usability issues were identified and fixed during develop
 - the favicon has not yet been added
 - related/similar game suggestions are not implemented in the current release and are reserved for future development
 - the full cart / reserve system is not implemented yet; placeholder messages are shown instead
-- final deployment and production security verification remain to be completed
 
 
 ## 8. Deployment
 
+
+The Witch Tower Boardgame Library is deployed on Heroku.
+
+Live site: https://witch-tower-boardgame-library-2a755b156bc8.herokuapp.com/
+
+
   ### 8.1 Local Development
 
+During local development, the project uses environment-based settings and falls back to a local SQLite database when no production database URL is provided.
+
+The local development workflow is:
+
+```bash
+python manage.py runserver
+```
+
+Static files are stored inside the project during development. For production, static files are collected using:
+
+```bash
+python manage.py collectstatic
+```
+
+The `staticfiles/` folder is ignored by Git and is not committed to GitHub.
 
   ### 8.2 Deployment Steps
+
+The project was deployed to Heroku using the Heroku CLI.
+
+The deployment preparation included:
+
+- Installing production dependencies:
+  - `gunicorn`
+  - `dj-database-url`
+  - `whitenoise`
+  - `psycopg`
+- Adding a `Procfile` with:
+
+```text
+web: gunicorn config.wsgi
+```
+
+- Adding a `.python-version` file with:
+
+```text
+3.12.8
+```
+
+- Updating `settings.py` to support:
+  - Environment-based `SECRET_KEY`
+  - Environment-based `DEBUG`
+  - Environment-based `ALLOWED_HOSTS`
+  - Heroku Postgres through `DATABASE_URL`
+  - WhiteNoise for static file handling
+  - `STATIC_ROOT` for production static files
+
+The main Heroku deployment commands used were:
+
+```bash
+heroku login
+heroku create witch-tower-boardgame-library
+heroku addons:create heroku-postgresql:essential-0 -a witch-tower-boardgame-library
+heroku config:set SECRET_KEY="hidden" DEBUG=False ALLOWED_HOSTS="witch-tower-boardgame-library-2a755b156bc8.herokuapp.com,127.0.0.1,localhost" -a witch-tower-boardgame-library
+git push heroku HEAD:main
+heroku run python manage.py migrate -a witch-tower-boardgame-library
+heroku run python manage.py createsuperuser -a witch-tower-boardgame-library
+heroku open -a witch-tower-boardgame-library
+```
+
+After deployment, the local game and event data were transferred to the Heroku database using Django fixtures.
+
+The exported models were:
+
+- `games.Category`
+- `games.Game`
+- `games.Event`
+
+The data transfer commands were:
+
+```bash
+python manage.py dumpdata games.Category games.Game games.Event --indent 2 --output witchtower_content.json
+git add witchtower_content.json
+git commit -m "Add temporary content fixture"
+git push heroku HEAD:main
+heroku run python manage.py loaddata witchtower_content.json -a witch-tower-boardgame-library
+```
+
+After the data was loaded successfully, the temporary fixture file was removed from the repository:
+
+```bash
+git rm witchtower_content.json
+git commit -m "Remove temporary content fixture"
+git push origin feature/21-django-setup
+git push heroku HEAD:main
+```
+
+For future code updates, the usual deployment workflow is:
+
+```bash
+git add .
+git commit -m "Describe the change"
+git push origin feature/21-django-setup
+git push heroku HEAD:main
+```
+
+If future changes include database migrations, migrations must also be run on Heroku:
+
+```bash
+heroku run python manage.py migrate -a witch-tower-boardgame-library
+```
 
 
   ### 8.3 Environment Variables
 
 
+The following environment variables are required in Heroku Config Vars:
+
+| Variable | Purpose |
+| --- | --- |
+| `SECRET_KEY` | Keeps the Django project cryptographically secure in production. |
+| `DEBUG` | Controls whether Django debug mode is enabled. In production this is set to `False`. |
+| `ALLOWED_HOSTS` | Defines which domains are allowed to serve the project. |
+| `DATABASE_URL` | Provides the Heroku Postgres database connection. This was added automatically by the Heroku Postgres add-on. |
+
+Sensitive values are stored in Heroku Config Vars and are not committed to GitHub.
+
+
+
   ### 8.4 Security Notes
 
+
+The project uses environment variables so sensitive production settings are not stored directly in the codebase.
+
+Security-related deployment choices include:
+
+- `SECRET_KEY` is stored in Heroku Config Vars.
+- `DEBUG` is set to `False` in production.
+- `ALLOWED_HOSTS` is restricted to the Heroku app domain, localhost, and 127.0.0.1.
+- The production database connection is handled through Heroku Postgres.
+- Static files are served through WhiteNoise.
+- The temporary data fixture used for transferring local content was removed after use.
+- `staticfiles/` is included in `.gitignore` and is not committed to GitHub.
 
 
 ## 9. Future Improvements
@@ -828,7 +942,7 @@ Planned future improvements include:
 
   ### 10.2 Media / Content
 
-- board game descriptions, screenshots, and placeholder content were used for development and demonstration purposes
+- Board game descriptions, screenshots, and placeholder content were used for development and demonstration purposes
 - placeholder images were added during development to support the game detail layout
 
   ### 10.3 Acknowledgements
