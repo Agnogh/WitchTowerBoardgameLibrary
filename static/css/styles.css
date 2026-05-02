@@ -1388,6 +1388,84 @@ to change it now [nuke emoji] */
     min-height: 7rem;
     display: block;
   }
+
+  .game-page {
+    text-align: center;
+  }
+
+  .game-hero__content,
+  .game-meta,
+  .game-gallrey,
+  .game-description,
+  .game-box-content,
+  .game-details-info,
+  .game-reviews,
+  .related-games-sections {
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-hero__media img,
+  .game-gallrey__item img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-meta__list,
+  .game-box-content__list {
+    display: inline-block;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-details-info__list {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .game-review-form-wrapper {
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-review-form {
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .game-review-form textarea {
+    width: 100%;
+    max-width: 44rem;
+    min-height: 7rem;
+    display: block;
+  }
+
+  /* Sorting 'edit' & 'delete' */
+  .game-review__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .game-review__delete-form {
+    margin: 0;
+  }
+
+  .game-review__action-link,
+  .game-review__action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 }
 
 /* tablets + small laptops */
@@ -1464,6 +1542,83 @@ to change it now [nuke emoji] */
     display: block;
   }
 
+  .game-page {
+    text-align: center;
+  }
+
+  .game-hero__content,
+  .game-meta,
+  .game-gallrey,
+  .game-description,
+  .game-box-content,
+  .game-details-info,
+  .game-reviews,
+  .related-games-sections {
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-hero__media img,
+  .game-gallrey__item img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-meta__list,
+  .game-box-content__list {
+    display: inline-block;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-details-info__list {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .game-review-form-wrapper {
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-review-form {
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .game-review-form textarea {
+    width: 100%;
+    max-width: 44rem;
+    min-height: 7rem;
+    display: block;
+  }
+
+  /* Sorting 'edit' & 'delete' */
+  .game-review__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .game-review__delete-form {
+    margin: 0;
+  }
+
+  .game-review__action-link,
+  .game-review__action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 }
 
 /* 1200+ -> Desktop */
@@ -1507,4 +1662,97 @@ to change it now [nuke emoji] */
     min-height: 7rem;
     display: block;
   }
+
+  /* cenering a bit */
+  .game-review-form {
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .game-review-form textarea {
+    width: 100%;
+    max-width: 44rem;
+    min-height: 7rem;
+    display: block;
+  }
+
+  .game-page {
+    text-align: center;
+  }
+
+  .game-hero__content,
+  .game-meta,
+  .game-gallrey,
+  .game-description,
+  .game-box-content,
+  .game-details-info,
+  .game-reviews,
+  .related-games-sections {
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-hero__media img,
+  .game-gallrey__item img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-meta__list,
+  .game-box-content__list {
+    display: inline-block;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-details-info__list {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .game-review-form-wrapper {
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-review-form {
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .game-review-form textarea {
+    width: 100%;
+    max-width: 44rem;
+    min-height: 7rem;
+    display: block;
+  }
+
+  /* Sorting 'edit' & 'delete' */
+  .game-review__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .game-review__delete-form {
+    margin: 0;
+  }
+
+  .game-review__action-link,
+  .game-review__action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 }
