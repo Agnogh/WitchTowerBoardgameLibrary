@@ -147,7 +147,7 @@
   "model": "games.game",
   "pk": 5,
   "fields": {
-    "title": "Zombicide – Black Plague",
+    "title": "Zombicide â€“ Black Plague",
     "slug": "zombicide-black-plague",
     "tagline": "",
     "short_description": "Ancient version of Zombiecide",
