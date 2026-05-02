@@ -210,7 +210,7 @@
         {% else %}
           <h3>Leave a review</h3>
 
-          <form method="post">
+          <form method="post" class="game-review-form">
             {% csrf_token %}
             <input type="hidden" name="review_submit" value="1">
             {{ review_form.as_p }}

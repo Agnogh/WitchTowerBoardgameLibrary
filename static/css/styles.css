@@ -1380,6 +1380,14 @@ to change it now [nuke emoji] */
   .game-hero__media {
     margin-top: var(--wtl-space-4);
   }
+
+  /* reducing comment text input box */
+  .game-review-form textarea {
+    width: min(100%, 44rem);
+    max-width: 44rem;
+    min-height: 7rem;
+    display: block;
+  }
 }
 
 /* tablets + small laptops */
@@ -1446,7 +1454,16 @@ to change it now [nuke emoji] */
   /* spacing between top edge and button */
   .game-hero__media {
     margin-top: var(--wtl-space-4);
-}
+  }
+
+  /* reducing comment text input box */
+  .game-review-form textarea {
+    width: min(100%, 44rem);
+    max-width: 44rem;
+    min-height: 7rem;
+    display: block;
+  }
+
 }
 
 /* 1200+ -> Desktop */
@@ -1481,5 +1498,13 @@ to change it now [nuke emoji] */
   /* spacing adjustment */
   .game-hero__media {
     margin-top: var(--wtl-space-4);
+  }
+
+  /* reducing comment text input box */
+  .game-review-form textarea {
+    width: min(100%, 44rem);
+    max-width: 44rem;
+    min-height: 7rem;
+    display: block;
   }
 }
