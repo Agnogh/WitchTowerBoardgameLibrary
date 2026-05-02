@@ -141,6 +141,8 @@ The site uses a shared base layout with:
 - a central content area
 - a footer used consistently across pages
 
+**Layout and Structure**
+
 ![Layout and Structure](static/assets/readme/Navigation%20-%20README.jpg)
 
 The structure was built around the main user flow:
@@ -172,15 +174,19 @@ The navigation was kept simple and placed in the shared header. The main navigat
 - Contact
 
 **Home Page**
+
 ![Home page](static/assets/readme/Home%20Page%20-%20Smartphone%20-%20README.jpg)
 
 **Game Page**
+
 ![Games page](static/assets/readme/Games%20-%20Smartphone%20-%20README.jpg)
 
 **Event Page**
+
 ![Events page](static/assets/readme/Events%20-%20Smartphones%20-%20README.jpg)
 
 **Contact Page**
+
 ![Contact page](static/assets/readme/Contact%20-%20Smartphones%20-%20README.jpg)
 
 
@@ -425,14 +431,17 @@ These relationships support the main business logic of the application by allowi
   ### 5.1 Home Page
 
 **HOME - Smartphones**
+
 ![Home Page Smartphone](static/assets/readme/Home%20Page%20-%20Smartphone%20-%20README.jpg)
 
 
 **HOME - Tablets**
+
 ![Home Page Smartphone](static/assets/readme/Home%20Page%20-%20Tablet%20-%20README.jpg)
 
 
 **HOME - Desktops**
+
 ![Home Page Smartphone](static/assets/readme/Home%20Page%20-%20Desktop%20-%20README.jpg)
 
 
@@ -444,6 +453,7 @@ Its purpose is to give users a clear first step into the application and make na
   ### 5.2 Game List Page
 
 **Game List**
+
 ![Game list](static/assets/readme/Game%20list%20-%20README.jpg)
 
 The Game List Page displays the collection of board games available in the library. It is one of the main functional pages of the project and allows users to browse the current collection in an organised way.
@@ -456,6 +466,7 @@ A deliberate design decision was made to apply filters only when the user clicks
 
 
 **Game filtering and sorting**
+
 ![Filtering and sorting](static/assets/readme/Game%20Filtering%20-%20README.jpg)
 
 
@@ -480,6 +491,7 @@ This feature is central to the purpose of the project, because it helps users de
   ### 5.4 Game Detail Page
 
 **Game Details**
+
 ![Game Details](static/assets/readme/Game%20details%20-%20README.jpg)
 
 The Game Detail Page gives the user more detailed information about a selected game. This is where users can spend time learning about a game before deciding whether it is suitable for their group or event.
@@ -503,10 +515,12 @@ This page supports the project goal of helping users make decisions before meeti
 
 
 **Sign Up pane**
+
 ![Sign up pane](static/assets/readme/Sign%20Up%20or%20Log%20In%20-%20README.jpg)
 
 
 **Log in pane**
+
 ![Log in pane](static/assets/readme/Sign%20Up%20or%20Log%20In%202%20-%20README.jpg)
 
 
@@ -522,10 +536,12 @@ Authentication is also important for ownership-based permissions, as it ensures 
 
 
 **Add Review**
+
 ![Review CRUD Add Review](static/assets/readme/Write%20review%20-%20README.jpg)
 
 
 **Edit Review**
+
 ![Review CRUD Edit Review](static/assets/readme/Edit%20review%20-%20README.jpg)
 
 
@@ -547,25 +563,30 @@ This feature is one of the most important parts of the project because it satisf
 
 
 **User feedback message - Log in**
+
 ![User feedback message - Log in](static/assets/readme/User%20Message%20Log%20in%20-%20README.jpg)
 
 
 **User feedback message - Log out**
+
 ![User feedback message - Log out](static/assets/readme/User%20Message%20Log%20out%20-%20README.jpg)
 
 
 
 **User feedback message - Add Review**
+
 ![User feedback message - Add Review](static/assets/readme/User%20Message%20Add%20Review%20-%20README.jpg)
 
 
 
 **User feedback message - Edit Review**
+
 ![User feedback message - Edit Review](static/assets/readme/User%20Message%20Update%20Review%20-%20README.jpg)
 
 
 
 **User feedback message - Delete Review**
+
 ![User feedback message - Delete Review](static/assets/readme/User%20Message%20Delete%20Review%20-%20README.jpg)
 
 
@@ -585,14 +606,17 @@ This improves usability by clearly informing users that their action was complet
   ### 5.8 Contact Page
 
 **Contact page - Smartphone**
+
 ![Contact Page image - Smartphone](static/assets/readme/Contact%20-%20Smartphones%20-%20README.jpg)
 
 
 **Contact page - Tablets**
+
 ![Contact Page image - Tablets](static/assets/readme/Contact%20-%20Tablets%20-%20README.jpg)
 
 
 **Contact page - Desktop**
+
 ![Contact Page image - Desktop](static/assets/readme/Contact%20-%20Desktops-%20README.jpg)
 
 
@@ -606,14 +630,17 @@ This page adds practical value to the project by giving users a direct way to as
   ### 5.9 Events Page
 
 **Events Page - Smartphone**
+
 ![Events Page - Smartphone](static/assets/readme/Events%20-%20Smartphones%20-%20README.jpg)
 
 
 **Events Page - Tablet**
+
 ![Events Page - Tablet](static/assets/readme/Events%20-%20Tablets%20-%20README.jpg)
 
 
 **Events Page - Desktop**
+
 ![Events Page - Desktop](static/assets/readme/Events%20-%20Desktops-%20README.jpg)
 
 
@@ -628,6 +655,7 @@ The page helps users see what sessions are planned and prepares the project for 
 
 
 **Placeholder cart message**
+
 ![Placeholder cart message](static/assets/readme/Cart%20system%20-%20README.jpg)
 
 
