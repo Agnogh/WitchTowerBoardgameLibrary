@@ -1224,6 +1224,13 @@ a:focus-visible {
   margin-top: var(--wtl-space-1);
 }
 
+/*New auth fields*/
+.auth-form__field {
+  display: grid;
+  gap: var(--wtl-space-2);
+  margin: 0 0 var(--wtl-space-3);
+}
+
 /* I need some spacing above button 'Save' */
 .review-edit-form button[type="submit"] {
   margin-top: var(--wtl-space-2);
@@ -1466,6 +1473,19 @@ to change it now [nuke emoji] */
     justify-content: center;
   }
 
+  /*new auth stlying*/
+  .auth-page {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .auth-form {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
 /* tablets + small laptops */
@@ -1619,6 +1639,19 @@ to change it now [nuke emoji] */
     justify-content: center;
   }
 
+  /*new auth stlying*/
+  .auth-page {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .auth-form {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
 /* 1200+ -> Desktop */
@@ -1753,6 +1786,19 @@ to change it now [nuke emoji] */
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+
+    /*new auth stlying*/
+  .auth-page {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .auth-form {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 }
